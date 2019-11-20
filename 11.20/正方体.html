@@ -12,13 +12,14 @@
             margin: 0;
             list-style: none;
         }
-
+        
         body {
             background-color: #000;
             perspective: 1000px;
         }
 
         .box {
+            /*子集需要加上该属性，为了和父级一起实现3d效果*/
             transform-style: preserve-3d;
             width: 400px;
             height: 400px;
@@ -57,11 +58,11 @@
         }
 
         li:nth-child(5) {
-            transform: rotateY(90deg) translateX(200px);
+            transform: rotateY(90deg) translateZ(200px);
         }
 
         li:nth-child(6) {
-            transform: rotateY(-90deg) translateX(-200px);
+            transform: rotateY(-90deg) translateZ(200px);
         }
 
         @keyframes run {
