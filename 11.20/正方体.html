@@ -12,7 +12,7 @@
             margin: 0;
             list-style: none;
         }
-        
+
         body {
             background-color: #000;
             perspective: 1000px;
@@ -41,6 +41,7 @@
             font-size: 40px;
         }
 
+        /*需要注意的是：在进行旋转的时候，z轴跟着这个面一起旋转的，顺时针旋转的方向是正方向*/
         li:nth-child(1) {
             transform: translateZ(200px);
         }
