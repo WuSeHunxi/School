@@ -11,11 +11,20 @@
 <body>
     <script>
         var a = 1;
-        if (typedef(a) = 'number') {
+        if (typeof (a) == 'number') {
             console.log("这是一个数值型的变量");
         } else {
             console.log("不是一个数值型的变量");
+        }
 
+
+
+        if (0) { //0-->代表的是假的意思，if的括号里必须得是正确的才能执行
+            console.log("come");
+        }
+
+        if ("") { // ""--> 代表假，if的括号里必须得是正确的才能执行
+            console.log("come");
         }
     </script>
 </body>
