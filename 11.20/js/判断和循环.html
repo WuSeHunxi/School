@@ -26,6 +26,70 @@
         if ("") { // ""--> 代表假，if的括号里必须得是正确的才能执行
             console.log("come");
         }
+
+        if (2) {
+            console.log("come"); //正常输出come
+        }
+
+        var test;
+        console.log(test); // undefined --> 基本数据类型
+
+        if (test) { // undefined --> 代表的也是假
+            console.log("come");
+        }
+
+
+        // 三目运算符 --> 由? : 组成的
+        console.log(test ? "可用" : "不可用");
+
+        //switch case --> 多条件判断(多路分支)
+        var num = 3;
+        switch (num) {
+            case 1:
+                console.log("这是1");
+                break;
+            case 2:
+                console.log("这是2");
+                break;
+            case 3:
+                console.log("这是3");
+                break;
+            case 4:
+                console.log("这是4");
+                break;
+            default:
+                console.log("这属于其他的数字");
+        }
+
+        // == 和 === 这两种等号的意义是不同的
+
+
+
+
+        /*
+        循环：for while do-while
+        */
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        var i = 0;
+        while (i < 10) {
+            console.log(i);
+            i++;
+        }
+
+        do {
+            console.log(i);
+            i++;
+        } while (i < 10); // do-while至少执行一次
+
+
+        // 键盘的输入:window.prompt(xxx,xxx);
+        // window.confirm("是否取消"); -->用于判断
+        var age = window.prompt("请输入你的年龄：", "18");
+        var lIveSeconds = age * 365 * 24 * 3600;
+        console.log(lIveSeconds);
     </script>
 </body>
 
