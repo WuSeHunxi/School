@@ -19,14 +19,17 @@
         }
 
         .box {
+            transform-style: preserve-3d;
             width: 400px;
             height: 400px;
-            border: 1px solid #fff;
+            /* border: 1px solid #fff; */
             margin: 100px auto;
             position: relative;
+            animation: run 2s linear infinite;
         }
 
         li {
+            transform-style: preserve-3d;
             opacity: 0.5;
             position: absolute;
             width: 400px;
@@ -46,19 +49,29 @@
         }
 
         li:nth-child(3) {
-            transform: rotateX(90deg) translateZ(200px);
+            transform: translateZ(-200px);
         }
 
         li:nth-child(4) {
-            transform: rotateX(90deg) translateZ(200px);
+            transform: rotateX(-90deg) translateZ(200px);
         }
 
         li:nth-child(5) {
-            transform: rotateX(90deg) translateZ(200px);
+            transform: rotateY(90deg) translateX(200px);
         }
 
         li:nth-child(6) {
-            transform: rotateX(90deg) translateZ(200px);
+            transform: rotateY(-90deg) translateX(-200px);
+        }
+
+        @keyframes run {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
         }
     </style>
 </head>
