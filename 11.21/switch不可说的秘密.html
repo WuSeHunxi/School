@@ -12,25 +12,26 @@
     <script>
         var a = 3;
         var b = 1;
-        switch (a) {
-            case b + 1:
-                console.log(1);
-                break;
-            case b + 2:
-                console.log(2);
-                break;
-            case b + 3:
-                console.log(3);
-                break;
-            case b + 4:
-                console.log(4);
-                break;
-        }
+        // switch (a) {
+        //     case b + 1:
+        //         console.log(1);
+        //         break;
+        //     case b + 2:
+        //         console.log(2);
+        //         break;
+        //     case b + 3:
+        //         console.log(3);
+        //         break;
+        //     case b + 4:
+        //         console.log(4);
+        //         break;
+        // }
 
         // 由此可见，case后面可以是变量语句，default语句可以省略，当然break也是可以省略的。
 
 
 
+        // 得到的是字符串，而switch的判断是恒等(===)，因此此时的switch是不能够执行的
         var a = window.prompt("请输入数字", "");
         var b = 1;
         switch (a) {
