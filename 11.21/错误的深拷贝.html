@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3['a', 'b', 'c'], 4];
+        var arr2 = [];
+        for (var i = 0; i < arr.length; i++) {
+            arr2[i] = arr[i]; // 为了将arr中的内容通过深拷贝全部拷到arr2中
+        }
+        arr3[3][0] = 'hello';
+        console.log(arr2); //本来修改的是arr中的内容，但是输出的arr2也发生了变化，因此还是只拷贝了引用
+    </script>
+</body>
+
+</html>
