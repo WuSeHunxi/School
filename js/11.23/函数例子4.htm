@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //在页面输出100-1000的所有素数，并要求每行显示6个素数
+
+        /*
+        判断是否为素数需要标志位，判断一个循环中的素数最好先判断一个数是否为素数，然后将其分装成函数，在循环中使用
+        */
+        function foo(x) {
+            var flag;
+            for (var i = 2; i < x; i++) {
+                if (x % 2 == 0) {
+                    flag = false;
+                    break;
+                } else {
+                    flag = true;
+                }
+                return flag;
+            }
+        }
+        var arr = [];
+        for (var i = 100; i < 1000; i++) {
+            if (foo(i)) {
+                arr.push(i);
+            }
+        }
+        for (var j = 0; j < arr.length; j++) {
+            document.write(arr[j] + "&nbsp");
+            if ((j + 1) % 6 == 0) {
+                document.write("<br/>");
+            }
+
+        }
+    </script>
+</body>
+
+</html>

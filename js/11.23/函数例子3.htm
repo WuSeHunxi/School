@@ -23,19 +23,21 @@
                 return;
             } else {
                 if (x % 3 == 0 && x % 5 == 0 && x % 7 == 0) {
-                    console.log("能整除");
-                }
-                for (var i = 1; i < 1000; i++) {
-                    if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
-                        count++;
-                        if (count % 6 == 0) {
-                            console.log(i + " ");
-                        }
-                    }
+                    return true;
                 }
             }
         }
-        disNum(x);
+
+        var count = 0; // 每六个换行
+        for (var i = 1; i < 1000; i++) {
+            if (disNum(i)) {
+                count++;
+                document.write(i + "&nbsp");
+                if (count % 6 == 0) {
+                    document.write("<br/>");
+                }
+            }
+        }
     </script>
 </body>
 
