@@ -18,17 +18,21 @@
         var x = parseInt(window.prompt("亲输入一个非负数", ""));
 
         function disNum(x) {
+            var count = 0;
             if (x < 0) {
                 return;
             } else {
                 if (x % 3 == 0 && x % 5 == 0 && x % 7 == 0) {
                     console.log("能整除");
                 }
-                // for (var x = 1; x < 1000; x++) {
-                //     if (x % 3 == 0 && x % 5 == 0 && x % 7 == 0) {
-                //         console.log(x);
-                //     }
-                // }
+                for (var i = 1; i < 1000; i++) {
+                    if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
+                        count++;
+                        if (count % 6 == 0) {
+                            console.log(i + " ");
+                        }
+                    }
+                }
             }
         }
         disNum(x);
