@@ -10,14 +10,13 @@
 
 <body>
     <script>
-        // 输入一个数字，利用函数实现4*x^2+3*x+2
-        var x = window.prompt("请输入一个数字", "");
-
-        function foo(x) {
-            return 4 * x * x + 3 * x + 2;
+        // 求两个数的最小值
+        function getMin(x, y) {
+            var res = x > y ? x : y;
+            return res;
         }
-        var res = foo(x);
-        console.log(res);
+        var min = getMin(3, 4);
+        console.log(min);
     </script>
 </body>
 
