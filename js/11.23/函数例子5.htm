@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        
+        /**
+        编写一个非递归函数，计算12!-10!
+        */
+        function factorial(n) {
+            if (n == 1 || n == 0) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
+        }
+        var sum1 = factorial(12);
+        var sum2 = factorial(10);
+        console.log(sum1 - sum2);
     </script>
 </body>
+
 </html>
