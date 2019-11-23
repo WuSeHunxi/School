@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var result = window.confirm("是否选择午餐");
+        // var arr = ['apple', 'banana', 'pitao'];
+        var arr = [];
+        var arr1 = [];
+        if (result == true) {
+            var n = window.prompt("请输入吃午餐的人数", n);
+            for (var i = 0; i < n; i++) {
+                var name = window.prompt("亲输入姓名", "");
+                arr.push(name);
+                // var lunch = window.prompt("请输入食物", "");
+                // arr1.push(lunch);
+                console.log(arr[Math.floor(Math.random() * n)]);
+                // alert("第" + arr[Math.floor(Math.random() * n)] + "个人吃了" + arr1[Math.floor(Math.random() * n)]);
+                // console.log(arr);
+                // console.log(Math.floor(Math.random() * n));
+            }
+        }
+    </script>
+</body>
+
+</html>

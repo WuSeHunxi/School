@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #666;
+            margin: 100px auto;
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .div2 {
+            width: 4px;
+            height: 10px;
+            background-color: #000;
+            position: absolute;
+            transform-origin: 50% 200px;
+            transform: translateX(100px) rotate(0deg);
+        }
+
+        .div3 {
+            width: 4px;
+            height: 8px;
+            background-color: #000;
+            position: absolute;
+            transform-origin: 50% 200px;
+            transform: translateX(100px) rotate(6deg);
+            /* transform: rotate(30deg); */
+            /* 旋转原点不设置的话就以当前元素的中心为原点 */
+            /* transform-origin: 50% 50%; */
+        }
+
+        .div2:nth-child(3) {
+            width: 4px;
+            height: 10px;
+            background-color: #000;
+            position: absolute;
+            transform-origin: 2px 200px;
+            transform: translateX(100px) rotate(12deg);
+        }
+
+        .hour {
+            width: 4px;
+            height: 15px;
+            background-color: #f0f;
+            position: absolute;
+            top: 85px;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .minute {
+            width: 4px;
+            height: 35px;
+            background-color: #000;
+            position: absolute;
+            top: 65px;
+            left: 50%;
+            margin-left: -2px;
+            opacity: 0.4;
+            transform-origin: 2px 35px;
+            transform: rotate(-15deg);
+        }
+
+        .secode {
+            width: 4px;
+            height: 45px;
+            position: absolute;
+            background-color: pink;
+            top: 55px;
+            left: 50%;
+            margin-left: -2px;
+            opacity: 0.6;
+            transform: rotate(20deg);
+            transform-origin: 2px 45px;
+            animation: run 30s linear infinite;
+        }
+
+        @keyframes run {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="secode"></div>
+
+    </div>
+</body>
+
+</html>

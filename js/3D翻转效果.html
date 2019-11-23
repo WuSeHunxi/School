@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            /* 要想使用3d动画就必须加上这个属性 */
+            perspective: 1000px;
+            /*视角原点*/
+            perspective-origin: 0 0;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #666;
+
+        }
+
+
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: #f0f;
+            transition: all 1s ease;
+            /*transfrom-style:preserve-3d指定-->子元素也在3维空间内*/
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .div2:hover {
+            transform: rotateY(180deg);
+        }
+
+        .div3 {
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+            transform: rotateY(180deg) translateZ(2px);
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2">
+            world
+            <div class="div3">
+                hello
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

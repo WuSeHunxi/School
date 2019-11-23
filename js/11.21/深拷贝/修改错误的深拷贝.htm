@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 如果当发现数组里面还有数组的话就需要进行递归调用，将这里面的数组再次进行该操作
+        // 数组和对象的typeof都是object
+
+        // 利用递归完成深拷贝
+        var arr = [1, 2, 3, ['a', 'b', 'c'], 4];
+
+        function jsClone(arr) {
+            var arr2 = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (typeof arr[i] == 'object') {
+                    arr2[i] = jsClone(arr[i]);
+                } else {
+                    arr2[i] = arr[i];
+                }
+            }
+            return arr2;
+        }
+        arr2 = jsClone(arr);
+        arr[3][0] = 'hello';
+        console.log(arr2);
+    </script>
+</body>
+
+</html>
