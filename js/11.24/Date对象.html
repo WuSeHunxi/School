@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var time = new Date();
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        var date = time.getDate();
+        var day = time.getDay() == 0 ? '日' : time.getDay();
+        var hours = time.getHours();
+        var min = time.getMinutes();
+        var sec = time.getSeconds();
+        console.log(year + '年' + month + "月" + date + "日" + day + "星期" + hours + " " + min + " " + sec);
+    </script>
+</body>
+
+</html>

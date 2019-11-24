@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-            
+        function CollectDigits(s) {
+            var str = "";
+            for (var i = 0; i < s.length; i++) {
+                if (s[i] >= '0' && s[i] <= '9') {
+                    str += s[i];
+                }
+            }
+            return str;
+        }
+        var str = CollectDigits("kaks134");
+        console.log(str);
     </script>
 </body>
+
 </html>
