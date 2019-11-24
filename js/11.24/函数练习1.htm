@@ -14,20 +14,32 @@
 
         //非递归
         function Finonacci(n) {
+            if (n <= 2) {
+                return 1;
+            }
             var f1 = 1;
             var f2 = 1;
             var f3;
-            for (var i = 1; i < n; i++) {
+            for (var i = 3; i <= n; i++) {
                 f3 = f2 + f1;
                 f1 = f2;
                 f2 = f3;
-                f3 = f1 + f2;
                 console.log(f3);
             }
         }
-        Finonacci(4);
+        Finonacci(3);
 
         //递归
+        function Finonacci(n) {
+            if (n <= 2) {
+                return 1;
+            } else {
+                return Finonacci(n - 1) + Finonacci(n - 2);
+
+            }
+        }
+        var res = Finonacci(3);
+        console.log(res);
     </script>
 </body>
 
