@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 斐波那契数列求和
+        function Fibonacci(n) {
+            if (n <= 2) {
+                return 1;
+            } else {
+                return Fibonacci(n - 1) + Fibonacci(n - 2);
+            }
+        }
+
+        // 计算前40项的结果
+        var arr = [],
+            res;
+        for (var i = 0; i < 40; i++) {
+            res = Fibonacci(i + 1);
+            arr.push(res);
+
+        }
+
+        // 逆序输出 6个一换行（利用计数器）
+        var count = 0;
+        for (var i = 39; i >= 0; i--) {
+            document.write(arr[i] + "&nbsp");
+            count++;
+            if (count % 6 == 0) {
+                document.write("<br/>");
+            }
+        }
+    </script>
+</body>
+
+</html>
