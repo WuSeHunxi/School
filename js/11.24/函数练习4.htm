@@ -10,15 +10,18 @@
 
 <body>
     <script>
+        // 字符串交叉拼接 --> 用到了字符串的方法
         function Merge(s1, s2) {
-            for (var i = 0, j = 0; i < s1.length, j < s2.length; i++, j++) {
-                if (s1.length == s2.length) {
-                    s1[i + 1] = s2[j];
-                }
+            var str = "";
+            var min = s1.length > s2.length ? s2 : s1;
+            var max = s1.length > s2.length ? s1 : s2;
+            for (var i = 0; i < min.length; i++) {
+                str += s1[i] + s2[i];
             }
-            // return s1;
+            return str + max.substring(min.length);
         }
-        Merge('123', 'abc');
+        var res = Merge('123', 'abcddds');
+        console.log(res);
     </script>
 </body>
 
