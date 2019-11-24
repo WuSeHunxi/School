@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 每一行的星号和行号相对应
+        function start(n) {
+            for (var i = 0; i < n; i++) {
+                for (var k = 0; k < n - i; k++) {
+                    document.write("&nbsp");
+                }
+                for (var j = 0; j < i; j++) {
+                    document.write("*&nbsp");
+                }
+                document.write("<br />");
+            }
+        }
+        start(16);
+    </script>
+</body>
+
+</html>
