@@ -13,13 +13,30 @@
         /**
          * 在js中对象无需通过delete销毁，其内部有自动回收机制
          * */
+
+        // 内置对象Date在使用之前必须得new 
         var time = new Date();
         console.log(time);
 
-        // 获取年月日
+        // 获取年月日 星期
         console.log(time.getFullYear());
         console.log(time.getMonth() + 1);
         console.log(time.getDate());
+        console.log(time.getDay()); //-->0
+
+        /**
+         * charAt()-->用于返回当前位置的字符
+         * indexOf()-->得到传入字符的位置
+         * substr()-->截取一定长度的字符串（根据索引，包含起始位置）
+         * substring()-->截取区间内的字符串（根据起始和结束的位置，不包含结束位置）
+         * 
+         */
+
+        var arr = new Array; // -->[]
+        var arr1 = new Array(5); // -->empty*5(数组的长度是5，且每一位都是empty)
+        var arr2 = new Array("hello", "world");
+
+        
     </script>
 </body>
 
