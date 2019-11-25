@@ -67,9 +67,8 @@
             oUl.style.left = e.clientX + "px";
             oUl.style.top = e.clientY + "px";
             for (var i = 0; i < lis.length; i++) {
-                lis[i].index = i; // 添加一个属性
                 lis[i].onclick = function () {
-                    location.replace(lis[this.index].getAttribute('mysrc'));
+                    location.replace(this.getAttribute('mysrc'));
                     console.log(this.index); // 点那个就是哪个
                 }
             }
