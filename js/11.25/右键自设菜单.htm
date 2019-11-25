@@ -39,10 +39,11 @@
 
 <body>
     <ul class="list">
-        <li>复制</li>
-        <li>粘贴</li>
-        <li>选择</li>
-        <li>跳转</li>
+        <!-- 自定义属性 -->
+        <li mysrc="http://www.baidu.com">复制</li>
+        <li mysrc="http://www.taobao.com">粘贴</li>
+        <li mysrc="http://www.sina.com">选择</li>
+        <li mysrc="http://www.w3school.com">跳转</li>
     </ul>
     <script>
         /**
@@ -68,7 +69,7 @@
             for (var i = 0; i < lis.length; i++) {
                 index = i;
                 lis[index].onclick = function () {
-                    location.replace("http://www.baidu.com");
+                    location.replace(lis[index].getAttribute('mysrc'));
                     console.log(index); // 点那个就是哪个
                 }
             }
