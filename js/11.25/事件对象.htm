@@ -14,11 +14,18 @@
     <script>
         /**
          * event:事件对象
+         * 事件三要素：事件源 事件处理函数 事件对象（接收到的参数）
+         * Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。
          * */
         var box = document.getElementsByClassName("box")[0];
         box.onclick = function (e) {
             console.log(e);
             // console.log("pp");
+        }
+
+        // 右键点击事件
+        box.oncontextmenu = function () {
+            console.log(123);
         }
     </script>
 </body>
