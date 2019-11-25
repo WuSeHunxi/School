@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-color: #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        h1 {
+            margin: 50px 120px;
+        }
+
+        .btn {
+            width: 80px;
+            height: 40px;
+            background-color: #000;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bolder;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            margin-left: -40px;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>100</h1>
+        <button class="btn">开始</button>
+    </div>
+    <script>
+        var btn = document.getElementsByClassName("btn")[0];
+        var oH1 = document.getElementsByTagName("h1")[0];
+        var time = null;
+        btn.onclick = function () {
+
+            if (btn.innerHTML == '开始') {
+                btn.innerHTML = '暂停';
+                // console.log(btn.innerHTML);
+                time = setInterval(function () {
+                    oH1.innerHTML--;
+                }, 1000);
+            }
+            // console.log("pp");
+            if (btn.innerHTML == '暂停') {
+                clearInterval(time);
+                btn.innerHTML = '开始';
+            }
+        }
+    </script>
+</body>
+
+</html>
