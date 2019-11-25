@@ -6,11 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            background-color: #f0f;
+        }
+
+        .active {
+            background-color: #ff0;
+        }
+    </style>
 </head>
 
 <body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
     <script>
-
+        var lis = document.getElementsByTagName("li");
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            lis[i].onclick = function () {
+                lis[this.index].className = 'active';
+            }
+        }
     </script>
 </body>
 
