@@ -55,18 +55,17 @@
         var time = null;
         // 要解析标签的话需要使用innerHTML
         btn.onclick = function () {
-
-            if (btn.innerHTML == '开始') {
-                btn.innerHTML = '暂停';
-                // console.log(btn.innerHTML);
+            if (btn.innerText == "开始") {
                 time = setInterval(function () {
-                    oH1.innerHTML--;
+                    oH1.innerText--;
                 }, 1000);
+                btn.innerText = '暂停';
+                return; //结束执行
             }
-            // console.log("pp");
-            if (btn.innerHTML == '暂停') {
+            if (btn.innerText == '暂停') {
+                btn.innerText = '开始';
                 clearInterval(time);
-                btn.innerHTML = '开始';
+                return;
             }
         }
     </script>
