@@ -6,9 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .list {
+            background-color: #ccc;
+            width: 100px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+            position: absolute;
+        }
+
+        li {
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #fff;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 
 <body>
+    <ul class="list">
+        <li>复制</li>
+        <li>粘贴</li>
+        <li>选择</li>
+        <li>跳转</li>
+    </ul>
     <script>
         /**
          * 一、clientX、clientY
@@ -24,6 +59,21 @@
          相对于带有定位的父盒子的x，y坐标
          * 
         */
+        var oUl = document.getElementsByClassName("list")[0];
+        var lis = document.getElementsByTagName("li");
+        document.oncontextmenu = function (e) {
+            oUl.style.display = "block";
+            oUl.style.left = e.clientX + "px";
+            oUl.style.top = e.clientY + "px";
+            for (var i = 0; i < lis.length; i++) {
+                index = i;
+                lis[index].onclick = function () {
+                    location.replace("http://www.baidu.com");
+                    console.log(index); // 点那个就是哪个
+                }
+            }
+            e.preventDefault();
+        }
     </script>
 </body>
 
