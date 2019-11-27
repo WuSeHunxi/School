@@ -27,6 +27,11 @@
     <div class="div1"></div>
     <script>
         /**
+         * 本例子用到的了this的指向；定时器的添加和清除；能否共享定时器（为什么）；逻辑思考（移入移出的时候）
+         */
+
+
+        /**
          * this的指向：谁调用它就指向谁
          */
         var div1 = document.getElementsByClassName("div1");
@@ -39,12 +44,14 @@
                 // 如果我移入了你就别减了
                 clearInterval(_this.time2);
                 /**
-                 * 同时触发多个的话就会失效，因为此时这三个元素共享一个time，
+                 * 同时触发多个的话就会失效，因hlh为此时这三个元素共享一个time，
                  * 为了解决这个问题，需要给每一个元素添加time
                  */
                 _this.time = setInterval(function () {
                     if (_this.offsetWidth > 400) {
                         clearInterval(_this.time);
+                        // 当清除定时器之后， 后面的代码就不执行了
+                        return;
                     }
                     _this.style.width = _this.offsetWidth + 10 + 'px';
                 }, 16);
@@ -54,8 +61,9 @@
                 // 如果我移除了你就别加了
                 clearInterval(_this.time);
                 _this.time2 = setInterval(function () {
-                    if (_this.offsetWidth < 200) {
+                    if (_this.offsetWidth <= 200) {
                         clearInterval(_this.time2);
+                        return;
                     }
                     _this.style.width = _this.offsetWidth - 10 + 'px';
 
