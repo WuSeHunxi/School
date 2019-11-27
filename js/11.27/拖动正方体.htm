@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #F0F;
+            position: absolute;
+        }
+    </style>
 </head>
+
 <body>
+    <div id="box"></div>
     <script>
-            
+        var oBox = document.getElementById("box");
+        var key = false;
+        // 只有鼠标按下的时候才能够移动
+        oBox.onmousedown = function () {
+
+        }
+        oBox.onmousemove = function (e) {
+            if (key) {
+                this.style.left = e.clientX + "px";
+                this.style.top = e.clientY + "px";
+            }
+        }
+        oBox.onmouseup = function () {
+
+        }
     </script>
 </body>
+
 </html>
