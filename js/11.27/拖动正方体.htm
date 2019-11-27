@@ -27,15 +27,22 @@
         var oBox = document.getElementById("box");
         var key = false;
         // 只有鼠标按下的时候才能够移动
-        oBox.onmousedown = function () {
-
-        }
-        oBox.onmousemove = function (e) {
-            if (key) {
-                this.style.left = e.clientX + "px";
-                this.style.top = e.clientY + "px";
+        oBox.onmousedown = function (e) {
+            var thisLeft = e.clientX - this.offsetLeft;
+            var thisTop = e.clientY - this.offsetTop;
+            // 开始绑定
+            document.onmousemove = function (e) {
+                this.style.left = e.clientX - thisLeft + "px";
+                this.style.top = e.clientY - thisTop + "px";
             }
         }
+        // oBox.onmousemove = function (e) {
+        //     if (key) {
+        //         this.style.left = e.clientX + "px";
+        //         this.style.top = e.clientY + "px";
+        //     }
+        // }
+        // 当鼠标抬起的时候解绑
         oBox.onmouseup = function () {
 
         }
