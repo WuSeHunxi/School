@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 50px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div1"></div>
+    <div class="div1"></div>
+    <script>
+        /**
+         * this的指向：谁调用它就指向谁
+         */
+        var div1 = document.getElementsByClassName("div1");
+        var time = null;
+        for (var i = 0; i < div1.length; i++) {
+            div1[i].time = null;
+            div1[i].time2 = null;
+            div1[i].onmouseover = function () {
+                var _this = this;
+                /**
+                 * 同时触发多个的话就会失效，因为此时这三个元素共享一个time，
+                 * 为了解决这个问题，需要给每一个元素添加time
+                 */
+                _this.time = setInterval(function () {
+                    if (_this.offsetWidth > 400) {
+                        clearInterval(_this.time);
+                    }
+                    _this.style.width = _this.offsetWidth + 10 + 'px';
+                }, 16);
+            }
+            div1[i].onmouseout = function () {
+                var _this = this;
+                _this.time2 = setInterval(function () {
+                    if (_this.offsetWidth < 200) {
+                        clearInterval(_this.time2);
+                    }
+                    _this.style.width = _this.offsetWidth - 10 + 'px';
+
+                }, 16);
+            }
+        }
+        // div1.onmouseover = function () {
+        //     var that = this;
+        //     // setInterval()是window的方法，此时的this就是window
+        //     time = setInterval(function () {
+        //         if (that.offsetWidth >= 400) {
+        //             clearInterval(time);
+        //         }
+        //         // offsetWidth --> 获取某个元素的宽度
+        //         // 设置小红条的宽度
+        //         that.style.width = that.offsetWidth + 10 + "px";
+        //     }, 16);
+        // }
+        // var time2 = null;
+        // div1.onmouseout = function () {
+        //     clearInterval(time);
+        //     var that = this;
+        //     time2 = setInterval(function () {
+        //         if (that.offsetWidth <= 200) {
+        //             clearInterval(time2);
+        //         }
+        //         that.style.width = that.offsetWidth - 10 + "px";
+        //     }, 16);
+        // }
+    </script>
+</body>
+
+</html>
