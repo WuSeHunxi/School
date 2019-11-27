@@ -27,6 +27,9 @@
         }
 
         #big-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 800px;
             height: 800px;
         }
@@ -51,20 +54,31 @@
         <img src="img/jsz.jpg" alt="">
     </div>
     <script>
-        var bigImg = document.getElementById("big-img");
+        var bigImg = document.getElementById("big-img").getElementsByTagName("img")[0];
         var smallImg = document.getElementById("small-img");
         var oMove = document.getElementById("move");
+
         smallImg.onmousemove = function (e) {
             var thisLeft = e.clientX - 100;
             var thisTop = e.clientY - 100;
-            if (oMove.offsetLeft <= 0) {
-                thisLeft = 0 + "px";
+            if (thisLeft <= 0) {
+                thisLeft = 0;
             }
-            if (oMove.style.top = 0) {
+            if (thisTop <= 0) {
                 thisTop = 0;
             }
+            if (thisLeft > smallImg.offsetWidth - oMove.offsetWidth) {
+                thisLeft = 200;
+            }
+            if (thisTop > smallImg.offsetHeight - oMove.offsetHeight) {
+                thisTop = 200;
+            }
+            // 小白块的移动
             oMove.style.left = thisLeft + "px";
             oMove.style.top = thisTop + "px";
+            // 大图的移动
+            bigImg.style.left = -2 * thisLeft + "px";
+            bigImg.style.top = -2 * thisTop + "px";
         }
     </script>
 </body>
