@@ -120,6 +120,22 @@
         var aImg = document.getElementsByClassName("img-bar")[0].getElementsByTagName("li");
         var leftBtn = document.getElementById("lt");
         var rightBtn = document.getElementById("gt");
+        var oImgUl = document.getElementById("img-ul");
+        var time = null;
+        for (var i = 0; i < numBtn.length; i++) {
+            numBtn[i].index = i;
+            numBtn[i].onmouseover = function () {
+                var _this = this;
+                time = setInterval(function () {
+                    //需要利用索引
+                    if (oImgUl.offsetLeft == -490 * _this.index) {
+                        clearInterval(time);
+                    } else {
+                        oImgUl.style.left = oImgUl.offsetWidth - 10 + "px";
+                    }
+                }, 16);
+            }
+        }
     </script>
 </body>
 
