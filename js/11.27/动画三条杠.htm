@@ -36,6 +36,8 @@
             div1[i].time2 = null;
             div1[i].onmouseover = function () {
                 var _this = this;
+                // 如果我移入了你就别减了
+                clearInterval(_this.time2);
                 /**
                  * 同时触发多个的话就会失效，因为此时这三个元素共享一个time，
                  * 为了解决这个问题，需要给每一个元素添加time
@@ -49,6 +51,8 @@
             }
             div1[i].onmouseout = function () {
                 var _this = this;
+                // 如果我移除了你就别加了
+                clearInterval(_this.time);
                 _this.time2 = setInterval(function () {
                     if (_this.offsetWidth < 200) {
                         clearInterval(_this.time2);
