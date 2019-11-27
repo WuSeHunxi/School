@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .box {
+            width: 490px;
+            height: 170px;
+            border: 5px solid #fff;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        img {
+            width: 490px;
+            height: 170px;
+        }
+
+        .img-bar ul {
+            width: 2450px;
+        }
+
+        .img-bar li {
+            float: left;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .img-bar .active {
+            display: block;
+        }
+
+        .right-btn {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .right-btn li,
+        .left-btn li {
+            float: left;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            background-color: #f90;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .left-btn {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .right-btn .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="img-bar">
+            <ul>
+                <li class="active"><img src="img/ktexo.jpg" alt=""></li>
+                <li><img src="img/jzx.jpg" alt=""></li>
+                <li><img src="img/jz.jpg" alt=""></li>
+                <li><img src="img/jsz.jpg" alt=""></li>
+                <li><img src="img/hh.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="left-btn">
+            <ul>
+                <li id="lt">&lt;</li>
+                <li id='gt'>&gt;</li>
+            </ul>
+        </div>
+        <div class="right-btn">
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oBox = document.getElementsByClassName("box")[0];
+        var numBtn = document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
+        var aImg = document.getElementsByClassName("img-bar")[0].getElementsByTagName("li");
+        var leftBtn = document.getElementById("lt");
+        var rightBtn = document.getElementById("gt");
+    </script>
+</body>
+
+</html>

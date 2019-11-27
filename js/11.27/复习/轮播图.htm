@@ -27,7 +27,7 @@
             position: relative;
         }
 
-        .box img {
+        .pic img {
             width: 400px;
             height: 300px;
             position: absolute;
@@ -36,8 +36,8 @@
             display: none;
         }
 
-        .dis {
-            display: block;
+        .box img.dis {
+            display: inline-block;
         }
 
         .right-btn {
@@ -100,6 +100,9 @@
     <script>
         var oImg = document.getElementsByTagName("img");
         var oLi = document.getElementsByTagName("li");
+        var lt = document.getElementsByClassName("lt")[0];
+        var gt = document.getElementsByClassName("gt")[0];
+        var nowIndex = 0;
         for (var i = 0; i < oLi.length; i++) {
             oLi[i].index = i;
             oLi[i].onmouseover = function () {
@@ -109,7 +112,32 @@
                 }
                 this.classList.add("active");
                 oImg[this.index].classList.add("dis");
+                nowIndex = this.index;
             }
+        }
+        lt.onclick = function () {
+            nowIndex--;
+            if (nowIndex < 0) {
+                nowIndex = 3;
+            }
+            for (var j = 0; j < oLi.length; j++) {
+                oLi[j].classList.remove("active");
+                oImg[j].classList.remove("dis");
+            }
+            oLi[nowIndex].classList.add("active");
+            oImg[nowIndex].classList.add("dis");
+        }
+        gt.onclick = function () {
+            nowIndex++;
+            if (nowIndex > 3) {
+                nowIndex = 0;
+            }
+            for (var j = 0; j < oLi.length; j++) {
+                oLi[j].classList.remove("active");
+                oImg[j].classList.remove("dis");
+            }
+            oLi[nowIndex].classList.add("active");
+            oImg[nowIndex].classList.add("dis");
         }
     </script>
 </body>
