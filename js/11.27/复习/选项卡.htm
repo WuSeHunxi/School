@@ -6,9 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            background-color: #eee;
+        }
+
+        .header {
+            height: 50px;
+            width: 100%;
+            background-color: #000;
+        }
+
+        .header div {
+            box-sizing: border-box;
+            width: 100px;
+            height: 100%;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            float: left;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+
+        ul {
+            width: 100%;
+            display: none;
+        }
+
+        ul li {
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 8px;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="box">
+        <div class="header">
+            <div>lesson1</div>
+            <div>lesson2</div>
+            <div>lesson3</div>
+        </div>
+        <ul class="active">
+            <li>html</li>
+            <li>css</li>
+            <li>js</li>
+        </ul>
+        <ul>
+            <li>jq</li>
+            <li>vue</li>
+            <li>react</li>
+        </ul>
+        <ul>
+            <li>android</li>
+            <li>angls</li>
+        </ul>
+    </div>
     <script>
 
 
