@@ -32,6 +32,15 @@
     </div>
     <button id="btn">开始</button>
     <script>
+        /**
+         * 在Web应用中，实现动画效果的方法比较多，Javascript 中可以通过定时器 setTimeout 来实现，css3 可以使用 transition 和 animation 来实现，
+         * html5 中的 canvas也可以实现。除此之外，html5 还提供一个专门用于请求动画的API，那就是 requestAnimationFrame，顾名思义就是请求动画帧。
+         * requestAnimationFrame() --> 专门用于请求动画
+         * 动画的原理：动画本质就是要让人眼看到图像被刷新而引起变化的视觉效果，这个变化要以连贯的、平滑的方式进行过渡
+         * setInterval、setTimeout是开发者主动要求浏览器去绘制，但是由于种种问题，浏览器可能会漏掉部分命令
+           requestAnimationFrame 就是浏览器什么要开始绘制了浏览器自己知道，通过requestAnimationFrame 告诉开发者，
+           这样就不会出现重复绘制丢失的问题了
+         */
         var oText = document.getElementsByClassName("inner")[0];
         var oBtn = document.getElementById("btn");
         oBtn.onclick = function () {
@@ -40,7 +49,7 @@
         // 控制进度条
         function run() {
             if (oText.offsetWidth < 200) {
-                oText.innerText = parseInt(oText.innerText) + 1+"%";
+                oText.innerText = parseInt(oText.innerText) + 1 + "%";
                 oText.style.width = oText.offsetWidth + 2 + "px";
                 requestAnimationFrame(run);
             }
