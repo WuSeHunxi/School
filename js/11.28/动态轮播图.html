@@ -193,10 +193,17 @@
                 }, 16);
             }
         }
+
+        function run() {
+            time2 = setInterval(function () {
+                changeImg(nowIndex + 1);
+            }, 3000);
+        }
         var time2 = null;
-        time2 = setInterval(function () {
-            changeImg(nowIndex + 1);
-        }, 3000);
+        run();
+        oBox.onmouseout = function () {
+            run();
+        }
         oBox.onmouseover = function () {
             clearInterval(time2);
         }
