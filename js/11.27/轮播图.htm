@@ -96,8 +96,8 @@
         </div>
         <div class="left-btn">
             <ul>
-                <li>&lt;</li>
-                <li>&gt;</li>
+                <li id="lt">&lt;</li>
+                <li id='gt'>&gt;</li>
             </ul>
         </div>
         <div class="right-btn">
@@ -111,19 +111,96 @@
         </div>
     </div>
     <script>
+        var oBox = document.getElementsByClassName("box")[0];
         var numBtn = document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
         var aImg = document.getElementsByClassName("img-bar")[0].getElementsByTagName("li");
+        var leftBtn = document.getElementById("lt");
+        var rightBtn = document.getElementById("gt");
+        var nowIndex = 0;
+        var time = null;
+        /**
+         * 切换图片和索引函数
+         */
+        function play(index) {
+            for (var j = 0; j < numBtn.length; j++) {
+                numBtn[j].classList.remove("active");
+                aImg[j].classList.remove("active");
+            }
+            nowIndex = index;
+            numBtn[index].classList.add("active");
+            aImg[index].classList.add("active");
+        }
+        // 在点击的时候需要知道当前索引的位置 --> nowIndex
+        /**
+         * 下一张按钮
+         */
+        rightBtn.onclick = function () {
+            nowIndex++;
+            if (nowIndex > 4) {
+
+                nowIndex = 0;
+            }
+            play(nowIndex);
+            // for (var j = 0; j < numBtn.length; j++) {
+            //     numBtn[j].classList.remove("active");
+            //     aImg[j].classList.remove("active");
+            // }
+            // numBtn[nowIndex].classList.add("active");
+            // aImg[nowIndex].classList.add("active");
+        }
+
+        /**
+         * 上一张
+         */
+        leftBtn.onclick = function () {
+            nowIndex--;
+            if (nowIndex < 0) {
+                nowIndex = 4;
+            }
+            play(nowIndex);
+        }
         // console.log(numBtn);
+
+        /**
+         * 数字按钮
+         */
         for (var i = 0; i < numBtn.length; i++) {
             numBtn[i].index = i;
             numBtn[i].onmouseover = function () {
-                for (var j = 0; j < numBtn.length; j++) {
-                    numBtn[j].classList.remove("active");
-                    aImg[j].classList.remove("active");
-                }
-                this.classList.add("active");
-                aImg[this.index].classList.add("active");
+                play(this.index);
+                // for (var j = 0; j < numBtn.length; j++) {
+                //     numBtn[j].classList.remove("active");
+                //     aImg[j].classList.remove("active");
+                // }
+                // this.classList.add("active");
+                // aImg[this.index].classList.add("active");
+                // nowIndex = this.index;
+                console.log(nowIndex);
             }
+        }
+
+        /**
+         * 定时函数 --> 循环执行
+         */
+        function run() {
+            time = setInterval(function () {
+                rightBtn.onclick(); //直接调用下一张
+                //两种方法均可
+                // nowIndex++;
+                // if (nowIndex > 4) {
+                //     nowIndex = 0;
+                // }
+                // play(nowIndex);
+            }, 1000);
+        }
+        run();
+        // 移入图片区域
+        oBox.onmouseover = function () {
+            clearInterval(time);
+        }
+        //移出图片区域
+        oBox.onmouseout = function () {
+            run();
         }
     </script>
 </body>
