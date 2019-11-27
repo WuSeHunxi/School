@@ -39,8 +39,6 @@
 
         .img-bar li {
             float: left;
-            top: 0;
-            left: 0;
             display: none;
         }
 
@@ -90,7 +88,7 @@
 <body>
     <div class="box">
         <div class="img-bar">
-            <ul>
+            <ul id='img-ul' class="clearfix">
                 <li class="active"><img src="img/ktexo.jpg" alt=""></li>
                 <li><img src="img/jzx.jpg" alt=""></li>
                 <li><img src="img/jz.jpg" alt=""></li>
@@ -121,20 +119,86 @@
         var leftBtn = document.getElementById("lt");
         var rightBtn = document.getElementById("gt");
         var oImgUl = document.getElementById("img-ul");
+        var dir = 1; // 控制方向
         var time = null;
+        var nowIndex = 0;
+        var isRun = true;
         for (var i = 0; i < numBtn.length; i++) {
             numBtn[i].index = i;
             numBtn[i].onmouseover = function () {
-                var _this = this;
+                changeImg(this.index);
+                // if (isRun) {
+                //     isRun = false;
+                //     var that = this;
+                // if (nowIndex < that.index) {
+                //     dir = 1;
+                // } else {
+                //     dir = -1;
+                // }
+                // nowIndex = that.index;
+                // for (var j = 0; j < numBtn.length; j++) {
+                //     numBtn[j].className = '';
+                // }
+                // this.className = 'active';
+
+                // time = setInterval(function () {
+                //     //需要利用索引
+                //     if (oImgUl.offsetLeft == -490 * that.index) {
+                //         clearInterval(time);
+                //         isRun = true;
+                //     } else {
+                //         oImgUl.style.left = oImgUl.offsetLeft- 10 * dir + "px";
+                //     }
+                // }, 16);
+                // }
+            }
+        }
+        // 向左运动
+        leftBtn.onclick = function () {
+            changeImg(nowIndex - 1);
+        }
+        rightBtn.onclick = function () {
+            changeImg(nowIndex + 1);
+        }
+
+        function changeImg(index) {
+            // 判断是否运行
+            if (isRun) {
+                isRun = false;
+                if (index < 0) {
+                    index = aImg.length - 1;
+                }
+                if (index > aImg.length - 1) {
+                    index = 0;
+                }
+                // 判断方向
+                if (nowIndex < index) {
+                    dir = 1;
+                } else {
+                    dir = -1;
+                }
+                nowIndex = index;
+                for (var j = 0; j < numBtn.length; j++) {
+                    numBtn[j].className = '';
+                }
+                numBtn[index].className = 'active';
                 time = setInterval(function () {
                     //需要利用索引
-                    if (oImgUl.offsetLeft == -490 * _this.index) {
+                    if (oImgUl.offsetLeft == -490 * index) {
                         clearInterval(time);
+                        isRun = true;
                     } else {
-                        oImgUl.style.left = oImgUl.offsetWidth - 10 + "px";
+                        oImgUl.style.left = oImgUl.offsetLeft - 10 * dir + "px";
                     }
                 }, 16);
             }
+        }
+        var time2 = null;
+        time2 = setInterval(function () {
+            changeImg(nowIndex + 1);
+        }, 3000);
+        oBox.onmouseover = function () {
+            clearInterval(time2);
         }
     </script>
 </body>
