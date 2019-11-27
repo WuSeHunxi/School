@@ -1,15 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .pic {
+            width: 400px;
+            height: 300px;
+            position: relative;
+        }
+
+        .box img {
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .dis {
+            display: block;
+        }
+
+        .right-btn {
+            position: absolute;
+            left: 6px;
+            bottom: 6px;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .right-btn div {
+            float: left;
+            margin-right: 6px;
+            cursor: pointer;
+        }
+
+        ul {
+            position: absolute;
+            right: 5px;
+            bottom: 4px;
+        }
+
+        ul li {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            float: left;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #f40;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="box">
+        <div class="pic">
+            <img class="dis" src="../img/jz.jpg" alt="">
+            <img src="../img/jzx.jpg" alt="">
+            <img src="../img/ktexo.jpg" alt="">
+            <img src="../img/jsz.jpg" alt="">
+        </div>
+        <div class="right-btn">
+            <div class="lt">&lt;</div>
+            <div class="gt">&gt;</div>
+        </div>
+        <div class="left-btn">
+            <ul>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
     <script>
-        
+        var oImg = document.getElementsByTagName("img");
+        var oLi = document.getElementsByTagName("li");
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].index = i;
+            oLi[i].onmouseover = function () {
+                for (var j = 0; j < oLi.length; j++) {
+                    oLi[j].classList.remove("active");
+                    oImg[j].classList.remove("dis");
+                }
+                this.classList.add("active");
+                oImg[this.index].classList.add("dis");
+            }
+        }
     </script>
 </body>
+
 </html>
