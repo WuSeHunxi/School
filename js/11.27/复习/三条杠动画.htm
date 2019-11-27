@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .div1 {
+            margin-top: 20px;
+        }
+
+        div {
+            cursor: pointer;
+            width: 200px;
+            height: 40px;
+            background-color: #0f0;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <script>
+        var oDiv = document.getElementsByTagName("div");
+        for (var i = 0; i < oDiv.length; i++) {
+
+            oDiv[i].time1 = null;
+            oDiv[i].time2 = null;
+            oDiv[i].onmouseover = function () {
+                var that = this;
+                clearInterval(that.time2);
+                that.time1 = setInterval(function () {
+
+                    if (that.offsetWidth >= 400) {
+                        clearInterval(that.time1);
+                        return;
+                    }
+                    that.style.width = that.offsetWidth + 10 + 'px';
+                }, 16);
+            }
+            oDiv[i].onmouseout = function () {
+                var that = this;
+                // console.log(that);
+                // console.log(oDiv[i]);
+                /**
+                 * 此时的oDiv[i]和that是不一样的
+                 */
+                clearInterval(that.time1);
+                that.time2 = setInterval(function () {
+                    if (that.offsetWidth <= 200) {
+                        clearInterval(that.time2);
+                        return;
+                    }
+                    that.style.width = that.offsetWidth - 10 + "px";
+                }, 16);
+            }
+        }
+    </script>
+</body>
+
+</html>
