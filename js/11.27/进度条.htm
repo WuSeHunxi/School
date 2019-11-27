@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            width: 200px;
+            overflow: hidden;
+        }
+
+        .inner {
+            background-color: blue;
+            width: 0;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="box">
+        <div class="inner">0%</div>
+    </div>
+    <button id="btn">开始</button>
     <script>
-        
-        
+        var oText = document.getElementsByClassName("inner")[0];
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function () {
+            run();
+        }
+        // 控制进度条
+        function run() {
+            if (oText.offsetWidth < 200) {
+                oText.innerText = parseInt(oText.innerText) + 1+"%";
+                oText.style.width = oText.offsetWidth + 2 + "px";
+                requestAnimationFrame(run);
+            }
+        }
     </script>
 </body>
+
 </html>
