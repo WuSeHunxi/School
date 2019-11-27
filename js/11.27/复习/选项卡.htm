@@ -21,7 +21,6 @@
             height: 200px;
             border: 1px solid #ccc;
             margin: 100px auto;
-            background-color: #eee;
         }
 
         .header {
@@ -40,6 +39,10 @@
             float: left;
             border: 1px solid #fff;
             cursor: pointer;
+        }
+
+        .now {
+            background-color: #999;
         }
 
         ul {
@@ -63,7 +66,7 @@
 <body>
     <div class="box">
         <div class="header">
-            <div>lesson1</div>
+            <div class="now">lesson1</div>
             <div>lesson2</div>
             <div>lesson3</div>
         </div>
@@ -83,8 +86,23 @@
         </ul>
     </div>
     <script>
-
-
+        var header = document.getElementsByClassName("header")[0];
+        var oDiv = header.getElementsByTagName("div");
+        var oUl = document.getElementsByTagName("ul");
+        for (var i = 0; i < oDiv.length; i++) {
+            oDiv[i].index = i;
+            /**
+             * 下面的内容和上面的标题是通过索引联系起来的
+             */
+            oDiv[i].onmouseover = function () {
+                for (var j = 0; j < oDiv.length; j++) {
+                    oDiv[j].classList.remove("now");
+                    oUl[j].classList.remove("active");
+                }
+                this.classList.add("now");
+                oUl[this.index].classList.add("active");
+            }
+        }
     </script>
 </body>
 
