@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .small-img,
+        .big-img,
+        .small-img img {
+            width: 400px;
+            height: 400px;
+        }
+
+        .small-img,
+        .big-img {
+            float: left;
+            margin: 10px;
+            border: 1px solid #ccc;
+
+        }
+
+        .big-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .small-img {
+            position: relative;
+        }
+
+        .big-img img {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .move {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="small-img">
+        <img src="../img/jzx.jpg" alt="">
+        <div class="move"></div>
+    </div>
+    <div class="big-img">
+        <img src="../img/jzx.jpg" alt="">
+    </div>
+    <script>
+        var oMove = document.getElementsByClassName("move")[0];
+        var bigImg = document.getElementsByClassName("big-img")[0].getElementsByTagName("img")[0];
+        var smallImg = document.getElementsByClassName("small-img")[0];
+        smallImg.onmousemove = function (e) {
+            var thisLeft = e.clientX - oMove.offsetWidth / 2;
+            var thisTop = e.clientY - oMove.offsetHeight / 2;
+            console.log(e.clientX);
+            if (thisLeft <= 0) {
+                // 如果直接使用oMove.style.left的话会在判断条件结束之后重新被赋值
+                thisLeft = 0;
+            }
+            if (thisLeft >= smallImg.offsetWidth - oMove.offsetWidth) {
+                thisLeft = 200;
+            }
+            if (thisTop <= 0) {
+                thisTop = 0;
+            }
+            if (thisTop >= smallImg.offsetHeight - oMove.offsetHeight) {
+                thisTop = 200;
+            }
+            oMove.style.left = thisLeft + "px";
+            oMove.style.top = thisTop + "px";
+            bigImg.style.left = -2 * thisLeft + "px";
+            bigImg.style.top = -2 * thisTop + "px";
+        }
+    </script>
+</body>
+
+</html>
