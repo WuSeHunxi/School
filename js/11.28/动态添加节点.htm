@@ -26,8 +26,16 @@
 
         // 事件委托(子元素委托父元素) --> 通过事件冒泡产生的现象形成的结果
         oUl.onclick = function (e) {
-
+            if (e.target.nodeName == 'LI') {
+                console.log(e.target.innerText); //-->target是谁触发了
+                console.log(e.currentTarget); //-->给谁绑定事件了currentTarget就是谁
+            }
         }
+
+        /**
+            e.target  --> 指向触发事件的监听对象，始终指向当前点击的目标元素，本例中是li
+            e.currentTarget  --> 指向添加事件的监听对象，本例中是ul
+        */
     </script>
 </body>
 
