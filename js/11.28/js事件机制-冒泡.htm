@@ -34,9 +34,34 @@
         </div>
     </div>
     <script>
+        /**
+          js的事件机制：冒泡 捕获
+          冒泡：从内向外
+          捕获：从外向内
+          事件机制的顺序：先捕获后冒泡
+        */
         var oDiv1 = document.getElementsByClassName("div1")[0];
         var oDiv2 = document.getElementsByClassName("div2")[0];
         var oDiv3 = document.getElementsByClassName("div3")[0];
+        // 此时发生事件冒泡
+        /**
+        阻止事件冒泡：e.stopPropagation()
+        */
+        oDiv1.onclick = function (e) {
+            console.log("div1");
+        }
+        oDiv2.onclick = function (e) {
+            console.log("div2");
+        }
+        oDiv2.onclick = function (e) {
+            console.log("div3");
+        }
+
+        /**
+          移除事件：xxx.onclick=null
+                   removeEventListener()的参数和addEvenetListener()的参数必须相同
+                   xxx.removeEventListener('xx',xxx);-->第二个参数是函数名（不能够使用匿名函数）
+        */
     </script>
 </body>
 

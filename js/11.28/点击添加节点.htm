@@ -17,16 +17,16 @@
         var oUl = document.querySelector("ul");
         var oBtn = document.getElementsByTagName("button")[0];
         var aLi = document.getElementsByTagName("li");
-        for (var i = 0; i < aLi.length; i++) {
-            aLi[i].onclick = function () {
-                
-            }
-        }
         oBtn.onclick = function () {
             var oLi = document.createElement("li");
             var lastEl = oUl.lastElementChild.innerText;
             oLi.innerText = parseInt(lastEl) + 1;
             oUl.appendChild(oLi);
+        }
+
+        // 事件委托(子元素委托父元素) --> 通过事件冒泡产生的现象形成的结果
+        oUl.onclick = function (e) {
+
         }
     </script>
 </body>
