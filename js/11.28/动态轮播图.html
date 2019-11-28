@@ -129,89 +129,92 @@
         for (var i = 0; i < numBtn.length; i++) {
             numBtn[i].index = i;
             numBtn[i].onmouseover = function () {
-                console.log("p");
-                // changeImg(this.index);
-                // if (isRun) {
-                //     isRun = false;
-                var that = this;
+                changeImg(this.index);
+                // if (isRun) { // 判断能否执行下一次动画
+                //     isRun = false; // 只有本次执行完之后才能继续下一次执行
+                // var that = this;
                 // if (nowIndex < that.index) {
                 //     dir = 1;
                 // } else {
                 //     dir = -1;
                 // }
-                nowIndex = that.index;
+                // nowIndex = that.index;
+                // for (var j = 0; j < numBtn.length; j++) {
+                //     numBtn[j].className = '';
+                // }
+                // this.className = 'active';
+
+                // time = setInterval(function () {
+                //     //需要利用索引
+                //     if (oImgUl.offsetLeft == -490 * that.index) {
+                //         clearInterval(time);
+                //         isRun = true; //可以开始新的运动了
+                //     } else {
+                //         oImgUl.style.left = oImgUl.offsetLeft - 10 * dir + "px";
+
+                //     }
+                // }, 16);
+                // }
+            }
+        }
+        // 向左运动
+        leftBtn.onclick = function () {
+            changeImg(nowIndex - 1);
+        }
+        rightBtn.onclick = function () {
+            changeImg(nowIndex + 1);
+        }
+
+        // 轮播函数 --> 直接告诉该函数此时的位置
+        function changeImg(index) {
+            // 判断是否运行
+            if (isRun) {
+                isRun = false;
+                if (index < 0) {
+                    index = aImg.length - 1;
+                }
+                if (index > aImg.length - 1) {
+                    index = 0;
+                }
+                // 判断方向
+                if (nowIndex < index) {
+                    dir = 1;
+                } else {
+                    dir = -1;
+                }
+                nowIndex = index;
+                /**
+                    去除按钮选中状态，实现图片切换效果
+                */
                 for (var j = 0; j < numBtn.length; j++) {
                     numBtn[j].className = '';
                 }
-                this.className = 'active';
-
+                numBtn[index].className = 'active';
                 time = setInterval(function () {
-                    console.log("ll");
                     //需要利用索引
-                    if (oImgUl.offsetLeft == -490 * that.index) {
+                    if (oImgUl.offsetLeft == -490 * index) {
                         clearInterval(time);
                         isRun = true;
                     } else {
-                        oImgUl.style.left = oImgUl.offsetLeft - 10 + "px";
-                        console.log(oImgUl.offsetLeft);
+                        oImgUl.style.left = oImgUl.offsetLeft - 10 * dir + "px";
                     }
                 }, 16);
             }
         }
-        // 向左运动
-        // leftBtn.onclick = function () {
-        //     changeImg(nowIndex - 1);
-        // }
-        // rightBtn.onclick = function () {
-        //     changeImg(nowIndex + 1);
-        // }
 
-        // function changeImg(index) {
-        //     // 判断是否运行
-        //     if (isRun) {
-        //         isRun = false;
-        //         if (index < 0) {
-        //             index = aImg.length - 1;
-        //         }
-        //         if (index > aImg.length - 1) {
-        //             index = 0;
-        //         }
-        //         // 判断方向
-        //         if (nowIndex < index) {
-        //             dir = 1;
-        //         } else {
-        //             dir = -1;
-        //         }
-        //         nowIndex = index;
-        //         for (var j = 0; j < numBtn.length; j++) {
-        //             numBtn[j].className = '';
-        //         }
-        //         numBtn[index].className = 'active';
-        //         time = setInterval(function () {
-        //             //需要利用索引
-        //             if (oImgUl.offsetLeft == -490 * index) {
-        //                 clearInterval(time);
-        //                 isRun = true;
-        //             } else {
-        //                 oImgUl.style.left = oImgUl.offsetLeft - 10 * dir + "px";
-        //             }
-        //         }, 16);
-        //     }
-        // }
-
-        // function run() {
-        //     time2 = setInterval(function () {
-        //         changeImg(nowIndex + 1);
-        //     }, 3000);
-        // }
-        // var time2 = null;
-        // run();
-        // oBox.onmouseout = function () {
-        //     run();
-        // }
-        // oBox.onmouseover = function () {
-        //     clearInterval(time2);
-        // }
+        function run() {
+            time2 = setInterval(function () {
+                changeImg(nowIndex + 1);
+            }, 3000);
+        }
+        var time2 = null;
+        run();
+        oBox.onmouseout = function () {
+            run();
+        }
+        oBox.onmouseover = function () {
+            clearInterval(time2);
+        }
     </script>
 </body>
 
