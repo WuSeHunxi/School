@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="div1">
+        <p>hhhh</p>
+        <p id="p1">popio</p>
+    </div>
+    <script>
+        var div1 = document.querySelector(".div1");
+        var p1 = document.querySelector("#p1");
+        var oSpan = document.createElement("span");
+        oSpan.innerText = "hello";
+        oSpan.className = 'active';
+        // div1.appendChild(oSpan); //添加到最后
+        div1.insertBefore(oSpan, p1); // 添加到指定元素的前面
+        div1.removeChild(p1); // 删除节点
+    </script>
+</body>
+
+</html>

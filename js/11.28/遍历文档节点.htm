@@ -10,6 +10,7 @@
 
 <body>
     <script>
+        // 文档遍历
         window.onload = function () {
             function foo(node) {
                 if (node.nodeType == 1) {
@@ -18,7 +19,7 @@
                 // 判断当前子元素的长度
                 for (var i = 0; i < node.childNodes.length; i++) {
                     if (node.childNodes[i].nodeType == 1) { //
-                        console.log(node.nodeName);
+                        // console.log(node.nodeName);
                         foo(node.childNodes[i]);
                     }
                 }
