@@ -26,6 +26,7 @@
             border: 5px solid #fff;
             position: relative;
             margin: 100px auto;
+            overflow: hidden;
         }
 
         img {
@@ -37,7 +38,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            width: 2450px;
+            width: 2940px;
         }
 
         .img-bar li {
@@ -96,6 +97,7 @@
                 <li><img src="img/jz.jpg" alt=""></li>
                 <li><img src="img/jsz.jpg" alt=""></li>
                 <li><img src="img/hh.jpg" alt=""></li>
+                <li><img src="img/ktexo.jpg" alt=""></li>
             </ul>
         </div>
         <div class="left-btn">
@@ -170,11 +172,17 @@
             // 判断是否运行
             if (isRun) {
                 isRun = false;
-                if (index < 0) {
-                    index = aImg.length - 1;
+                /**
+                  判断越界
+                */
+                if (index == -1) {
+                    nowIndex = 5;
+                    index = 4;
+                    oImgUl.style.left = -oImgUl.offsetWidth + 490 + "px";
                 }
-                if (index > aImg.length - 1) {
-                    index = 0;
+                if (index == 5) {
+                    nowIndex = 0;
+
                 }
                 // 判断方向
                 if (nowIndex < index) {
@@ -183,17 +191,23 @@
                     dir = -1;
                 }
                 nowIndex = index;
+                if (index == 5) {
+                    nowIndex = 0;
+                }
                 /**
-                    去除按钮选中状态，实现图片切换效果
+                  去除按钮选中状态，实现图片切换效果
                 */
                 for (var j = 0; j < numBtn.length; j++) {
                     numBtn[j].className = '';
                 }
-                numBtn[index].className = 'active';
+                numBtn[nowIndex].className = 'active';
                 time = setInterval(function () {
                     //需要利用索引
                     if (oImgUl.offsetLeft == -490 * index) {
                         clearInterval(time);
+                        if (index == 5) {
+                            oImgUl.style.left = 0;
+                        }
                         isRun = true;
                     } else {
                         oImgUl.style.left = oImgUl.offsetLeft - 10 * dir + "px";
@@ -202,6 +216,9 @@
             }
         }
 
+        /**
+          开始就要自己动，鼠标移入停止运动，鼠标移出开始运动
+        */
         function run() {
             time2 = setInterval(function () {
                 changeImg(nowIndex + 1);
@@ -209,9 +226,13 @@
         }
         var time2 = null;
         run();
+
+        // 鼠标移出 --> 开始
         oBox.onmouseout = function () {
             run();
         }
+
+        // 鼠标移入 --> 停止
         oBox.onmouseover = function () {
             clearInterval(time2);
         }
