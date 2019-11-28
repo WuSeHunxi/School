@@ -14,7 +14,16 @@
         <option value="b">bbbbbbb</option>
     </select>
     <script>
-
+        var oSel = document.getElementById("sel");
+        oSel.onchange = function () {
+            //当前选中的是谁
+            console.log(this.selectedIndex);
+            console.log(this.options[this.selectedIndex]);
+            this.options.add(new Option("c", "ccccccc"));
+        }
+        /**
+        createDocumentFragment() --> 创建文档片段，用于优化浏览器性能
+        */
     </script>
 </body>
 

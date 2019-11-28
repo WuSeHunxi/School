@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">hello</div>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        // 该方法同一个对象绑定相同的事件会被覆盖
+        oDiv1.onclick = function () {
+
+        }
+        // addEventListener() --> 可以监听多次同源事件，不会出现覆盖的情况
+        oDiv1.addEventListener("click", function () {
+            console.log("123");
+        }, false);
+        oDiv1.addEventListener("click", function () {
+            console.log("defwef");
+        }, false);
+
+        
+    </script>
+</body>
+
+</html>
