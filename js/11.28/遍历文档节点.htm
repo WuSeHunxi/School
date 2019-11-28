@@ -9,7 +9,25 @@
 </head>
 
 <body>
+    <script>
+        window.onload = function () {
+            function foo(node) {
+                if (node.nodeType == 1) {
+                    console.log(node.nodeName);
+                }
+                // 判断当前子元素的长度
+                for (var i = 0; i < node.childNodes.length; i++) {
+                    if (node.childNodes[i].nodeType == 1) { //
+                        console.log(node.nodeName);
+                        foo(node.childNodes[i]);
+                    }
+                }
+            }
+            foo(document);
+        }
 
+        // window.onload=function(){}-->当页面全部加载结束后才执行该函数
+    </script>
 </body>
 
 </html>
