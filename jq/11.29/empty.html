@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>hello</div>
+    <div></div>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $("div:empty").css({
+            width: "100px",
+            height: "100px",
+            background: "#f0f"
+        });
+
+        $("div:parent").css("color", "red");
+        /**
+         * parent-->选取的是所有含有子元素或者文本的父级元素
+         * empty和parent正好相反
+         */
+    </script>
+</body>
+
+</html>
