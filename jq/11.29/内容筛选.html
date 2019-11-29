@@ -81,6 +81,7 @@
             var $this = $(this);
             var thisVal = $this.val();
             $("tbody tr").css("display", "none");
+            // 遍历每一行的内容 根据内容进行筛选显示
             $("tbody tr:contains(" + thisVal + ")").css("display", "block");
         });
     </script>
