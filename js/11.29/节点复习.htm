@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    world
+    <div>
+        <span></span>
+        ahahah
+        <p>hello
+
+        </p>
+
+    </div>
+    <script>
+        var p1 = document.getElementsByTagName("p")[0];
+        var div1 = document.getElementsByTagName("div")[0];
+        console.log(p1.parentElement);
+        console.log(p1.parentNode);
+        console.log(div1.children); //-->只返回元素标签
+        console.log(div1.childNodes); //-->返回所有子节点（文本和元素标签）
+    </script>
+</body>
+
+</html>
