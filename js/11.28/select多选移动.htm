@@ -27,12 +27,16 @@
             font-size: 12px;
             color: #fff;
         }
+
+        option {
+            height: 30px;
+        }
     </style>
 </head>
 
 <body>
     <div class="centent">
-        <select multiple='multiple' id="select1" style="width:100px">
+        <select multiple='multiple' id="select1" style="width:100px;height: 220px;">
             <option value="1">选项1</option>
             <option value="2">选项2</option>
             <option value="3">选项3</option>
@@ -47,7 +51,7 @@
         </div>
     </div>
     <div class="centent">
-        <select multiple="multiple" id="select2" style="width:100px;">
+        <select multiple="multiple" id="select2" style="width:100px;height: 220px;">
             <option value="8">选项8</option>
         </select>
         <span id="remove">&lt;&lt;选中删除到左边</span>
@@ -97,12 +101,22 @@
                 }
             }
             for (var i = 0; i < temArr.length; i++) {
+                // appendChild()-->不是复制一份再添加而是把它从原来的地方拿走了添加到新的地方
                 select2.appendChild(temArr[i]);
             }
         }
-        addAll.onclick=function(){
-            var thisHtml=select1.innerHTML;
-            
+        /**
+          outerHTML-->获取完整的整个字符串节点
+        */
+        addAll.onclick = function () {
+            var thisHtml = select1.innerHTML;
+            select2.innerHTML += thisHtml;
+            select1.innerHTML = '';
+        }
+        removeAll.onclick = function () {
+            var thisHtml = select2.innerHTML;
+            select1.innerHTML += thisHtml;
+            select2.innerHTML = '';
         }
     </script>
 </body>
