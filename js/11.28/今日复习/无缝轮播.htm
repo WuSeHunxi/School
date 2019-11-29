@@ -139,7 +139,7 @@
             if (isRun) {
                 isRun = false;
                 var that = this;
-                if (nowIndex < this.index) {
+                if (nowIndex < index) {
                     dir = 1;
                 } else {
                     dir = -1;
@@ -147,10 +147,10 @@
                 for (var j = 0; j < numBtn.length; j++) {
                     numBtn[j].className = "";
                 }
-                this.className = "active";
-                nowIndex = this.index;
+                numBtn[index].className = "active";
+                nowIndex = index;
                 time = setInterval(function () {
-                    if (oImgUl.offsetLeft == -490 * that.index) {
+                    if (oImgUl.offsetLeft == -490 * index) {
                         clearInterval(time);
                         isRun = true;
                     } else {
@@ -160,7 +160,7 @@
             }
         }
         rightBtn.onclick = function () {
-            if (nowIndex == 4) {
+            if (nowIndex == 5) {
                 nowIndex = 0;
             }
             nowIndex++;
@@ -168,7 +168,7 @@
         }
         leftBtn.onclick = function () {
             if (nowIndex == 0) {
-                nowIndex = 4;
+                nowIndex = 5;
             }
             nowIndex--;
             changeImg(nowIndex);
