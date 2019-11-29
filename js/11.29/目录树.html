@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>目录树效果</title>
+  <style>
+    div {
+      margin-left: 10px;
+    }
+
+    .next {
+      cursor: pointer;
+    }
+
+    .next::before {
+      content: '+';
+    }
+
+    .next>div {
+      display: none;
+    }
+
+    .next.show>div {
+      display: block;
+    }
+
+    .next.show::before {
+      content: '-';
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo"></div>
+  <script>
+    var data = [{
+      name: 'node1',
+      children: [{
+        name: 'node1-1',
+        children: []
+      }, {
+        name: 'node1-2',
+        children: [{
+          name: 'node1-2-1',
+          children: [{
+            name: 'node1-2-1-1'
+          }]
+        }, {
+          name: 'node1-2-2'
+        }]
+      }]
+    }, {
+      name: 'node2',
+      children: [{
+        name: 'node2-1',
+        children: []
+      }, {
+        name: 'node2-2',
+        children: [{
+          name: 'node2-2-1',
+          children: []
+        }]
+      }]
+    }, {
+      name: 'node3',
+      children: [{
+        name: 'node3-1',
+        children: []
+      }, {
+        name: 'node3-2',
+        children: [{
+          name: 'node3-2-1',
+          children: [{
+            name: 'node3-2-1-1'
+          }]
+        }, {
+          name: 'node3-2-2'
+        }]
+      }]
+    }, {
+      name: 'node4',
+      children: [{
+        name: 'node4-1',
+        children: []
+      }, {
+        name: 'node4-2',
+        children: [{
+          name: 'node4-2-1',
+          children: []
+        }]
+      }]
+    }];
+    var demo = document.getElementById('demo');
+    // 创建一个目录树结构  data: 当前级的数据， parentNode要插入到的父级节点
+    function createTreeDom(data, parentNode) {
+      // 如果父节点不存在 手动创建一个根节点
+      if (!parentNode) {
+        parentNode = document.createElement('div');
+        parentNode.className = 'root';
+      }
+      // 遍历数据 添加到父节点下面
+      data.forEach(function (item, index, self) {
+        // 当前级的节点
+        var childNode = document.createElement('div');
+        childNode.innerText = item.name;
+        // 把节点插入到父级里面
+        parentNode.appendChild(childNode);
+        // 如果当前级的下一级还有目录 那么继续创建下一级的结构
+        if (item.children && item.children.length > 0) {
+          createTreeDom(item.children, childNode);
+          childNode.className = 'next';
+        }
+        // 给每个子集节点添加点击事件 点击的时候可以展开/隐藏
+        childNode.onclick = function (e) {
+          e.stopPropagation();
+
+          if (this.classList.contains('show')) {
+            this.classList.remove('show');
+          } else {
+            this.classList.add('show');
+          }
+
+        }
+      })
+      return parentNode;
+    }
+
+    var treeDom = createTreeDom(data);
+    demo.appendChild(treeDom)
+  </script>
+</body>
+
+</html>

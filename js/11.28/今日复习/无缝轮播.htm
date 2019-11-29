@@ -160,17 +160,19 @@
             }
         }
         rightBtn.onclick = function () {
+
+            nowIndex++;
             if (nowIndex == 5) {
                 nowIndex = 0;
             }
-            nowIndex++;
             changeImg(nowIndex);
         }
         leftBtn.onclick = function () {
-            if (nowIndex == 0) {
-                nowIndex = 5;
-            }
             nowIndex--;
+            if (nowIndex == 0) {
+                nowIndex = 4;
+            }
+
             changeImg(nowIndex);
         }
         run();
