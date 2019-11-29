@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        /* * {
+            padding: 0;
+            margin: 0;
+        } */
+
+        li {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,6 +24,22 @@
     <script>
         var oUl = document.getElementsByTagName("ul")[0];
         var button = document.getElementsByTagName("button")[0];
+        var index = 0;
+        button.onclick = function () {
+            index++;
+            var list = document.createElement("li");
+            list.innerText = index;
+            oUl.appendChild(list);
+        }
+        var lis = document.getElementsByTagName("li");
+        oUl.onclick = function (e) {
+            // console.log(e.target);
+            // console.log(e.currentTarget);
+            if (e.target.nodeName == 'LI') {
+                console.log(e.target.innerText);
+            }
+
+        }
     </script>
 </body>
 
