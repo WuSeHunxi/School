@@ -22,13 +22,15 @@
     <ul>
         <li>1</li>
         <li>2</li>
-        <li>3</li>
+        <li class="a">3</li>
         <li>4</li>
     </ul>
     <script src="./js/jquery-1.12.4.js"></script>
     <script>
         // eq-->获取第几个
-        $("li:eq(2)").css("color", 'red');
+        // $("li:eq(2)").css("color", 'red');
+        // $("li:gt(2)").css("color", "red");
+        $("li:not(.a)").css("color", "red");
         console.log($("#box"));
         console.log($(".div1"));
         console.log($("#box,.div1")); //-->分组选择器
