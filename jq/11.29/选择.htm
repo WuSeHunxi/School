@@ -34,9 +34,33 @@
         // 反选
         $("#reverse").on("click", function () {
             var allCheckbox = $(":checkbox");
-            for (var i = 0; i < allCheckbox.length; i++) {
-                
-            }
+            // for (var i = 0; i < allCheckbox.length; i++) {
+
+            // }
+            /**
+             * 利用for循环实现反选
+             */
+            allCheckbox.each(function (index, item) {
+                // 获取当前对象的checked的值
+
+                //------>方法一
+                // if ($(item).prop("checked")) {
+                //     $(item).prop("checked", false);
+                // } else {
+                //     $(item).prop("checked", true);
+                // }
+
+                //------>方法二
+                // console.log(item);
+                // item.checked = !item.checked;
+
+                //------->方法三
+                //将每一个状态保存起来，然后分别操作
+                var aChecked = $("[type='checkbox']:checked");
+                var unChecked = $("[type='checkbox']:not(:checked");
+                aChecked.prop("checked", false);
+                unChecked.prop("checked", true);
+            })
         })
     </script>
 </body>
