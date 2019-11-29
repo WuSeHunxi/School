@@ -6,12 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+
+    </style>
 </head>
 
 <body>
+    <div id="box">
+        <div class="div2">
+            <div class="div3">hello</div>
+        </div>
+    </div>
+    <div class="div1">a</div>
+    <div>b</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
     <script src="./js/jquery-1.12.4.js"></script>
     <script>
-
+        // eq-->获取第几个
+        $("li:eq(2)").css("color", 'red');
+        console.log($("#box"));
+        console.log($(".div1"));
+        console.log($("#box,.div1")); //-->分组选择器
+        console.log($("#box>.div2")); //-->亲子代
+        console.log($("#box .div3")); //-->后代
+        console.log($("#box+.div1"));
     </script>
 </body>
 
