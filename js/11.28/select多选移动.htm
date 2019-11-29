@@ -73,11 +73,36 @@
             select1.appendChild(thisOption);
         }
         add.onclick = function () {
+            var temArr = [];
             for (var i = 0; i < select1.options.length; i++) {
                 if (select1.options[i].selected) {
-
+                    temArr.push(select1.options[i]);
+                    // 下面注释的那一行会出现问题（边循环边操作就会造成一定的bug）
+                    // 最好将选中的项先保存起来然后逐一操作
+                    // select2.appendChild(select2);
                 }
             }
+            for (var i = 0; i < temArr.length; i++) {
+                select2.appendChild(temArr[i]);
+            }
+        }
+        remove.onclick = function () {
+            var temArr = [];
+            for (var i = 0; i < select2.options.length; i++) {
+                if (select2.options[i].selected) {
+                    temArr.push(select2.options[i]);
+                    // 下面注释的那一行会出现问题（边循环边操作就会造成一定的bug） 
+                    // 最好将选中的项先保存起来然后逐一操作 //
+                    // select2.appendChild(select2);
+                }
+            }
+            for (var i = 0; i < temArr.length; i++) {
+                select2.appendChild(temArr[i]);
+            }
+        }
+        addAll.onclick=function(){
+            var thisHtml=select1.innerHTML;
+            
         }
     </script>
 </body>
