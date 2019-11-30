@@ -19,7 +19,11 @@
     <script>
         var oLis = document.getElementsByTagName("li");
         for (var i = 0; i < oLis.length; i++) {
-            
+            oLis[i].index = i;
+            oLis[i].onclick = function () {
+                console.log(this.index + 1);
+            }
+
         }
     </script>
 </body>
