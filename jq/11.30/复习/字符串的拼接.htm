@@ -12,26 +12,26 @@
     <script>
         // 字符串交叉的拼接
         var str1 = "abc";
-        var str2 = "bcg";
+        var str2 = "bdefwecg";
+        var str = '';
 
         function mixUp(str1, str2) {
             if (str1.length == str2.length) {
                 for (var i = 0; i < str2.length; i++) {
-                    str2[i] += str1[i];
-                    console.log(str1[i], str2[i]);
+                    str += str1[i] + str2[i];
                 }
-                console.log(str2);
-                // } else {
-                //     var len = str1.length > str2.length ? str2.length : str1.length;
-                //     var max = str1.length > str2.length ? str1.length : str2.length;
-                //     for (var i = 0; i < len; i++) {
-                //         str2[i] += str1[i];
-                //     }
-                //     for (var i = len; i < max - length - 1; i++) {
-                //         str2 += str1[i];
-                //     }
+                console.log(str);
+            } else {
+                var len = str1.length > str2.length ? str2.length : str1.length;
+                var max = str1.length > str2.length ? str1.length : str2.length;
+                for (var i = 0; i < len; i++) {
+                    str += str1[i] + str2[i];
+                }
+                for (var i = len; i < max - length - 1; i++) {
+                    str += str2[i];
+                }
             }
-            // return str2;
+            return str;
         }
         var res = mixUp(str1, str2);
         console.log(res);
