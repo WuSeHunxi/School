@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3
+            <ul>
+                <li>a</li>
+                <li>b</li>
+            </ul>
+        </li>
+        <li>item 4</li>
+    </ul>
+    <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script>
+        $("li").eq(2).css("color", "red");
+
+        //filter()-->筛选
+        // $("li").filter(':even').css("background", "red");
+
+        $("li").has("ul").css("color", "yellow");
+    </script>
+</body>
+
+</html>
