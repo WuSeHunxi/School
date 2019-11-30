@@ -23,18 +23,18 @@
          * 
          */
         // $("div").prepend($(".hello"));
-        $(".hello").prependTo("div");
+        // $(".hello").prependTo("div");
 
 
         /**
          * 
          * 往当前元素的外部插入
          * 
-         * after() insertAfter()
+         * after() insertAfter()-->父元素和子元素调换一下位置
          * 
          */
         // 在每一个p标签后面添加一个"<div>abc</div>"
-        $("<div>abc</div>").insertAfter($("p"));
+        $("<div>abc</div>").insertAfter($(".hello")); //此时进行的操作元素是前面的那个
     </script>
 </body>
 
