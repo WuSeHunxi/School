@@ -11,22 +11,40 @@
 <body>
     <script>
         /**
-         * 拷贝：通常指的就是浅拷贝-->即：一方修改我也跟着修改
+         * 拷贝：通常指的就是浅拷贝-->即：内层会一方修改我也跟着修改
          * */
 
         /**
-         * 深拷贝：指的是将内容全部复制，且不会出现一方修改我也跟着修改的情况
+         * 深拷贝：指的是将内容全部复制，且内层不会出现一方修改我也跟着修改的情况
          * 
          */
 
         // 错误的拷贝
         var arr = [1, 2, 3, [4, 5, 6], 4];
-        var arr1 = [];
-        for (var i = 0; i < arr.length; i++) {
-            arr1[i] = arr[i];
+
+        // for (var i = 0; i < arr.length; i++) {
+        //     arr1[i] = arr[i];
+        // }
+        // // 修改内层
+        // arr[3][0] = 9;
+        // console.log(arr1);
+
+
+        // 修改深拷贝
+        function deepCopy(arr) {
+            var arr1 = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (typeof arr[i] == 'object') {
+                    arr1[i] = deepCopy(arr[i]);
+                } else {
+                    arr1[i] = arr[i];
+                }
+            }
+            return arr1;
         }
-        arr[4] = 9;
-        console.log(arr1);
+        arr2 = deepCopy(arr);
+        arr[3][2] = 1;
+        console.log(arr2);
     </script>
 </body>
 
