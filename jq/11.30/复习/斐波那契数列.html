@@ -23,12 +23,14 @@
 
         // 非递归的斐波那契数列
         function num(n) {
-            var f1=1;
-            var f2=1;
-            var f3=f1+f2;
-            for(var i=0;i<;i++){
-                
+            var f1 = 1;
+            var f2 = 1;
+            for (var i = 0; i < n; i++) {
+                var f3 = f1 + f2;
+                f1 = f2;
+                f2 = f3;
             }
+            console.log(f3);
         }
         num(3);
     </script>
