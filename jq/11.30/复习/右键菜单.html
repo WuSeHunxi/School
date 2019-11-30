@@ -54,7 +54,8 @@
             oUl.style.display = 'block';
             oUl.style.left = e.clientX + "px";
             oUl.style.top = e.clientY + "px";
-            return false;
+            return false; //清除浏览器的默认事件
+            //e.preventDefault()-->清除浏览器的默认事件
         }
     </script>
 </body>
