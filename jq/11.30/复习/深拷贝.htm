@@ -11,7 +11,7 @@
 <body>
     <script>
         /**
-         * 拷贝：通常指的就是浅拷贝-->即：只复制了第一层的拷贝
+         * 拷贝：通常指的就是浅拷贝-->即：一方修改我也跟着修改
          * */
 
         /**
@@ -25,6 +25,7 @@
         for (var i = 0; i < arr.length; i++) {
             arr1[i] = arr[i];
         }
+        arr[4] = 9;
         console.log(arr1);
     </script>
 </body>
