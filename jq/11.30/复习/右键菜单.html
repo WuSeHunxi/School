@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            position: absolute;
+            border: 1px solid #000;
+            width: 150px;
+            height: 130px;
+            box-sizing: border-box;
+            display: none;
+            overflow: hidden;
+        }
+
+        li {
+            width: 100%;
+            height: 25px;
+            border-bottom: 1px solid #000;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        li:nth-child(5) {
+            border-bottom: 1px solid #000;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <ul>
+        <li>复制</li>
+        <li>添加</li>
+        <li>删除</li>
+        <li>选择</li>
+        <li>粘贴</li>
+    </ul>
+    <script>
+        var oUl = document.getElementsByTagName("ul")[0];
+        document.oncontextmenu = function (e) {
+            oUl.style.display = 'block';
+            oUl.style.left = e.clientX + "px";
+            oUl.style.top = e.clientY + "px";
+            return false;
+        }
+    </script>
 </body>
+
 </html>
