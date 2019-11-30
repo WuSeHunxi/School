@@ -16,10 +16,18 @@
 
 <body>
     <div></div>
+    <button>点击 </button>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
+        //scroll-->滚动事件
+        $(window).on("scroll", function () {
+            // 获取scrollTop的值
+            console.log($(this).scrollTop());
+        })
 
-
+        $("button").on("click", function () {
+            $(window).scrollTop(0);
+        });
     </script>
 </body>
 
