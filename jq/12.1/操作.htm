@@ -12,12 +12,19 @@
     <div id="div1">
         <p>1</p>
         <span>2</span>
-        <div>3</div>
+        <div class="div2">3</div>
     </div>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
         //清空div1中的所有内容
-        $("#div1").empty();
+        // $("#div1").empty();
+
+        //remove()-->移除
+        $("p").remove();
+        $("div").remove(".div2");
+        //unwrap()-->删除外部的元素
+        //detach()-->删除（和remove()的方法是一样的），但是不同的是detach可以返回删除的dom元素
+        
     </script>
 </body>
 
