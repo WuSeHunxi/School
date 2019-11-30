@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div class="div1">hello</div>
+    <p>world</p>
+    <script src="..//11.29/js/jquery-1.12.4.js"></script>
+    <script>
+        // appendChild的插入是将其移离原来的位置，插入到新的位置上
+        // 克隆一个p标签，然后将其插入到div中
+        var $cloneP = $("p").clone();
+        $(".div1").append($cloneP);
+
+        //wrap(xxx)-->给每一个匹配的元素都加上一个括号内的参数
+        //wrapAll(xxx)-->只包裹一个
+        //XXX.wrapInner(xxx)-->将xxx放在XXX的里面
+    </script>
 </body>
+
 </html>

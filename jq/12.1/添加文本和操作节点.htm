@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>world</p>
+    </div>
+    <p class="hello">hello</p>
+    <script src="..//11.29/js/jquery-1.12.4.js"></script>
+    <script>
+        // $("div").html("vbnjdc");
+        /**
+         * 往当前元素的内部插入
+         * prepend()-->父元素.
+         * prependTo()-->子元素.
+         * 
+         */
+        // $("div").prepend($(".hello"));
+        $(".hello").prependTo("div");
+
+
+        /**
+         * 
+         * 往当前元素的外部插入
+         * 
+         * after() insertAfter()
+         * 
+         */
+        // 在每一个p标签后面添加一个"<div>abc</div>"
+        $("<div>abc</div>").insertAfter($("p"));
+    </script>
+</body>
+
+</html>
