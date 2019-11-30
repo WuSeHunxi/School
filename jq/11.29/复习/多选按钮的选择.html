@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <input type="checkbox" name="hobby">篮球
+        <input type="checkbox" name="hobby">排球
+        <input type="checkbox" name="hobby">霹雳求
+        <input type="checkbox" name="hobby">哈哈球
+    </div>
+    <button class="checkok">全部选中</button>
+    <button class="cancel">全部取消</button>
+    <button class="reserve">反选</button>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(".checkok").on("click", function () {
+            $(":checkbox").prop("checked", true);
+        });
+        $(".cancel").on("click", function () {
+            $(":checkbox").prop("checked", false);
+        });
+        $(".reserve").on("click", function () {
+            $(":checkbox").each(function (index, item) {
+                // item.checked = !item.checked;
+                if ($(item).prop("checked")) {
+                    $(item).prop("checked", false);
+                } else {
+                    $(item).prop("checked", true);
+                }
+
+            });
+        });
+    </script>
+</body>
+
+</html>

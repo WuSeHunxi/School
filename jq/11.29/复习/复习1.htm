@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="div">hello</div>
+    <div></div>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        // 选择器
+        $("div:contains('hello')").css("color", "red");
+        $("div:empty").css({
+            width: "100px",
+            height: "100px",
+            background: "#ff0"
+        });
+    </script>
+</body>
+
+</html>

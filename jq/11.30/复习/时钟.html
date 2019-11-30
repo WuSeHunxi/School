@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .div1 .div2 {
+            position: absolute;
+            width: 4px;
+            height: 10px;
+            background-color: #000;
+            transform: translateX(100px);
+        }
+
+        .div1 .div2:nth-child(1) {
+            transform: translateX(100px) rotateZ(6deg);
+            transform-origin: 2px 100px;
+        }
+
+        .div1 .div2:nth-child(2) {
+            transform: translateX(100px) rotateZ(12deg);
+            transform-origin: 2px 100px;
+        }
+
+        .div1 .div2:nth-child(3) {
+            transform: translateX(100px) rotateZ(18deg);
+            transform-origin: 2px 100px;
+        }
+
+        .div1 .div2:nth-child(4) {
+            transform: translateX(100px) rotateZ(24deg);
+            /*旋转原点是该元素的(0,0)与规定的地方的距离*/
+            transform-origin: 2px 100px;
+        }
+
+        .div1 .hour {
+            width: 4px;
+            height: 20px;
+            position: absolute;
+            background-color: #000;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-2px) translateY(-20px) rotateZ(80deg);
+            transform-origin: 2px 20px;
+        }
+
+        .div1 .minute {
+            width: 2px;
+            height: 30px;
+            background-color: #000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-1px) translateY(-30px) rotateZ(30deg);
+            transform-origin: 2px 30px;
+        }
+
+        .div1 .secode {
+            position: absolute;
+            background-color: #000;
+            height: 50px;
+            width: 2px;
+            left: 50%;
+            top: 50%;
+            transform-origin: 1px 50px;
+            transform: translateX(-1px) translateY(-50px) rotateZ(10deg);
+            animation: run 1s linear infinite;
+
+        }
+
+        @keyframes run {
+            0% {
+                transform: translateX(-1px) translateY(-50px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(-1px) translateY(-50px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="secode"></div>
+    </div>
+</body>
+
+</html>
