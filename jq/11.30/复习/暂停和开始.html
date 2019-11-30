@@ -58,16 +58,24 @@
         btn.onclick = function () {
             if (flag) {
                 flag = false;
-                if (btn.innerText == '开始') {
-                    time = setInterval(function () {
-                        if (value == 0 || btn.innerText == '暂停') {
-                            clearInterval(time);
-                            flag = true;
-                        }
-                    }, 1000);
-                }
+                btn.innerText = '暂停';
+                time = setInterval(function () {
+                    if (value == 0 || btn.innerText == '暂停') {
+                        clearInterval(time);
+                        flag = true;
+                    }
+                }, 1000);
             }
-            
+            if (btn.innerText == '暂停') {
+                btn.innerText = '开始';
+                time = setInterval(function () {
+                    if (value == 0 || btn.innerText == '暂停') {
+                        clearInterval(time);
+                        flag = true;
+                    }
+                }, 1000);
+            }
+
         }
     </script>
 </body>
