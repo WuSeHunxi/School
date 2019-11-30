@@ -20,6 +20,10 @@
         </li>
         <li>item 4</li>
     </ul>
+    <div id="div1">
+        <p>a</p>
+        <span>b</span>
+    </div>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
         $("li").eq(2).css("color", "red");
@@ -27,7 +31,17 @@
         //filter()-->筛选
         // $("li").filter(':even').css("background", "red");
 
+        // has()-->操作有的
         $("li").has("ul").css("color", "yellow");
+
+
+        // is()-->操作是的
+        $("#div1").on("click", function (e) {
+            console.log(e.target); //-->利用事件委托
+            if ($(e.target).is("span")) {
+                console.log("yes");
+            }
+        })
     </script>
 </body>
 
