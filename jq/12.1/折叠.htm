@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border: 0;
+
+        }
+
+        td {
+            font: normal 12px/17px;
+            padding: 2px;
+            width: 100px;
+        }
+
+        th {
+            font: bold 12px/17px;
+            text-align: left;
+            padding: 4px;
+        }
+
+        .parent {
+            background-color: #ffe;
+            cursor: pointer;
+        }
+
+        .odd {
+            background-color: #ffe;
+        }
+
+        .selected {
+            background-color: #ff6500;
+            color: #fff;
+        }
+
+        .is-show {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>暂住地</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="parent" id="row_01" colspan="3">
+                <td>前台设计组</td>
+            </tr>
+            <tr class="child_row_01">
+                <td>张三</td>
+                <td>男</td>
+                <td>浙江</td>
+            </tr>
+            <tr class="child_row_01">
+                <td>李四</td>
+                <td>女</td>
+                <td>浙江</td>
+            </tr>
+            <tr class="parent" id="row_02" colspan="3">
+                <td>前端开发组</td>
+            </tr>
+            <tr class="child_row_02">
+                <td>王五</td>
+                <td>男</td>
+                <td>湖南</td>
+            </tr>
+            <tr class="child_row_02">
+                <td>好刘</td>
+                <td>男</td>
+                <td>浙江</td>
+            </tr>
+            <tr class="parent" id="row_03" colspan="3">
+                <td>后台开发组</td>
+
+            </tr>
+            <tr class="child_row_03">
+                <td>Rain</td>
+                <td>男</td>
+                <td>浙江</td>
+            </tr>
+            <tr class="child_row_03">
+                <td>MAXMAN</td>
+                <td>女</td>
+                <td>合江</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

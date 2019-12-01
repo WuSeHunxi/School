@@ -15,7 +15,7 @@
         <li class="aa">3
             <ul id="ul2">
                 <li>a</li>
-                <li class="aabb">b</li>
+                <li class="aabb">mmm</li>
                 <li>c</li>
                 <li>d
                     <!-- <ul class="aabb">
@@ -49,6 +49,9 @@
         closest()-->逐层遍历，返回最先匹配的祖先元素
         */
         console.log($(".aabb").closest("ul"));
+
+        // 4,5,6,7,8,9都变成红色的 addClass()把当前元素加入到当前被选中的元素集合内
+        console.log($(".bb").nextAll().addBack().css("color", "red"));
     </script>
 </body>
 
