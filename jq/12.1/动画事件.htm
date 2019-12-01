@@ -27,6 +27,7 @@
     <button id="fadein">fadein</button>
     <button id="fadeout">fadeout</button>
     <button id="fadeto">fadeto</button>
+    <button id="animate">animate</button>
     <div id="div1"></div>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
@@ -48,6 +49,16 @@
         $("fadeto").on("click", function () {
             // 渐变的事件   渐变到的值
             $("#div1").fadeTo('slow', 0.5);
+        });
+        $("#animate").on("click", function () {
+            //自定义动画-->至少传三个参数
+            $("#div1").animate({
+                width: '400px',
+                height: '200px',
+                opcity: "0.5"
+            }, 1000, 'easeInOutElastic', function () {
+                console.log("done");
+            });
         });
     </script>
 </body>
