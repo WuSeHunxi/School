@@ -14,25 +14,20 @@
 
         div {
             width: 300px;
-            height: 300px;
+            height: 200px;
             background-color: #f0f;
         }
     </style>
 </head>
 
 <body>
-    <button class="btn">开始</button>
-    <div></div>
+    <div>
+        <input type="text" name="text" id="text">
+    </div>
     <script src="/jq/11.29/js/jquery-1.12.4.js"></script>
-    <script src="/jq/11.29/js/jquery.easing.js"></script>
     <script>
-        $(".btn").on("click", function () {
-            $("div").animate({
-                width: "500px",
-                height: "400px"
-            }, 1000, 'easeInOutElastic', function () {
-                console.log("ending");
-            });
+        $("div").on("click",function(){
+            
         });
     </script>
 </body>
