@@ -9,21 +9,52 @@
 </head>
 
 <body>
+    <div id="div1">div1
+        <div class="div2">div2</div>
+    </div>
+    <button id="btn">btn</button>
+    <!-- <button>btn</button> -->
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
+        $("#div1").on("click", function () {
+            console.lof("div1");
+        });
+
+        $("#div2").on("click", function () {
+            console.log("div2");
+        });
+        // 点击按钮，触发div1的事件
+        $("#btn").on("click", function () {
+            // trigger()-->可以触发选中的事件
+            // $("#div1").trigger("click"); //-->div1
+
+            /**
+             triggerHandler()-->不会触发原事件的事件冒泡，也不会触发原生事件（表单提交的时的submit）
+            */
+            $("#div1").triggerHandler("click"); //
+        });
+        // function foo() {
+        //     console.log("p");
+        // }
+        // //加绑
+        // $("btn").on("click", foo)
+        // //解绑
+        // $("btn").off("click", foo)
+
+
         /**
          resize()-->获取当前窗口的缩放事件
         */
-        window.on("resize", function () {
-            console.log("resize");
-        });
+        // window.on("resize", function () {
+        //     console.log("resize");
+        // });
 
         /**
          ready()-->文档加载完方可执行，它先于document.onload事件
         */
-        $(document).ready(function () {
+        // $(document).ready(function () {
 
-        });
+        // });
     </script>
 </body>
 
