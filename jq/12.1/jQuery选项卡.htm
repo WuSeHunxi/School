@@ -42,7 +42,11 @@
     </div>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
-        
+        $(".nav-ul li").on("mouseover", function () {
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".content ul").eq($(this).index()).addClass("active").siblings().removeClass("active");
+
+        });
     </script>
 </body>
 
