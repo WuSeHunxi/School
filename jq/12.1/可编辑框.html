@@ -75,15 +75,24 @@
                 newInp.val(thisVal);
                 $(this).text("");
                 $(this).append(newInp);
-                newInp.focus();
+                newInp.focus(); // 获取焦点
             }
         });
-        // 失去焦点-->利用事件冒泡（事件委托）
+
+        /**
+          focusout()：失去焦点事件，能够冒泡，因此如果绑在input上面的话，事件最后也会冒到.editbale上面，所以可以直接
+          把事件绑在.editbale上
+        */
+
+        // 失去焦点（回到不可编辑的状态）-->利用事件冒泡（事件委托）
         $(".editbale").focusout(function () {
+            // 在.editbale的子集中一层一层的寻找
             var inpVal = $(this).find("input").val();
             $(this).html("");
             $(this).text(inpVal);
         });
+
+        // 键盘按下和失去焦点的处理相同
         $(".editbale").on("keydown", function (e) {
             if (e.which == 13) {
                 $(this).trigger("focusout");
