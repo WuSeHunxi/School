@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+
+            margin: 0;
+        }
+
+        table {
+            border: 1px solid #000;
+            width: 300px;
+            height: 250px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        thead th {
+            height: 50px;
+            border: 1px solid #000;
+        }
+
+
+        td {
+            border: 1px solid #000;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="editbale">张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="editbale">李四</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="editbale">王五</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="editbale">赵六</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script>
+        $(".editbale").on("click", function () {
+            var thisVal = $(this).text();
+            // 要判断.editbale下是否有子元素，有的话就执行，没有就不执行
+            // 下面这段只有在有子孩子的时候点击才会好使
+            if ($(this).children().length == 0) {
+                //创建一个input
+                var newInp = $("<input type='text' />");
+                newInp.val(thisVal);
+                $(this).text("");
+                $(this).append(newInp);
+                newInp.focus();
+            }
+        });
+        // 失去焦点-->利用事件冒泡
+        $(".editbale").focusout(function () {
+            var inpVal = $(this).find("input").val();
+            $(this).html("");
+            $(this).text(inpVal);
+        });
+        $(".editbale").on("keydown", function (e) {
+            if (e.which == 13) {
+                $(this).trigger("focusout");
+            }
+        });
+    </script>
+</body>
+
+</html>
