@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script>
+        /**
+         resize()-->获取当前窗口的缩放事件
+        */
+        window.on("resize", function () {
+            console.log("resize");
+        });
+
+        /**
+         ready()-->文档加载完方可执行，它先于document.onload事件
+        */
+        $(document).ready(function () {
+
+        });
+    </script>
 </body>
+
 </html>
