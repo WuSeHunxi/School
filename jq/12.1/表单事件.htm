@@ -15,9 +15,16 @@
         <option value="2">2</option>
         <option value="3">3</option>
     </select>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
+        // 当选择的内容发生改变时触发该事件
         $("#sel").change(function () {
+            console.log(this.value);
+        });
+
+        //在文本内复制的时候会触发
+        $("textarea").select(function () {
             console.log(this.value);
         });
     </script>

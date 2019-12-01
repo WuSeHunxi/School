@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script>
+        $("input").on("keydown", function (e) {
+            console.log(e.which);
+            if (e.which == 13) {
+                console.log($(this).val);
+            }
+        });
+        /**
+         keydown()-->键盘按下触发的事件
+         keypress()-->keydown()+keyup()
+         键盘码：e.which
+        */
+        /**
+         focusin()-->鼠标聚焦事件
+         focusout()-->鼠标失去焦点事件
+         这两个方法任何一个jq对象都可以绑定，而且是冒泡的
+        */
+
+        /**
+         onmouseover()-->
+         onmouseout()-->
+         hover()-->可以绑定两个事件（移入和移出）
+        */
+    </script>
+</body>
+
+</html>
