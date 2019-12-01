@@ -30,6 +30,7 @@
     <button id="animate">animate</button>
     <div id="div1"></div>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script src="../11.29/js/jquery.easing.js"></script>
     <script>
         $("#show").on("click", function () {
             $("#div1").show(1000);
@@ -55,8 +56,9 @@
             $("#div1").animate({
                 width: '400px',
                 height: '200px',
-                opcity: "0.5"
+                opcity: '0.5'
             }, 1000, 'easeInOutElastic', function () {
+                //第三个参数需要引入jQuery.easing.js
                 console.log("done");
             });
         });
