@@ -9,7 +9,7 @@
     <style>
         table {
             border: 0;
-
+            border: 1px solid #ccc;
         }
 
         td {
@@ -98,7 +98,12 @@
     </table>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
-
+        $(".parent").on("click", function () {
+            // $(this).toggleClass("selected");
+            // $(this).siblings(".child_" + this.id).toggleClass("is-show");
+            // nextUtil()-->从谁开始找到谁结束
+            $(this).toggleClass("selected").nextUntil(".parent").toggleClass("is-show");
+        });
     </script>
 </body>
 
