@@ -60,13 +60,25 @@
     </table>
     <script src="/jq/11.29/js/jquery-1.12.4.js"></script>
     <script>
-        $(".editbale").on('click', function () {
+        var newInp = $('<input type="text" />');
+        $(".editable").on('click', function () {
             var $thisVal = $(this).text();
             if ($(this).children().length == 0) {
                 $(this).text('');
-                var newInp = $('<input type="text" />');
+
                 newInp.val($thisVal);
                 $(this).append(newInp);
+                newInp.focus();
+            }
+        });
+        $(".editable").focusout(function () {
+            var $thisVal = $(this).find("input").val();
+            $(this).html("");
+            $(this).text($thisVal);
+        });
+        $(".editable").on("keydown", function (e) {
+            if (e.which == 13) {
+                $(this).trigger("focusout");
             }
         });
     </script>
