@@ -35,7 +35,7 @@
             <ul>
                 <li>哈哈哈</li>
                 <li>哈哈哈</li>
-                <li>哈哈哈</li>
+                 <li>哈哈哈</li>
                 <li>第三页</li>
             </ul>
         </div>
@@ -43,9 +43,9 @@
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
         $(".nav-ul li").on("mouseover", function () {
-            $(this).addClass("active").siblings().removeClass("active");
-            $(".content ul").eq($(this).index()).addClass("active").siblings().removeClass("active");
-
+            // $(this).addClass("active").siblings().removeClass("active");
+            // $(".content ul").eq($(this).index()).addClass("active").siblings().removeClass("active");
+            $(this).add(".content ul").addClass("active").siblings().removeClass("active");
         });
     </script>
 </body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="aa">3
+            <ul id="ul2">
+                <li>a</li>
+                <li class="aabb">b</li>
+                <li>c</li>
+                <li>d
+                    <!-- <ul class="aabb">
+                        <li>1</li>
+                        <li>2</li>
+                    </ul> -->
+                </li>
+            </ul>
+        </li>
+        <li class="bb">4</li>
+        <li class="cc">5</li>
+        <li class="cc">6</li>
+        <li class="cc">7</li>
+        <li class="dd">8</li>
+        <li class="ee">9</li>
+    </ul>
+    <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script>
+        // 父元素
+        console.log($(".aa").parent());
+        console.log($(".aa").parentsUntil("#box"));
+
+        /**
+        children()-->只返回亲子代
+        find()-->一直遍历，直到遍历结束，然后返回所有的
+        */
+        // console.log($("#ul").children(".aabb"));
+        console.log($("#ul2").find(".aabb"));
+
+        /**
+        closest()-->逐层遍历，返回最先匹配的祖先元素
+        */
+        console.log($(".aabb").closest("ul"));
+    </script>
+</body>
+
+</html>
