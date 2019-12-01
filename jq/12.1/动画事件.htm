@@ -23,6 +23,10 @@
 <body>
     <button id="show">show</button>
     <button id="hidden">hidden</button>
+    <button id="toggle">toggle</button>
+    <button id="fadein">fadein</button>
+    <button id="fadeout">fadeout</button>
+    <button id="fadeto">fadeto</button>
     <div id="div1"></div>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
@@ -31,6 +35,19 @@
         });
         $("#hidden").on("click", function () {
             $("#div1").hide(1000);
+        });
+        $("#toggle").on("click", function () {
+            $("#div1").toggle(1000);
+        });
+        $("#fadein").on("click", function () {
+            $("#div1").fadeIn(1000);
+        });
+        $("#fadeout").on("click", function () {
+            $("#div1").fadeOut(1000);
+        });
+        $("fadeto").on("click", function () {
+            // 渐变的事件   渐变到的值
+            $("#div1").fadeTo('slow', 0.5);
         });
     </script>
 </body>
