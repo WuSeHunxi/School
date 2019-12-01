@@ -6,12 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #div1 {
+            width: 300px;
+            height: 300px;
+            background-color: #f0f;
+        }
+    </style>
 </head>
 
 <body>
+    <button id="show">show</button>
+    <button id="hidden">hidden</button>
+    <div id="div1"></div>
     <script src="../11.29/js/jquery-1.12.4.js"></script>
     <script>
-
+        $("#show").on("click", function () {
+            $("#div1").show(1000);
+        });
+        $("#hidden").on("click", function () {
+            $("#div1").hide(1000);
+        });
     </script>
 </body>
 
