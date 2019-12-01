@@ -10,14 +10,18 @@
 
 <body>
     <ul>
-        <li class="div"></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li class="div">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
     </ul>
+    <p>hahah</p>
     <script src="/jq/11.29/js/jquery-1.12.4.js"></script>
     <script>
         console.log($("ul").find("div"));
+        var cloneDom = $("p").clone();
+        console.log(cloneDom);
+        $(".div").append(cloneDom);
     </script>
 </body>
 
