@@ -78,7 +78,7 @@
                 newInp.focus();
             }
         });
-        // 失去焦点-->利用事件冒泡
+        // 失去焦点-->利用事件冒泡（事件委托）
         $(".editbale").focusout(function () {
             var inpVal = $(this).find("input").val();
             $(this).html("");
