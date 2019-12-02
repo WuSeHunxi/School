@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+            apply()-->只有两个个参数
+            call()-->有多个参数
+            bind()-->不会立即执行，需要调用
+        */
+
+        var name = "papap";
+
+        function foo() {
+            console.log(name);
+        }
+        var obj = {
+            name: "kakak",
+            f: function () {
+                console.log(this.name);
+            }
+        }
+        foo();
+        foo.call(obj);
+        foo.apply(obj);
+        var f = foo.bind(obj);
+        f();
+    </script>
+</body>
+
+</html>
