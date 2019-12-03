@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 1200px;
+            height: 400px;
+            margin: 100px auto;
+        }
+
+        li {
+            width: 240px;
+            height: 400px;
+            float: left;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        li:nth-child(1) {
+            background-image: url("images/1.jpg");
+        }
+
+        li:nth-child(2) {
+            background-image: url("images/2.jpg");
+        }
+
+        li:nth-child(3) {
+            background-image: url("images/3.jpg");
+        }
+
+        li:nth-child(4) {
+            background-image: url("images/4.jpg");
+        }
+
+        li:nth-child(5) {
+            background-image: url("images/5.jpg");
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script src="/jq/12.3/js/jquery-1.12.4.js"></script>
+    <script>
+        $("li").on("mouseover", function () {
+            $(this).stop().animate({
+                width: "1200px"
+            }).siblings().stop().animate({
+                width: "0px"
+            })
+        });
+        $("li").on("mouseout", function () {
+            $("li").stop().animate({
+                width: $("ul").width() / 5 + "px"
+            })
+        })
+    </script>
+</body>
+
+</html>
