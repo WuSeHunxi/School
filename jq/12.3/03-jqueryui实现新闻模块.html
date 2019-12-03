@@ -81,18 +81,19 @@
     </div>
   </div>
 
-  <script src="jquery-1.12.4.js"></script>
+  <script src="/jq/12.3/js/jquery-1.12.4.js"></script>
   <script src="jquery-ui.js"></script>
 
 
   <script>
     $(function () {
 
+      //jQuery UI的内部插件
       $(".drag-wrapper").draggable({
         handle: ".drag-bar"
       });
 
-
+      //jQuery内部的插件
       $(".sort-item").sortable({
         opacity: 0.3
       });
