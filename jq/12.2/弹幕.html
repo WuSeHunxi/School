@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .idDom {
+            width: 100%;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.4);
+            position: relative;
+            left: 0;
+            bottom: 0;
+        }
+
+        .content {
+            /* width: 300px; */
+            height: 30px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -15px;
+        }
+
+        .content p {
+            display: inline-block;
+            color: #fff;
+            font-size: 26px;
+        }
+
+        /* .content p,
+        input,
+        button {
+            float: left;
+        } */
+
+        .content input {
+            width: 300px;
+            height: 30px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+        button{
+            background-color: red;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxDom" id="boxDom">
+        <div class="idDom" id="idDom">
+            <div class="content">
+                <p class="title">吐槽:</p>
+                <input type="text" class="text" id="text" />
+                <button type="button" class="btn" id="btn">发射</button>
+            </div>
+        </div>
+    </div>
+    <script src="../11.29/js/jquery-1.12.4.js"></script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>
