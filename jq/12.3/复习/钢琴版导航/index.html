@@ -77,6 +77,9 @@
                 top: "0px",
                 opacity: "0.4"
             }, 1000)
+            var index = $(this).index();
+            $("audio").get(index).load();
+            $("audio").get(index).play();
         });
         $("li").on("mouseout", function () {
             $("span").stop().animate({

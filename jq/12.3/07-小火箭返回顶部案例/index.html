@@ -61,19 +61,19 @@
         }
       });
 
-      function getScroll() {
-        return {
-          left: window.pageYOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
-          top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-        }
-      }
+      // function getScroll() {
+      //   return {
+      //     left: window.pageYOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+      //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+      //   }
+      // }
 
       //在外面注册
       $(".actGotop").click(function () {
         $("html,body").stop().animate({
           scrollTop: 0
         }, 3000);
-        scrollTop为0
+        //scrollTop为0
         $(window).scrollTop(0);
       })
 
