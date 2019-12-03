@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -13,21 +14,23 @@
       font-size: 30px;
       margin: 100px auto;
       display: none;
-      
+
     }
   </style>
 </head>
+
 <body>
-<div>这个一个提示消息</div>
+  <div>这个一个提示消息</div>
 
 
-<script src="jquery-1.12.4.js"></script>
-<script>
-  $(function () {
-    
-    $("div").fadeIn(1000).delay(2000).fadeOut(1000);
-    
-  });
-</script>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //delay() 延迟动画2秒
+      $("div").fadeIn(1000).delay(2000).fadeOut(1000);
+
+    });
+  </script>
 </body>
+
 </html>
