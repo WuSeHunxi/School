@@ -11,11 +11,11 @@
             width: 100px;
             height: 100px;
 
-            /* background-color: #f0f; */
+            background-color: #f0f;
         }
 
         /*只要是<1024可以设置任何属性的值*/
-        @media(max-width:1024px) {
+        @media(max-width:1024px) and (min-width:960px) {
             div {
                 background-color: #0f0;
             }
@@ -28,12 +28,13 @@
         }
 
         /*media：配置大小 横屏竖屏*/
+        /*横屏*/
         @media(orientation: landscape) {
             div {
                 background-color: pink;
             }
         }
-
+        /*竖屏*/
         @media(orientation: portrait) {
             div {
                 background-color: blue;
