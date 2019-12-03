@@ -6,11 +6,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 960px;
+        }
+
+        header,
+        nav,
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: #999;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .img-bar {
+            width: 100%;
+            /*如果想使用background-size的话必须也得使用background-position，二者使用/来分开*/
+            background: url("images/1.jpg") no-repeat center/cover;
+            padding-bottom: 56%;
+            /*270/480*/
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .info-bar {
+            margin: 10px 0;
+        }
+
+        .info-bar article {
+            position: relative;
+            height: 300px;
+            width: 65%;
+            float: left;
+            background-color: #00f;
+        }
+
+        .info-bar aside {
+            width: 30%;
+            float: right;
+            background-color: #f00;
+            position: relative;
+            height: 300px;
+        }
+
+        .info-bar p {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        /*等比缩放*/
+        @media (max-width:600px) {
+
+            .info-bar aside,
+            .info-bar article {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header></header>
-    <nav></nav>
+    <div class="container">
+        <header>页头</header>
+        <nav>导航</nav>
+        <div class="img-bar"></div>
+        <div class="info-bar clearfix">
+            <!-- 想让一段文字垂直居中的话，需要在当前标签中再加上一个标签，然后让该标签在原来的附集中垂直居中 -->
+            <article>
+                <p>;loikujyhgetrfedw ;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfeyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfdyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfw yhyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfh;loikujyhgetrfedw hhhjkioylktujyhtgrfedwsxcdfhiilp'k;polikujytbrvef
+                    ghmi7k86j5h6y4gt5rfec</p>
+            </article>
+            <aside>
+                <p>rehjuikmuyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrfyhgetrfedw h;loikujyhgetrfedw h;loikujyhgetrfedw
+                    h;loikujyhgetrftrvfcdxwderftghyuji rehjuikmuytrvfcdxwderftghyuji rehjuikmuytrvfcdxwderftghyuji
+                    rehjuikmuytrvfcdxwderftghyuji</p>
+            </aside>
+        </div>
+        <footer>页脚</footer>
+    </div>
 </body>
 
 </html>
