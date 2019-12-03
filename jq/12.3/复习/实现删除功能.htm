@@ -124,13 +124,14 @@
     <script src="../js/jquery-1.12.4.js"></script>
     <script>
         $(".clearAll").on("click", function () {
-
+            $("tbody").empty();
         });
         $(".addOne").on("click", function () {
-
+            $('<tr> <td>jQuery111</td> <td>传智播客-前端与移动开发学院111</td> <td><a href="javascrip:;" class="get">DELETE</a></td> </tr>')
+                .appendTo("tbody");
         });
         $("tbody a").on("click", function () {
-
+            $("tbody tr").eq($("a").index()).remove();
         })
     </script>
 </body>

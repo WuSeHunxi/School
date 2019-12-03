@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 900px;
+            height: 60px;
+            background-color: #000;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        li {
+            list-style: none;
+            width: 100px;
+            height: 60px;
+            color: #00f;
+            font-size: 24px;
+            float: left;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        span {
+            position: absolute;
+            top: 60px;
+            height: 100%;
+            width: 100px;
+            background-color: yellow;
+            margin-left: -81px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li>导航1<span></span></li>
+            <li>导航2<span></span></li>
+            <li>导航3<span></span></li>
+            <li>导航4<span></span></li>
+            <li>导航5<span></span></li>
+            <li>导航6<span></span></li>
+            <li>导航7<span></span></li>
+            <li>导航8<span></span></li>
+            <li>导航9<span></span></li>
+        </ul>
+        <div class="music">
+            <audio src="mp3/1.ogg"></audio>
+            <audio src="mp3/2.ogg"></audio>
+            <audio src="mp3/3.ogg"></audio>
+            <audio src="mp3/4.ogg"></audio>
+            <audio src="mp3/5.ogg"></audio>
+            <audio src="mp3/6.ogg"></audio>
+            <audio src="mp3/7.ogg"></audio>
+            <audio src="mp3/8.ogg"></audio>
+            <audio src="mp3/9.ogg"></audio>
+        </div>
+    </div>
+    <script src="/jq/12.3/js/jquery-1.12.4.js"></script>
+    <script>
+        $("li").on("mouseover", function () {
+            $("span").eq($(this).index()).stop().animate({
+                top: "0px",
+                opacity: "0.4"
+            }, 1000)
+        });
+        $("li").on("mouseout", function () {
+            $("span").stop().animate({
+                top: "60px",
+            }, 1000)
+        });
+        $(document).on("keydown", function (e) {
+            var code = e.keyCode;
+            if (code > 49 && code < 57) {
+                $("li").eq(code - 49).trigger("mouseover");
+            }
+        });
+        $(document).on("keyup", function (e) {
+            var code = e.keyCode;
+            if (code >= 49 && code <= 57) {
+                $("li").eq(code - 49).trigger("mouseout");
+            }
+        });
+    </script>
+</body>
+
+</html>
