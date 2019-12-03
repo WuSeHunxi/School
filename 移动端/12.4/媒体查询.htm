@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+
+            /* background-color: #f0f; */
+        }
+
+        /*只要是<1024可以设置任何属性的值*/
+        @media(max-width:1024px) {
+            div {
+                background-color: #0f0;
+            }
+        }
+
+        @media(min-width:1025px) {
+            div {
+                background-color: #0ff;
+            }
+        }
+
+        /*media：配置大小 横屏竖屏*/
+        @media(orientation: landscape) {
+            div {
+                background-color: pink;
+            }
+        }
+
+        @media(orientation: portrait) {
+            div {
+                background-color: blue;
+            }
+        }
+
+        @media (-webkit-device-pixel-radio:3) {
+            div {
+                background-color: green;
+            }
+        }
+
+        @media(-webkit-devide-pixel-redio:3) {
+            div {
+                background-color: #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
