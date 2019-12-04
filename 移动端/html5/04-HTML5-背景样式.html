@@ -16,7 +16,7 @@
             如果图片大于容器，那么默认就从容器左上角开始放置
             如果图片小于容器，那么图片默认会平铺*/
             /*background-image: url("../images/bg-img.jpg");*/
-            background-image: url("../images/share1.png");
+            background-image: url("./images/share1.png");
             /*3.设置背景平铺
             round:会将图片进行缩放之后再平铺
             space:图片不会缩放平铺，只是会在图片之间产生相同的间距值*/
@@ -29,6 +29,8 @@
             local:背景图片会跟随内容一起滚动
             scroll:背景图片不会跟随内容一起滚动*/
             background-attachment: scroll;
+            background-repeat: no-repeat;
+            /*因为背景图片小于容器，那么就会在左上角平铺在容器内*/
         }
     </style>
     </ead>
