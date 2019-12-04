@@ -12,15 +12,14 @@ $(function () {
         $.fn.fullpage.moveSectionDown();
     });
     $('#fullpage').fullpage({ // fullpage  方法里面接受json对象形式
-        // 是否显示项目导航
+        // 是否显示项目导航-->fullPage插件
         navigation: true,
-        // navigationPosition: "left",
-        // loopBottom: true,
+        // navigationPosition: "left",-->项目导航的位置
+        // loopBottom: true,-->滚回到底部时是否回滚到第一个位置
         // 滚动速度，单位为毫秒
         scrollingSpeed: 1200,
 
         // 回调函数滚动到第二屏后的回调函数，接收 anchorLink 和 index 两个参数，anchorLink 是锚链接的名称，index 是序号，从1开始计算
-
         afterLoad: function (anchorLink, index) {
             // 往第2屏幕滚动的时候，next 先消失  等所有动画都完毕了 next 才淡出 
             if (index == 2) {
