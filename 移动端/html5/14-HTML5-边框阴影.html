@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
+
         body {
             margin: 0;
             padding: 0;
@@ -33,7 +35,8 @@
             background-color: #FFF;
             float: left;
         }
-       /* div{
+
+        /* div{
             width: 200px;
             height: 200px;
             background-color: orange;
@@ -43,39 +46,43 @@
         }*/
 
         /*需求：为前面四个图片盒子添加右下角的外阴影，为最后个盒子添加四个方向的内阴影*/
-        .item:nth-of-type(-n+4){
+        /*X轴偏移量 Y轴偏移量(在什么位置开始设置) [阴影模糊半径] [阴影扩展] [阴影颜色] [投影方式];*/
+        .item:nth-of-type(-n+4) {
             box-shadow: 3px 3px 3px #ccc;
         }
-        .item:last-of-type{
-            box-shadow: 3px 3px 3px #ccc inset,-3px -3px 3px #ccc inset;
+
+        .item:last-of-type {
+            box-shadow: 3px 3px 3px #ccc inset, -3px -3px 3px #ccc inset;
         }
     </style>
 </head>
+
 <body>
-<!--文本阴影：text-shadow:offsetX offsetY blur color-->
-<!--边框阴影：box-shadow:h v blur spread color inset
+    <!--文本阴影：text-shadow:offsetX offsetY blur color-->
+    <!--边框阴影：box-shadow:h v blur spread color inset
 h:水平方向的偏移值
 v:垂直方向的偏移值
 blur:模糊--可选，默认0
 spread:阴影的尺寸，扩展和收缩阴影的大小--可选 默认0
 color:颜色--可选，默认黑色
 inset:内阴影--可选,默认是外阴影-->
-<!--<div></div>-->
-<div class="items">
-    <div class="item">
-        <img src="../images/pic_1.jpg">
+    <!--<div></div>-->
+    <div class="items">
+        <div class="item">
+            <img src="../images/pic_1.jpg">
+        </div>
+        <div class="item">
+            <img src="../images/pic_2.jpg">
+        </div>
+        <div class="item">
+            <img src="../images/pic_3.jpg">
+        </div>
+        <div class="item">
+            <img src="../images/pic_4.jpg">
+        </div>
+        <div class="item"></div>
     </div>
-    <div class="item">
-        <img src="../images/pic_2.jpg">
-    </div>
-    <div class="item">
-        <img src="../images/pic_3.jpg">
-    </div>
-    <div class="item">
-        <img src="../images/pic_4.jpg">
-    </div>
-    <div class="item"></div>
-</div>
 
 </body>
+
 </html>
