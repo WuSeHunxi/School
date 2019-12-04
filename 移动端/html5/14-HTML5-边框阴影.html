@@ -46,12 +46,13 @@
         }*/
 
         /*需求：为前面四个图片盒子添加右下角的外阴影，为最后个盒子添加四个方向的内阴影*/
-        /*X轴偏移量 Y轴偏移量(在什么位置开始设置) [阴影模糊半径] [阴影扩展] [阴影颜色] [投影方式];*/
+        /*X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展] [阴影颜色] [投影方式];*/
         .item:nth-of-type(-n+4) {
             box-shadow: 3px 3px 3px #ccc;
         }
 
         .item:last-of-type {
+            /* box-shadow: 0px 0px 3px #000 inset; */
             box-shadow: 3px 3px 3px #ccc inset, -3px -3px 3px #ccc inset;
         }
     </style>
