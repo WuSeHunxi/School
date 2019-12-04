@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-    	<h3>我要做一个三行三列的表格思密达</h3>
-    	<table width="500" height="300" border="1" cellspacing="0" cellpadding="0" align="center">
-    		<tr>
-    			<td>姓名</td>
-    			<td>性别</td>
-    			<td>年龄</td>
-    		</tr>
-    		<tr>
-    			<td>姓名</td>
-    			<td>性别</td>
-    			<td>年龄</td>
-    		</tr>
-    		<tr>
-    			<td>姓名</td>
-    			<td>性别</td>
-    			<td>年龄</td>
-    		</tr>
-    	</table>
-    </body>
+
+<head>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<h3>我要做一个三行三列的表格思密达</h3>
+	<!--cellspacing：单元格之间的距离      cellpadding：规定单元边沿与其内容之间的空白。-->
+	<!-- 但是现在这两个属性都用不了了，因此需要使用border-collapse:collapse;进行设置单元格间的距离，padding设置内边距 -->
+	<!--border-collapse:collapse给table设置     padding给td设置-->
+	<table width="500" height="300" border="1" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+		</tr>
+		<tr>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+		</tr>
+		<tr>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>年龄</td>
+		</tr>
+	</table>
+</body>
+
 </html>
