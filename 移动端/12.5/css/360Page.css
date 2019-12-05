@@ -1,109 +1,135 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-#360Page{
 
-}
-.section{
+/* #360Page{
+
+} */
+
+.section {
     overflow: hidden;
 }
 
 /*第一屏样式*/
-.first{
-    padding-top:80px;
+
+.first {
+    padding-top: 80px;
 }
+
 /*插件会默认为所有内容添加一个父容器，意味着logo并不是first的直接子元素*/
-.first .logo{
+
+.first .logo {
     background: url("../images/logo.png");
     height: 186px;
     width: 251px;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.first  .text{
+
+.first .text {
     width: 100%;
     text-align: center;
-    margin-top:80px;
+    margin-top: 80px;
 }
-.first  .text > img{
-    margin:0 40px;
+
+.first .text>img {
+    margin: 0 40px;
     opacity: 0.2;
     /*添加过渡效果*/
-    transition: margin 1s,opacity 1s;
+    transition: all 1s;
 }
-.first .intro{
+
+.first .intro {
     background: url("../images/info_1.png");
     height: 49px;
     width: 772px;
-    margin:40px auto;
+    margin: 40px auto;
 }
-.first.current .text > img{
-    margin:0 5px;
+
+.first.current .text>img {
+    margin: 0 5px;
     opacity: 1;
 }
 
 /*第二屏样式*/
-.second{
 
-}
-.second > div {
+/* .second {} */
+
+.second>div {
     display: flex;
     /*设置主轴方向上的排列方式*/
     justify-content: space-around;
     /*设置侧轴方向上的排列方式*/
     align-items: center;
 }
-.second .shield{
+
+.second .shield {
     width: 440px;
     font-size: 0;
 }
-.second .info{
+
+.second .info {
     height: 309px;
     width: 635px;
     background: url("../images/info_2.png");
 }
-.second .shield > img{
+
+.second .shield>img {
     /*添加过渡效果*/
-    transition: transform 1s;
+    transition: all 1s;
 }
-.second .shield > img:nth-of-type(1){
-    transform: translate(100px,100px) rotate(30deg);
+
+.second .shield>img:nth-of-type(1) {
+    transform: translate(100px, 100px) rotate(30deg);
 }
-.second .shield > img:nth-of-type(2){
-    transform: translate(-100px,-100px) rotate(-30deg);
+
+.second .shield>img:nth-of-type(2) {
+    transform: translate(-100px, -100px) rotate(-30deg);
 }
-.second .shield > img:nth-of-type(3){
-    transform: translate(200px,200px) rotate(60deg);
+
+.second .shield>img:nth-of-type(3) {
+    transform: translate(200px, 200px) rotate(60deg);
 }
-.second .shield > img:nth-of-type(4){
-    transform: translate(-200px,-200px) rotate(-60deg);
+
+.second .shield>img:nth-of-type(4) {
+    transform: translate(-200px, -200px) rotate(-60deg);
 }
-.second .shield > img:nth-of-type(5){
-    transform: translate(150px,150px) rotate(90deg);
+
+.second .shield>img:nth-of-type(5) {
+    transform: translate(150px, 150px) rotate(90deg);
 }
-.second .shield > img:nth-of-type(6){
-    transform: translate(50px,150px) rotate(-90deg);
+
+.second .shield>img:nth-of-type(6) {
+    transform: translate(50px, 150px) rotate(-90deg);
 }
-.second .shield > img:nth-of-type(7){
-    transform: translate(-150px,-150px) rotate(60deg);
+
+.second .shield>img:nth-of-type(7) {
+    transform: translate(-150px, -150px) rotate(60deg);
 }
-.second .shield > img:nth-of-type(8){
-    transform: translate(10px,-250px) rotate(-90deg);
+
+.second .shield>img:nth-of-type(8) {
+    transform: translate(10px, -250px) rotate(-90deg);
 }
-.second .shield > img:nth-of-type(9){
-    transform: translate(-250px,10px) rotate(45deg);
+
+.second .shield>img:nth-of-type(9) {
+    transform: translate(-250px, 10px) rotate(45deg);
 }
+
 /*添加第二屏过渡效果*/
-.second.current .shield > img{
+
+.second.current .shield>img {
     /*清除默认添加的transform*/
     transform: none;
 }
 
 /*第三屏样式*/
-.third{
+
+.third {
+    /*内部元素需要定位*/
     position: relative;
 }
-.third .info{
+
+.third .info {
     height: 278px;
     width: 631px;
     background: url("../images/info_3.png");
@@ -112,18 +138,20 @@
     left: 50%;
     top: 50%;
     /*transform的translate是相对于元素本身的宽高*/
-    transform:translate(-100%,-50%);
+    transform: translate(-100%, -50%);
 }
-.third .circle{
+
+.third .circle {
     height: 449px;
     width: 453px;
     background: url("../images/circle.png");
     position: absolute;
     right: 50%;
     top: 50%;
-    transform:translate(120%,-50%);
+    transform: translate(120%, -50%);
 }
-.third .circle > .rocket{
+
+.third .circle>.rocket {
     height: 204px;
     width: 203px;
     background: url("../images/rocket.png");
@@ -131,35 +159,41 @@
     left: -600px;
     top: 650px;
     /*添加过渡*/
-    transition: left 1s,top 1s;
+    transition: left 1s, top 1s;
 }
+
 /*添加第三屏动画*/
-.third.current .circle > .rocket{
+
+.third.current .circle>.rocket {
     left: 125px;
     top: 125px;
 }
 
-/*第四屏样式*/
-.fourth{
+/*第四屏静态样式*/
+
+.fourth {
     position: relative;
 }
-.fourth .search{
+
+.fourth .search {
     width: 529px;
     height: 438px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-115%,-50%);
+    transform: translate(-115%, -50%);
     overflow: hidden;
 }
-.fourth .search > .searchBar{
+
+.fourth .search>.searchBar {
     width: 529px;
     height: 66px;
     background: url("../images/search.png");
     /*开始时，搜索框不可见，所以可以进行默认的偏移*/
     transform: translateX(-100%);
 }
-.fourth .search > .searchText{
+
+.fourth .search>.searchText {
     /*开始时，文本不可见*/
     width: 0px;
     height: 22px;
@@ -168,33 +202,39 @@
     left: 15px;
     top: 20px;
 }
-.fourth .search > .searchResult{
+
+.fourth .search>.searchResult {
     width: 529px;
     /*搜索结果默认不可见*/
     height: 0px;
     background: url("../images/result.png");
-    margin-top:-12px;
+    margin-top: -12px;
 }
-.fourth .info{
+
+.fourth .info {
     width: 612px;
     height: 299px;
     background: url("../images/info_4.png");
     position: absolute;
     right: 50%;
     top: 50%;
-    transform:translate(100%,-50%);
+    transform: translate(100%, -50%);
 }
-/*第四屏过渡效果的实现*/
-.fourth.current .search > .searchBar{
+
+/*第四屏动态的过渡效果的实现*/
+
+.fourth.current .search>.searchBar {
     transform: translateX(0%);
     /*添加过渡样式*/
     transition: transform 1s;
 }
-.fourth.current .search > .searchText{
+
+.fourth.current .search>.searchText {
     width: 99px;
     transition: width 1s 1s steps(5);
 }
-.fourth.current .search > .searchResult{
+
+.fourth.current .search>.searchResult {
     height: 372px;
     transition: height 1s 2s;
 }
