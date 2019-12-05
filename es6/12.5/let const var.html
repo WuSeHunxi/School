@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        /**
+         * 变量的定义
+         * */
+
+        /**
+         * let的特点：不允许重复定义
+         *            块级作用域(只要在花括号内部的就是局部变量)
+         *            实现闭包
+         */
+
+        // if(true){
+        //     let b=10;
+        // }
+        // console.log(b);//报错
+
+
+        let b = 10; //不允许重复定义
+        const c = 20;
+        console.log(b);
+
+        //闭包-->立即执行函数
+        let aLi = document.querySelectorAll("li");
+        for (var i = 0; i < aLi.length; i++) {
+            (function () {
+                aLi[i].onclick = function () {
+                    console.log(i);
+                }
+            })(i)
+        }
+
+
+        for (let i = 0; i < aLi.length; i++) {
+            aLi[i].onclick = function () {
+                console.log(i);
+            }
+        }
+
+
+        const obj = {
+            name: "kxkx",
+            age: 10
+        };
+        // obj = {};//报错
+        obj.name = "pqpqp";
+        console.log(obj); //可以执行
+    </script>
+</body>
+
+</html>

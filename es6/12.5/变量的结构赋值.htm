@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var [a, b, c, d] = [1, 2, 3, 4];
+        console.log(a, b, c, d);
+
+        //对象解构
+        let obj = {
+            name: "lall",
+            age: 10
+        };
+        let {
+            name: a,
+            age: b //获取的是别名
+        } = obj;
+        consosle.log(a, b);
+
+
+        let str = 'hello';
+        let a = str.charAt(0);
+        console.log(a);
+
+
+        function foo() {
+            console.log(arguments);
+            arguments.callee(); //-->等价于调用函数本身
+        }
+        foo(1, 2, 3, 4);
+
+
+
+        function foo(name, age) {
+            age = age || 0;
+        }
+        var obj = {
+            name: "pp",
+            age: ""
+        };
+        foo(obj);
+
+
+        // 当没有传参数的时候，可以设置默认值(对象解构赋值)
+        let oo = {
+            name: "aaa",
+            age: ""
+        };
+
+        function foo({
+            name,
+            age = 12
+        }) {
+            console.log(name, age);
+        }
+        foo(oo);
+
+
+
+        function f1() {
+            let arr = [1, 2, 3];
+            return arr;
+        }
+        let [a, c, b] = f1();
+        console.log(a, c, b);
+
+
+        //JSON.parse--->字符串转对象
+        //JSON.stringify--->对象转成字符串
+    </script>
+</body>
+
+</html>
