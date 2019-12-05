@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 900px;
+            height: 600px;
+            border: 1px solid red;
+            margin: 0 auto;
+            /*设置父容器为盒子：会使每一个子元素自动变成伸缩项
+             当子元素的宽度和大于父容器宽度的时候，子元素会自动平均收缩*/
+            display: flex;
+            /*设置子元素的主轴方向上的排列方式*/
+            justify-content: space-around;
+            /*align-items:设置子元素(伸缩项)在侧轴方向上的对齐方式
+            center:设置在侧轴方向上居中对齐
+            flex-start:设置在侧轴方向上顶对齐
+            flex:end:设置在侧轴方向上底对齐
+            stretch:拉伸：让子元素在侧轴方向上进行拉伸，填充满整个侧轴方向>> 默认值
+            baseline:文本基线*/
+            align-items: center;
+        }
+
+        .first {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            align-self: flex-start;
+        }
+
+        .second {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            /*设置单个元素在侧轴方向上的对齐方式*/
+            align-self: flex-end;
+        }
+
+        .third {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="first">bb</div>
+        <div class="second" style="font-size: 100px">gg</div>
+        <div class="third">klkaslg</div>
+    </div>
+</body>
+
+</html>
