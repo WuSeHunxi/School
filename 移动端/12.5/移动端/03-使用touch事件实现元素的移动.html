@@ -35,14 +35,14 @@
             console.log(startX + ":" + startY);
         });
         /*触摸滑动:持续触发*/
-        div.addEventListener("touchmove", function (e) {
+        document.addEventListener("touchmove", function (e) {
             /*记录手指滑动过程中的坐标值*/
             moveX = e.targetTouches[0].clientX;
             moveY = e.targetTouches[0].clientY;
             console.log(moveX + ":" + moveY);
             /*计算与上一次坐标的差异*/
-            distanceX = moveX - startX;
-            distanceY = moveY - startY;
+            distanceX = moveX - div.offsetLeft - div.offsetWidth / 2;
+            distanceY = moveY - div.offsetTop - div.offsetHeight / 2;
             console.log(distanceX + ":" + distanceY);
             /*设置偏移*/
             div.style.transform = "translate(" + distanceX + "px," + distanceY + "px)";
