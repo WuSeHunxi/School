@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .center,
+        .left,
+        .right {
+            height: 200px;
+        }
+
+        .center {
+            flex: 1;
+            background-color: red;
+        }
+
+        .left {
+            order: 0;
+            flex-basis: 200px;
+            background-color: blue;
+        }
+
+        .right {
+            /*order会按照书写顺训呈现，可以通过order属性改变，数值小的在前面，还可以是负数。*/
+            order: 2;
+            flex-basis: 200px;
+            background-color: yellow;
+
+        }
+
+        .container {
+            /* margin: 0 200px; */
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>
