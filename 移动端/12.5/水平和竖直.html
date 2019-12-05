@@ -17,34 +17,32 @@
             height: 400px;
             border: 1px solid #000;
             margin: 100px auto;
-            /*这些属性都是给父元素设置的*/
             display: flex;
-            /* justify-content: center; */
-            /* justify-content: space-between; */
-            /* flex-flow: column wrap; */
-            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .box {
             width: 200px;
             height: 200px;
-            float: left;
         }
 
         .box1 {
             background-color: #f0f;
+            align-self: flex-start;
         }
 
         .box2 {
-            background-color: #ff0;
-        }
-
-        .box3 {
             background-color: #00f;
         }
 
+        .box3 {
+            background-color: #ff0
+        }
+
         .box4 {
-            background-color: #f00;
+            background-color: #0ff;
+            align-self: flex-end;
         }
     </style>
 </head>
@@ -55,7 +53,6 @@
         <div class="box box2"></div>
         <div class="box box3"></div>
         <div class="box box4"></div>
-        <!-- <div class="box5"></div> -->
     </div>
 </body>
 

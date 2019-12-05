@@ -26,14 +26,15 @@
             flex:end:设置在侧轴方向上底对齐
             stretch:拉伸：让子元素在侧轴方向上进行拉伸，填充满整个侧轴方向>> 默认值
             baseline:文本基线*/
-            align-items: center;
+            align-items: stretch;
         }
 
         .first {
             width: 200px;
             height: 200px;
             background-color: red;
-            align-self: flex-start;
+            /*谁想要自己设置就给谁添加*/
+            /* align-self: flex-start; */
         }
 
         .second {
@@ -41,7 +42,7 @@
             height: 200px;
             background-color: green;
             /*设置单个元素在侧轴方向上的对齐方式*/
-            align-self: flex-end;
+            /* align-self: flex-end; */
         }
 
         .third {
