@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
-        .box{
+
+        .box {
             width: 1000px;
-            height: 200px;
+            height: 400px;
             border: 1px solid red;
             box-sizing: border-box;
             /*设置父容器为伸缩盒子：会使每一个子元素自动变成伸缩项*/
@@ -21,36 +23,44 @@
             center:让子元素从父容器的中间位置开始排列
             space-between:左右对齐父容器的开始和结束，中间平均分页，产生相同的间距
             space-around:将多余的空间平均的分页在每一个子元素的两边 margin:0 auto.造成中间盒子的间距是左右两边盒子间距的两倍*/
-            justify-content: space-around;
+            /* justify-content: space-between; */
+            /* justify-content: center; */
+            justify-content: flex-end;
         }
-        .first{
+
+        .first {
             width: 200px;
-            height: 100%;
+            height: 200px;
             background-color: red;
         }
-        .second{
+
+        .second {
             width: 200px;
-            height: 100%;
+            height: 200px;
             background-color: green;
         }
-        .third{
+
+        .third {
             width: 200px;
-            height: 100%;
+            height: 200px;
             background-color: blue;
         }
-        .fourth{
+
+        .fourth {
             width: 200px;
-            height: 100%;
+            height: 200px;
             background-color: pink;
         }
     </style>
 </head>
+
 <body>
-<div class="box">
-    <div class="first">1</div>
-    <div class="second">2</div>
-    <div class="third">3</div>
-    <div class="fourth">4</div>
-</div>
+    <div class="box">
+        <div class="first">1</div>
+        <div class="second">2</div>
+        <div class="third">3</div>
+        <div class="fourth">4</div>
+    </div>
 </body>
+
 </html>
