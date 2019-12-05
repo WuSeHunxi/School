@@ -23,10 +23,15 @@
             //click点击事件在运行的时候需要等待300ms
             console.log("click");
         }
-        oDiv.ontouchstart = function () {
+        oDiv.ontouchstart = function (e) {
             console.log("start");
+            console.log(e);
         }
-        oDiv.ontouchend = function () {
+        oDiv.ontouchmove = function (e) {
+            console.log(e);
+        }
+        oDiv.ontouchend = function (e) {
+            console.log(e);
             console.log("end");
         }
     </script>
