@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .div1 {
+            width: 400px;
+            height: 400px;
+            background-color: #f0f;
+            overflow: hidden;
+        }
+
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: #ff0;
+            margin-top: 20px;
+        }
+
+        .div3 {
+            width: 400px;
+            height: 400px;
+            background-color: #ff0;
+            margin-bottom: 30px;
+        }
+
+        .div4 {
+            margin-top: 30px;
+            width: 400px;
+            height: 400px;
+            background-color: #00f;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 子元素margin-top -->
+    <!-- <div class="div1">
+        <div class="div2"></div>
+    </div> -->
+
+    <!-- 兄弟元素margin-top+margin-bottom -->
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <script>
+        /**
+         *垂直水平居中：定位  弹性盒(display:flex;)  display:table(第一层)+display:table-cell(第二层)
+         */
+
+        /**
+         * 
+         * BFC:块级格式化上下文
+         * 生成BFC的方法：浮动  绝对定位  行内块 表格单元格(overflow:hidden;) 弹性盒
+         * 
+         */
+    </script>
+</body>
+
+</html>
