@@ -20,7 +20,14 @@
     <script>
         var oDiv = document.getElementsByTagName("div")[0];
         oDiv.onclick = function () {
+            //click点击事件在运行的时候需要等待300ms
             console.log("click");
+        }
+        oDiv.ontouchstart = function () {
+            console.log("start");
+        }
+        oDiv.ontouchend = function () {
+            console.log("end");
         }
     </script>
 </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #f0f;
+        }
+
+        .delete {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div></div> -->
+    <ul id="items">
+        <li>List item 1<span class="delete">DELETE</span></li>
+        <li>List item 2<span class="delete">DELETE</span></li>
+    </ul>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <script>
+        //zepto移动端得点击事件
+        // $("div").on("tap", function () {
+        //     console.log("tap");
+        // });
+
+
+        //
+        $("#items li").on("swipe", function () {
+            console.log("pp");
+            $(".delete").hide()
+            //当前滑动的显示
+            $(".delete", this).show()
+        })
+    </script>
+</body>
+
+</html>
