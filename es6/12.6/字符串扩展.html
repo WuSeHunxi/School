@@ -29,13 +29,24 @@
         let str = 'hello world';
         console.log(str.indexOf("e")); //--> 1
         console.log(str.indexOf("j")); //--> -1(没有的话返回-1)
-        console.log(str.includes("e"));//--> 判断当前的字符串中是否有指定的字符
+        console.log(str.includes("e")); //--> 判断当前的字符串中是否有指定的字符
 
 
         //startsWidth()   endsWidth()
         let str = 'hello world';
-        console.lgo(str.startsWith("hello"));//--> true 判断是否以指定的子串开头
-        console.log(str.endsWith('ldl'));//--> false
+        console.lgo(str.startsWith("hello")); //--> true 判断是否以指定的子串开头
+        console.log(str.endsWith('ldl')); //--> false
+
+        // 只要是对象就有prototype这个属性
+
+        let str = "hello world";
+        String.prototype.sw = function () {
+            if (this.indexOf(str) == 0) {
+                return true;
+            }
+            return false;
+        }
+        console.log(str.sw("hello"));
     </script>
 </body>
 
