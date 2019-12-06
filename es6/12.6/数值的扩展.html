@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script>
+        let a = 0B101; // 二进制
+        let b = 0O67;
+        // 转化成10进制
+        console.log(parseInt(a, 10));
+        console.log(parseInt(b, 10));
+
+        /**
+         数值扩展-->Number的方法
+         这些方法不能来都是window下的，但是为了减少全局性，使代码更加模块化，所以将这些方法一直到Number对象上。
+        */
+        //isFinite() 判断是否为数字
+        console.log(Number.isFinite(4));
+
+        //isNaN() 判断是否是一个NaN
+        console.log(Number.isNaN("a" * 3));
+
+        //isInteger() 判断是否是一个整型
+        console.log(Number.isInteger(12)); // --> true
+
+        //parseInt() 将其他类型转换成整型
+        console.log(Number.parseInt(3.21));
+
+        //parseFloat() 将其他类型转成浮点型
+        console.log(Number.parseFloat(1));
+
+        //isSafeInteger() 判断输入的数字是否为安全的数字
+        console.log(Number.isSafeInteger(Math.pow(2, 53) - 1));
+        console.log(Number.MAX_SAFE_INTEGER); //最大安全数字
+        console.log(Number.MIN_SAFE_INTEGER); //最小安全数字
+    </script>
 </body>
+
 </html>
