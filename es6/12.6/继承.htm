@@ -13,6 +13,41 @@
         var arr = new Array();
         arr.push(9);
         console.log(arr);
+
+        //继承
+        // function Person() {
+        //     this.name = "xiao";
+        //     this.age = 10;
+        //     this.showName = function () {
+        //         console.log(this.name);
+        //     }
+        // }
+        // let per = new Person();
+        // console.log(per);
+
+        // function Student() {
+        // //使用call()改变this指向 ==>构造继承
+        //     Person.call(this); //把原来Person的this改成Student的this
+        // }
+        // let stu = new Student();
+        // console.log(stu.age);
+        // stu.showName();
+
+        //原型继承
+        function Person() {
+            this.name = "xiao";
+            this.age = 10;
+        }
+        Person.prototype.showName = function () {
+            console.log(this.name);
+        }
+
+        function Student() {
+
+        }
+        Student.prototype = new Person();
+        let stu = new Student();
+        stu.showName();
     </script>
 </body>
 
