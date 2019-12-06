@@ -15,18 +15,22 @@
 
         .box {
             width: 300px;
-            height: 200px;
+            /* height: 200px; */
+            height: auto;
             border: 1px solid #000;
             margin: 100px auto;
-            overflow: hidden;
+        }
+
+        .mean {
+            width: 100%;
+            height: auto;
+            border: 1px solid #000;
         }
 
         h3 {
             background-color: #f0f;
-            height: 50px;
             cursor: pointer;
             text-align: center;
-            line-height: 50px;
         }
 
         .box ul {
@@ -35,6 +39,7 @@
             cursor: pointer;
             /* display: none; */
             transition: all 1s;
+            overflow: hidden;
         }
 
         li {
@@ -45,47 +50,52 @@
             background-color: #ff0;
         }
 
-        h3:hover ul {
-            display: block;
-            height: 50px;
-        }
-
-        h3:hover .box {
-            height: 250px;
+        /*鼠标移动上去的条件需要是父子集*/
+        .mean:hover ul {
+            /* display: block; */
+            height: 200px;
         }
     </style>
 </head>
 
 <body>
     <div class="box">
-        <h3>第一栏</h3>
-        <ul class="item">
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-        </ul>
-        <h3>第二栏</h3>
-        <ul class="item">
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-        </ul>
-        <h3>第三栏</h3>
-        <ul class="item">
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-        </ul>
-        <h3>第四栏</h3>
-        <ul class="item">
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-        </ul>
+        <div class="mean">
+            <h3>第一栏</h3>
+            <ul class="item">
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul>
+        </div>
+        <div class="mean">
+            <h3>第二栏</h3>
+            <ul class="item">
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul>
+        </div>
+        <div class="mean">
+            <h3>第三栏</h3>
+            <ul class="item">
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul>
+        </div>
+        <div class="mean">
+            <h3>第四栏</h3>
+            <ul class="item">
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul>
+        </div>
     </div>
 </body>
 
