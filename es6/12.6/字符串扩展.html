@@ -13,40 +13,49 @@
 
     </div>
     <script>
-        var oDiv = document.getElementById("div1");
-        oDiv.innerHTML = "<p class='active'>hello</p>";
+        // var oDiv = document.getElementById("div1");
+        // oDiv.innerHTML = "<p class='active'>hello</p>";
 
 
-        /**
-         模板字符串-->方便字符串的拼接
-        */
+        // /**
+        //  模板字符串-->方便字符串的拼接
+        // */
+        // let str = "hello";
+        // // 模板字符串中出现了变量时：${变量名}
+        // oDiv.innerHTML = `<p class='active'>${str}</p>
+        //                 <span>world</span>`;
+
+        // //indexOf()   includes()
+        // let str = 'hello world';
+        // console.log(str.indexOf("e")); //--> 1
+        // console.log(str.indexOf("j")); //--> -1(没有的话返回-1)
+        // console.log(str.includes("e")); //--> 判断当前的字符串中是否有指定的字符
+
+
+        // //startsWidth()   endsWidth()
+        // let str = 'hello world';
+        // console.lgo(str.startsWith("hello")); //--> true 判断是否以指定的子串开头
+        // console.log(str.endsWith('ldl')); //--> false
+
+        // // 只要是对象就有prototype这个属性
+
+        // let str = "hello world";
+        // String.prototype.sw = function () {
+        //     if (this.indexOf(str) == 0) {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+        // console.log(str.sw("hello"));
+
+        //padStart() 规定一个长度，用指定的字符串从开头开始补起
         let str = "hello";
-        // 模板字符串中出现了变量时：${变量名}
-        oDiv.innerHTML = `<p class='active'>${str}</p>
-                        <span>world</span>`;
+        console.log(str.padStart(10, "ab"));
+        //padEnd() 规定一个长度，用指定的字符串补齐剩余的长度
+        console.log(str.padEnd(9, "ab"));
 
-        //indexOf()   includes()
-        let str = 'hello world';
-        console.log(str.indexOf("e")); //--> 1
-        console.log(str.indexOf("j")); //--> -1(没有的话返回-1)
-        console.log(str.includes("e")); //--> 判断当前的字符串中是否有指定的字符
-
-
-        //startsWidth()   endsWidth()
-        let str = 'hello world';
-        console.lgo(str.startsWith("hello")); //--> true 判断是否以指定的子串开头
-        console.log(str.endsWith('ldl')); //--> false
-
-        // 只要是对象就有prototype这个属性
-
-        let str = "hello world";
-        String.prototype.sw = function () {
-            if (this.indexOf(str) == 0) {
-                return true;
-            }
-            return false;
-        }
-        console.log(str.sw("hello"));
+        //repeat() 字符串重复几次
+        console.log(str.repeat(3));
     </script>
 </body>
 
