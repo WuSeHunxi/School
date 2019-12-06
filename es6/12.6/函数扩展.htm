@@ -40,7 +40,7 @@
         console.log(f2.length); //-->0
 
         /*
-            use strict 开启严格模式
+            use strict 开启严格模式（在函数的内部和外部都可以开启）
                 变量必须显示声明
                 禁止this关键字指向全局对象，构造函数必须得new
                 函数不能有重名的参数
@@ -54,7 +54,18 @@
             console.log(this); //undefined
         }
         fun();
-        
+
+        //arguments.callee()
+        function ff(ff) {
+            if (num == 1) {
+                return 1;
+            } else {
+                return num * foo(num - 1);
+                //开启严格模式的时候不能使用65行的语句
+                // return num * arguments.callee(num - 1);
+            }
+        }
+        console.log(ff(10));
     </script>
 </body>
 
