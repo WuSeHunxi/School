@@ -11,27 +11,6 @@
             margin: 0;
         }
 
-        div {
-            height: 700px;
-            width: 100%;
-        }
-
-        div:nth-child(1) {
-            background-color: #f0f;
-        }
-
-        div:nth-child(2) {
-            background-color: #ff0;
-        }
-
-        div:nth-child(3) {
-            background-color: #00f;
-        }
-
-        div:nth-child(4) {
-            background-color: #0f0;
-        }
-
         .content {
             font-size: 100px;
         }
@@ -39,22 +18,33 @@
 </head>
 
 <body>
-    <div>
-        <h3>第1屏</h3>
-    </div>
-    <div>
-        <h3>第2屏</h3>
-    </div>
-    <div>
-        <h3>第3屏</h3>
-    </div>
-    <div>
-        <h3>第4屏</h3>
+    <!-- 使用插件的时候一般不需要再去写样式，根据插件的内容，简单的写一些自己想要添加的样式即可 -->
+    <div class="box">
+        <div class="section">
+            <h3>第1页</h3>
+        </div>
+        <div class="section">
+            <h3>第2页</h3>
+        </div>
+        <div class="section">
+            <h3>第3页</h3>
+        </div>
+        <div class="section">
+            <h3>第4页</h3>
+        </div>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.fullPage.min.js"></script>
     <script>
-
+        $(function () {
+            $(".box").fullpage({
+                sectionsColor: ["red", "green", "blue", "pink", "skyBlue"],
+                afterLoad: function (anchorLink, index) {
+                    $(".section").removeClass("content");
+                    $(".section").eq(index - 1).addClass("content");
+                }
+            })
+        });
     </script>
 </body>
 
