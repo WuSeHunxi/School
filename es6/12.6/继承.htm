@@ -48,6 +48,26 @@
         Student.prototype = new Person();
         let stu = new Student();
         stu.showName();
+
+        //组合继承
+        function Person() {
+            this.name = "xiao";
+            this.age = 10;
+        }
+        Person.prototype.showName = function () {
+            console.log(this.name);
+        }
+
+        function Student() {
+            Person.call(this);
+        }
+        Student.prototype = new Person();
+        let stu1 = new Student();
+        stu.showName();
+        console.log(Student.prototype.constructor);
+        //对于67行的结果不满意，要将Student的构造函数指向自己，因此需要进行下方的修改
+        Student.prototype.constructor = Student;
+        console.log(Student.prototype.constructor);
     </script>
 </body>
 
