@@ -10,7 +10,50 @@
 
 <body>
     <script>
-        //
+        function foo(a, b = 11) { //原生的
+            console.log(a + b);
+        }
+        foo(1);
+
+        // 参数默认值与解构赋值结合
+        function f({
+            name,
+            age
+        }) {
+            console.log(name, age);
+        }
+        foo({
+            name: "lal",
+            age: 10
+        });
+
+        //函数名.length --> 获取所有没被设置默认值的参数个数，但是当第一个形参被设置默认值的话，那么无论后面的形参值是什么得到的结果就是0
+        function f1(a, b) {
+            console.log(a, b);
+        }
+        f1(1, 2);
+        console.log(f1.length); //-->2
+
+        function f2(a = 1, b) { //因此，一般情况下有默认值的参数都放在形参的最后
+            console.log(a, b);
+        }
+        console.log(f2.length); //-->0
+
+        /*
+            use strict 开启严格模式
+                变量必须显示声明
+                禁止this关键字指向全局对象，构造函数必须得new
+                函数不能有重名的参数
+                禁止使用with语句
+                arguments.callee()
+        */
+        "use strict"
+        let a = 12;
+
+        function fun() {
+            console.log(this); //undefined
+        }
+        fun();
         
     </script>
 </body>
