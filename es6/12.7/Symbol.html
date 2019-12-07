@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //使用Symbol() -->独一无二的，受保护的，不与其它属性名冲突的
+        //该属性不会出现在for循环中,只有自己知道通过Symbol生成的变量就什么名
+        //要想取到Symbol的值必须利用[]来取到
+        let name = Symbol();
+        let obj = {
+            name: "papap",
+            age: 10,
+            [name]: "xxxx"
+        };
+        console.log(obj[name]);
+        for (let item in obj) {
+            console.log(item); //name age
+        }
+    </script>
+</body>
+
+</html>

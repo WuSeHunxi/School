@@ -10,7 +10,66 @@
 
 <body>
     <script>
-        
+        var age = "10";
+        var name = "oaa";
+        var str = "school";
+        var obj = {
+            name,
+            age
+        };
+        console.log(obj);
+
+        var obj2 = {
+            [str]: "aaa" //如果想要属性值当作变量，就必须使用[]
+        }
+
+        var obj3 = {
+            name: "小明",
+            age: 10,
+            sex: "男",
+            para: "xxx"
+        }
+
+        //传给函数什么函数就返回相应对象的值
+        function foo(para) {
+            return obj[para];
+        }
+        console.log(foo("name"));
+
+        //方法名简写
+        var o = {
+            name: "kak",
+            showName() {
+                console.log(this.name);
+            }
+        }
+        o.showName();
+
+
+        //Object.is() -->比较两个值是否相等<==> ‘===’
+        console.log(Object.is(0, -0)); //false
+        console.log(0 === -0); //true
+        console.log(Object.is(NaN, NaN)); //true
+
+        //Object.assign() -->合并对象
+        let oo1 = {
+            name: "小明"
+        }
+        let oo2 = {
+            age: "10"
+        }
+        Object.assign(oo1, oo2); //有相同的值的时候后面的会覆盖前面的
+        console.log(oo1);
+
+        //in -->判断对象中是否有某个属性
+        let ooo = {
+            name: "lal"
+        }
+        if ("name" in ooo) {
+            console.log("有该属性");
+        }
+
+        console.log(ooo.hasOwnProperty("name"));
     </script>
 </body>
 

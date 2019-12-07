@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建一个Set数组 -->Set()的值不允许重复
+        // let arr2 = new Set([1, 2, 3, 4, 5]);
+        // // let arr = new Set(arr2);
+        // let arr = new Set();
+        // arr.add(1);
+        // console.log(arr);
+        // //删除 -->传入的是具体的值
+        // arr.delete(1);
+
+        //数组去重
+        // let arr2 = [1, 2, 3, 4, 4, 5, 3, 1];
+        // let arr3 = [];
+        // for (let i = 0; i < arr2.length; i++) {
+        //     if (!arr3.includes(arr2[i])) {
+        //         arr3.push(arr2[i]);
+        //     }
+        // }
+        // console.log(arr3);
+        //利用Set实现数组去重
+        let arr2 = [1, 2, 3, 4, 4, 5, 3, 1];
+        let arr3 = new Set(arr2);
+        console.log(Array.from(arr3));
+
+        //has() -->判断该值是否为Set成员
+        console.log(arr3.has(4));
+
+        //clear() -->清除所有的值
+        // arr3.clear();
+        console.log(arr3);
+
+        //遍历 -->keys()  entires()  forEach()  for..of(推荐使用)
+        for (let item of arr3) {
+            console.log(item);
+        }
+        for ([item, index] of arr3.entries()) {
+            console.log(item, index); //索引和值是完全相同的
+        }
+
+        //WeakSet -->只能是对象
+        let ws = new WeakSet();
+        let obj = {
+            name: "oao"
+        }
+        ws.add(obj);
+        console.log(ws);
+    </script>
+</body>
+
+</html>
