@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+            1.创建对象
+            2.向服务器发送请求：设置请求的参数 发送过去
+            3.响应请求
+        */
+        //1.创建对象
+        if (window.XMLHttpRequest) {
+            xml = new XMLHttpRequest();
+        } else {
+            xml = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //2.向服务器发送请求：设置请求的三个参数 发送到后台
+        xml.open("GET", "text.txt", true);
+        xml.send();
+        //3.响应请求
+        xml.onreadystatechange = function () {
+            if (xml.readyState == 4 && xml.status == 200) {
+                console.log("pp");
+                console.log(xml.responseText);
+            }
+        }
+    </script>
+</body>
+
+</html>
