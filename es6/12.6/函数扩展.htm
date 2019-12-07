@@ -10,10 +10,10 @@
 
 <body>
     <script>
-        function foo(a, b = 11) { //原生的
+        function f(a, b = 11) { //原生的
             console.log(a + b);
         }
-        foo(1);
+        f(1);
 
         // 参数默认值与解构赋值结合
         function f({
@@ -22,7 +22,7 @@
         }) {
             console.log(name, age);
         }
-        foo({
+        f({
             name: "lal",
             age: 10
         });
@@ -56,16 +56,51 @@
         fun();
 
         //arguments.callee()
-        function ff(ff) {
+        function ff(num) {
             if (num == 1) {
                 return 1;
             } else {
-                return num * foo(num - 1);
+                return num * ff(num - 1);
                 //开启严格模式的时候不能使用65行的语句
                 // return num * arguments.callee(num - 1);
             }
         }
         console.log(ff(10));
+
+
+        //箭头函数 -->不需要有function的声明
+        /**
+           箭头函数的注意事项：
+                函数体内的this指向的是定义时候的对象
+                不可以的用来定义构造函数
+                不可以使用arguments对象
+        
+        */
+        // let foo = (a, b) => {
+        //     return a + b;
+        // }
+        //如果函数只有一条语句的话，可以这样写
+        let foo = (a, b) => a + b;
+        console.log(foo(1, 2));
+
+        let school = '理工';
+        let obj = {
+            school: "黑大",
+            showSchool: function () {
+                console.log(this, school);
+                // setTimeout(function () {
+                //     console.log(this.school);
+                // }.call(this), 1000);
+
+                //箭头函数的this，指向的是定义时的this
+                setTimeout(() => function () {
+                    console.log(this.school);
+                }, 1000);
+            }
+        }
+        obj.showSchool();
+
+        
     </script>
 </body>
 
