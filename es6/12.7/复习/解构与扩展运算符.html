@@ -13,6 +13,48 @@
         let arr = [1, 2, 3, 4];
         let arr2 = [...arr];
         console.log(arr2);
+
+        let obj = {
+            name: "jja",
+            age: 10
+        };
+
+        //当传进去的参数是对象的时候
+        function foo({
+            name,
+            age
+        }) {
+            console.log(name);
+        }
+        foo(obj);
+        console.log();
+
+
+        let obj1 = {
+            name: "papp",
+            age: 10
+        };
+        let obj2 = {
+            "sex": true,
+            "student": "hd"
+        }
+        let obj3 = {
+            ...obj1,
+            ...obj2
+        }; //直接把这个两个对象的属性放在一起
+        console.log(obj3);
+
+        let o = {
+            name: "pp",
+            age: 11
+        };
+        console.log(o.name);
+        //变量的赋值
+        let {
+            name,
+            age
+        } = o;
+        console.log(name);
     </script>
 </body>
 
