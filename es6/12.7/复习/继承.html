@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        
+        //属性继承
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        var per = new Person("oao", 10);
+        console.log(per.name);
+
+        function Student() {
+            Person.call(this);
+        }
+        var stu = new Student();
+        console.log(stu.name);
+
+        //方法继承
+        function Person(name) {
+            this.name = name;
+        }
+        var per = new Person("pap");
+        Person.prototype.showName = function () {
+            console.log(this.name);
+        }
+
+        function Student() {
+
+        }
+
+        Student.prototype = new Person();
+        var stu = new Student();
+        stu.showName();
+
+        //组合继承
+        function Person(name) {
+            this.name = name;
+        }
+        var per = new Person("pap");
+        Person.prototype.showName = function () {
+            console.log(this.name);
+        }
+
+        function Student() {
+            Person.call(this);
+        }
+
+        Student.prototype = new Person();
+        var stu = new Student();
+        stu.showName();
     </script>
 </body>
+
 </html>
