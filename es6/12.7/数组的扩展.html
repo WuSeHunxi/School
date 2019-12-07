@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        var aLi = document.getElementsByTagName("li");
+        //Array.from() -->转成类数组,将json格式的数据转成数组
+        let arr = Array.from(aLi);
+        console.log(arr);
+        let json = {
+            "0": "商品1",
+            "1": "商品2",
+            length: 2 //有几个数据长度就为几
+        };
+        let arr1 = Array.from(json);
+        console.log(arr1);
+
+        //Array.of() -->将括号的内的数据转成数组
+        console.log(Array.of(1, 2, 34)); //-->[1，2，34]
+
+        //Array.copyWithin(起始位置,谁到谁)
+        var a = [1, 2, 3, 4, 5, 6, 7, 8];
+        var arr2 = arr.copyWithin(2, 4, 7);
+        console.log(arr2);
+
+
+        //find() -->找值
+        let array = [1, 2, 3, 4, 5, 6, 7, 8];
+        let num = array.find(function (val, index, arr) {
+            console.log(val, index, array);
+            return val > 5; //返回值（找到第一个符合条件的值）
+        })
+        console.log(num);
+
+        //findIndex() -->找索引 
+        let n = array.findIndex(function (val, index, array) {
+            return val > 5; //大于5的第一个值的索引
+        })
+        console.log(n);
+
+
+        //fill() -->填充替换（1-5位），通常用来初始化数组填值
+        var arr3 = [1, 2, 3, 4, 5, 6, 7, 8];
+        console.log(arr3.fill("ab", 1, 6));
+
+        var arr4 = new Array(6).fill("1");
+        console.log(arr4);
+
+
+        //includes() -->返回布尔值
+        var arr5 = [1, 2, 3, 4, 5];
+        console.log(arr5.includes(4)); //是否包含4
+
+
+        //for of循环(遍历可迭代)
+        var arr6 = [1, 2, 3, 4, 5, 6];
+        for (let item of arr6.keys()) { //返回当前的索引
+            //for([index,item] of arr.entries()){console.log(index,item);} //可以同时获取数值和索引（利用解构的方法进行赋值）
+            console.log(item);
+        }
+
+        //map() -->不会改变原数组的长度(目前最多的循环语句)
+        // let res = arr6.map(function (val, index, arr6) {
+        //     if (val > 4) {
+        //         return val;
+        //     } else {
+        //         return 0;
+        //     }
+        // });
+        // console.log(res);
+
+        //filter() -->满足条件的返回（会改变原数组的长度）
+
+        //some() -->判断元素是否有符合条件的(有一个符合条件的就返回true)
+        // let res = arr6.some(function (val, index, arr6) {
+        //     if (val > 4) {
+        //         return val;
+        //     }
+        // });
+        // console.log(res);
+
+        //every() -->判断每一个是否满足条件
+        let res = arr6.every(function (val, index, arr6) {
+            if (val > 4) {
+                return val;
+            }
+        });
+        console.log(res);
+    </script>
+</body>
+
+</html>
