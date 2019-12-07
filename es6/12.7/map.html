@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //装的内容是键值对
+        let map = new Map();
+        //set() -->添加值，只能通过set方法添加值
+        map.set("name", "aaa");
+        console.log(map);
+        console.log(map.get("name"));
+        //Map()的键名不可以重复
+
+        //WeakMap()  只接受对象为键名
+        let wm = new WeakMap();
+        wm.set({
+            name: "lalal"
+        }, "000");
+        console.log(wm);
+    </script>
+</body>
+
+</html>
