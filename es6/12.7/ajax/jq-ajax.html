@@ -11,7 +11,11 @@
 <body>
     <script src="js/jquery-1.12.4.js"></script>
     <script>
-        
+        $.get("text.json", {
+            name: "ha"
+        }, function (res) {
+            console.log(res);
+        }, "json");
     </script>
 </body>
 

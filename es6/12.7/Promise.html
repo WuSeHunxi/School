@@ -9,7 +9,111 @@
 </head>
 
 <body>
-    
+    <script src="ajax/js/jquery-1.12.4.js"></script>
+    <script>
+        // Promise是异步编程的一种解决方案
+
+        //一下的代码称为-->回调地狱
+        // $.get("a.json", function (res) {
+        //     console.log(res);
+        //     $.get("b.json", function (res) {
+        //         console.log(res);
+        //         $.get("c.json", function (res) {
+        //             console.log(res);
+        //         })
+        //     })
+        // })
+
+        //使用Promise对象      成功      失败
+        // new Promise(function (resolve, reject) {
+        //     $.get("a.json", function (res) {
+        //         console.log(res);
+        //         resolve(res);
+        //     })
+        // }).then(function (res) {
+        //     console.log("成功" + res);
+        // },funxtion(){
+        //     console.log("失败");
+        // }).catch(function () {
+        //     console.log("失败");
+        // });
+
+
+        //then()中有两个参数的话，第一个是成功，第二个是失败，如果只有一个参数的话，失败对应着catch()
+        // new Promise(function (resolve, reject) {
+        //     $.get("a.json", function (res) {
+        //         console.log(res);
+        //         resolve(res);
+        //     })
+        // }).then(function () {
+        //     new Promise(function (resolve, reject) {
+        //         $.get("b.json", function (res) {
+        //             console.log(res);
+        //             resolve(res);
+        //         })
+        //     })
+        // }).then(function () {
+        //     new Promise(function (resolve, reject) {
+        //         $.get("c.json", function (res) {
+        //             console.log(res);
+        //             resolve(res);
+        //         })
+        //     })
+        // })
+
+        //解决上述的异步回调问题
+        // function getDate(url) {
+        //     return new Promise(function (resolve, reject) {
+        //         $.get("a.json", function (res) {
+        //             console.log(res);
+        //             resolve(res);
+        //         });
+        //     });
+        // }
+        // getDate("a.json").then(function (res) {
+        //     console.log(res);
+        //     return getDate("b.json");
+        // }).then(function (res) {
+        //     console.log(res);
+        //     return getDate("c.json");
+        // }).then(function (res) {
+        //     console.log(res);
+        // });
+
+
+        let pro1 = new Promise(function (resolve, reject) {
+            $.get("a.json", function (res) {
+                console.log(res);
+                resolve(res);
+            });
+        });
+        let pro2 = new Promise(function (resolve, reject) {
+            $.get("b.json", function (res) {
+                console.log(res);
+                resolve(res);
+            });
+        });
+        let pro3 = new Promise(function (resolve, reject) {
+            $.get("c.json", function (res) {
+                console.log(res);
+                reject();
+            });
+        });
+
+        //接收到的参数是数组，每一个都成功则成功，一个失败就都失败
+        // Promise.all([pro1, pro2, pro3]).then(function () {
+        //     console.log("成功");
+        // }).catch(function () {
+        //     console.log("失败");
+        // });
+
+        //只要有一个成功就成功
+        Promise.race([pro1, pro2, pro3]).then(function () {
+            console.log("成功");
+        }).catch(function () {
+            console.log("失败");
+        })
+    </script>
 </body>
 
 </html>
