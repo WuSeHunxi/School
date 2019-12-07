@@ -19,10 +19,11 @@
         var per = new Person("oao", 10);
         console.log(per.name);
 
-        function Student() {
+        function Student(name) {
+            this.name = name;
             Person.call(this);
         }
-        var stu = new Student();
+        var stu = new Student("");
         console.log(stu.name);
 
         //方法继承
