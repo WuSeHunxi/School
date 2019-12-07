@@ -13,28 +13,45 @@
     <script>
         //function* -->固定语法
         //异步的，调用才执行
-        function* helloWorldGenerator() {
-            yield 'hello';
-            yield 'world';
-            return 'ending';
-        }
-        var hw = helloWorldGenerator();
-        console.log(hw.next()); //返回的是yield后面的值('hello')，没执行完false
-        console.log(hw.next()); //返回的是yield后面的值('world')，没执行完false
-        console.log(hw.next()); //返回的是yield后面的值('ending')，执行完了true
-        console.log(hw);
+        // function* helloWorldGenerator() {
+        //     yield 'hello';
+        //     yield 'world';
+        //     return 'ending';
+        // }
+        // var hw = helloWorldGenerator();
+        // console.log(hw.next()); //返回的是yield后面的值('hello')，没执行完false
+        // console.log(hw.next()); //返回的是yield后面的值('world')，没执行完false
+        // console.log(hw.next()); //返回的是yield后面的值('ending')，执行完了true
+        // console.log(hw);
 
 
-        function* foo(x) {
-            var y = 2 * (yield(x + 1)); //yield (x+1)获取的是undefined
-            var z = yield(y / 3);
-            return (x + y + z);
+        // function* foo(x) {
+        //     var y = 2 * (yield(x + 1)); //yield (x+1)获取的是undefined
+        //     var z = yield(y / 3);
+        //     return (x + y + z);
+        // }
+        // var a = foo(5);
+        // console.log(a.next()); //-->6
+        // // console.log(a.next()); //-->NaN
+        // console.log(a.next(2)); //-->4 next的参数传给上一条的yield的表达式即：(yield(x+1))
+        // console.log(a.next(3)); //-->12
+
+
+        //封装ajax
+        function request(url) {
+            $.get(url, function (res) {
+                a.next(res); //传参，接着从第二条开始运行
+            });
         }
-        var a = foo(5);
-        console.log(a.next()); //-->6
-        // console.log(a.next()); //-->NaN
-        console.log(a.next(2)); //-->4 next的参数传给上一条的yield的表达式即：(yield(x+1))
-        console.log(a.next(3)); //-->12
+
+        //解决异步回调-->可控，想走到那步就走到那步
+        function* foo() {
+            console.log(yield request("a.json"));
+            console.log(yield request("b.json"));
+            console.log(yield request("c.json"));
+        }
+        let a = foo();
+        a.next(); //先运行foo中的第一条
     </script>
 </body>
 
