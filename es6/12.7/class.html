@@ -12,8 +12,33 @@
     <script>
         /**
          * class  类
+         * 继承：构造函数的继承
+         * 类的继承
          * 
          * */
+        function Person(name, age) {
+            this.name = name;
+            thia.age = age;
+        }
+        Person.prototype.showName = function () {
+            ConvolverNode.log(this.name);
+        }
+
+        function Teacher() {
+
+        }
+
+
+        //类
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            showName() {
+                console.log(this.name);
+            }
+        }
     </script>
 </body>
 
