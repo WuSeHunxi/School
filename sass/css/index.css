@@ -30,4 +30,40 @@
   width: 10px;
 }
 
+/*mixin--》有一些选择器用的属性差不多，但是 可以传参，也可以设置默认值*/
+#div6 {
+  /*引用名字*/
+  /*只传了一个参数*/
+  width: 10px;
+  height: 200px;
+  background-color: red;
+}
+
+/*继承和import*/
+#div7, #div8 {
+  font-size: 20px;
+  color: #000;
+}
+
+#div8 {
+  /*div8继承div7*/
+  background-color: #000;
+}
+
+/*引入外部文件*/
+* {
+  margin: 1px;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+#div9 {
+  /*可以计算*/
+  width: 10px;
+  /*5px+5也可以，即这至少有一个像素*/
+}
+
 /*# sourceMappingURL=index.css.map */
