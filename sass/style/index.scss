@@ -1,5 +1,45 @@
+@charset "UTF-8";
 $color:#ff00ff;
 
+/*
+多行注释
+*/
+
+/*!jsj */
 #div1 {
     color: $color;
+
+    .p1 {
+        border: 1px solid $color;
+
+        &-span1 {
+            color: #000;
+        }
+    }
+
+    &:hover {
+        background-color: $color;
+    }
+}
+
+#div3 {
+    border: {
+        color: $color;
+        width: 3px
+    }
+}
+
+#div4 {
+    border: {
+        left: {
+            color: $color
+        }
+    }
+}
+
+/*定义一个变量*/
+$val1:width;
+
+#div5 {
+    #{$val1}: 10px;
 }

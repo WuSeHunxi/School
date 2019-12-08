@@ -1,4 +1,33 @@
+@charset "UTF-8";
+/*
+多行注释
+*/
+/*!jsj */
 #div1 {
-  color: #ff00ff; }
+  color: #ff00ff;
+}
+#div1 .p1 {
+  border: 1px solid #ff00ff;
+}
+#div1 .p1-span1 {
+  color: #000;
+}
+#div1:hover {
+  background-color: #ff00ff;
+}
+
+#div3 {
+  border-color: #ff00ff;
+  border-width: 3px;
+}
+
+#div4 {
+  border-left-color: #ff00ff;
+}
+
+/*定义一个变量*/
+#div5 {
+  width: 10px;
+}
 
 /*# sourceMappingURL=index.css.map */

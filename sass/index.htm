@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 实时监听style文件夹下的变化：sass --watch style:css --style expannded -->
+    css的输出格式：
+    嵌套输出：style/index.scss:css/index.css --style nested
+    展开输出：style/index.scss:css/index.css --style expanded
+    紧凑输出：style/index.scss:css/index.css --style compact
+    压缩输出：style/index.scss:css/index.css --style compressed
+    /*!jsj */ -->强制注释，无论什么格式都能够打印出来
+    <!--
+        #div1 {
+            color: $color;  ---》变量名---》方便集中修改
+
+            .p1 {
+                border: 1px solid $color;
+            }
+
+            &:hover { ---》谁需要hover就在谁的选择器里&:hover
+                &---》代表的是上一级的选择器
+                background-color: $color;
+            }
+        }
+        属性嵌套:只要是属性可以横线连接的就都可以嵌套
+    -->
+
+    <!-- 
+        属性利用变量的引用
+        /*定义一个变量*/
+        $val1:width;
+
+        #div5 {
+            #{$val1}: 10px;
+        }
+    -->
+</body>
+
+</html>
