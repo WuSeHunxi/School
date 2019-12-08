@@ -10,6 +10,7 @@
 
 <body>
     <!-- 实时监听style文件夹下的变化：sass --watch style:css --style expannded -->
+    <!--先实时监听，然后在开始选择css的输出格式即可-->
     css的输出格式：
     嵌套输出：style/index.scss:css/index.css --style nested
     展开输出：style/index.scss:css/index.css --style expanded
@@ -43,6 +44,7 @@
     -->
 
     <!--
+        引入外部文件：@import "文件名"
         继承和import
         #div8 {
             /*div8继承div7*/
@@ -52,6 +54,61 @@
 
         /*引入外部文件*/
         @import "main";
+    -->
+
+    <!--
+        属性的只可以通过计算得到：加减至少有一个px；乘除只能有一个px，且除法的px必须放在前面
+            #div9 {
+                /*可以计算*/
+                width: 5px+5px;
+                /*5px+5也可以，即这至少有一个像素*/
+                font-size: 2*10px;
+                /*乘法只能写一个px*/
+                border-width: (100px/10);
+                /*只能有一个px，而且必须是前面的有px*/
+            }
+    -->
+
+    <!--
+        混合式引用--》类似于函数，可传参，设置默认值
+        @mixin mm($h, $w:10px) {
+            width: $w;
+            height: $h;
+            background-color: red;
+        }
+
+        #div6 {
+            /*引用名字*/
+            /*只传了一个参数*/
+            @include mm($h:200px)
+        }
+    -->
+
+    <!--
+        字符串：
+            字符串的拼接：+
+            大小写转换：to-upper-case($val),to-lower-case($var)
+            字符串的长度：str-length($var)
+            索引1开始：str-index($target,$str)
+            插入：str-insert($var,$inserStr,index)
+    -->
+
+    <!--
+        颜色：
+            rgb()  rgba()
+            更浅：lighten($color,20%)
+            更深：darken($color,20%)
+            更不透明：opacify($color,0.3)
+            更透明：transparentsize($color,0.3)
+    -->
+
+    <!--
+        列表：
+            列表长度：length(5px 10px)
+            返回索引：index(1px sold #000,solid) --》取出solid的位置
+            取出索引对应的值：nth(5px 10px,2) --》10px
+            列表后面追加值：append(5px 5px,10px) --》(5px 5px 10px)
+            合并列表：join(5px 5px,10px 10px,comma) --》comma表示用逗号分隔
     -->
 </body>
 

@@ -74,6 +74,27 @@ $val1:width;
 
 #div9 {
     /*可以计算*/
-    width: 5px+5px;
+    // width: 5px+5px;
     /*5px+5也可以，即这至少有一个像素*/
+    font-size: 2*10px;
+    /*乘法只能写一个px*/
+    border-width: (100px/10);
+    /*只能有一个px，而且必须是前面的有px*/
+    width: percentage(2/100);
+    /*获取一个百分比*/
+}
+
+$aurl:'xx.jpg';
+
+#div10 {
+    // background: {
+    //     color: $color;
+    // }
+    background-image: url('css/'+$aurl); 
+}
+
+#div11{
+    color:lighten(red,20%);
+    border-color:darken(red,20%);
+    background-color:opacify(rgba(0,0,0,0.5),0.2);
 }

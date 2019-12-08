@@ -62,8 +62,23 @@ li {
 
 #div9 {
   /*可以计算*/
-  width: 10px;
   /*5px+5也可以，即这至少有一个像素*/
+  font-size: 20px;
+  /*乘法只能写一个px*/
+  border-width: 10px;
+  /*只能有一个px，而且必须是前面的有px*/
+  width: 2%;
+  /*获取一个百分比*/
+}
+
+#div10 {
+  background-image: url("css/xx.jpg");
+}
+
+#div11 {
+  color: #ff6666;
+  border-color: #990000;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /*# sourceMappingURL=index.css.map */
