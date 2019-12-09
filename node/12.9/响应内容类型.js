@@ -27,7 +27,7 @@ server.on("request", function (request, response) {
                 response.end("文件读取失败，请重试");
             } else {
                 response.setHeader("Content-Type", "text/html;charset=UTF-8");
-                // response.end(data.toString());
+                response.end(data);
             }
         })
     } else if (url === '/01') { //01.jpeg并非文件路径
@@ -39,7 +39,7 @@ server.on("request", function (request, response) {
                 //图片不需要制定编码
                 //编码是字符编码，而图片非字符
                 response.setHeader("Content-Type", "image/jpeg;");
-                // response.end(data);
+                response.end(data);
             }
         });
     }
