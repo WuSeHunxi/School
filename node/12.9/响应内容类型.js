@@ -27,13 +27,21 @@ server.on("request", function (request, response) {
                 response.end("文件读取失败，请重试");
             } else {
                 response.setHeader("Content-Type", "text/html;charset=UTF-8");
-                response.end(data.toString());
+                // response.end(data.toString());
             }
         })
-    } else if (url === '/01.jpeg') { //01.jpeg并非文件路径
-        //图片不需要制定编码
-        response.setHeader("Content-Type", "image/jpeg;");
-        response.end()
+    } else if (url === '/01') { //01.jpeg并非文件路径
+        fs.readFile("./resource/01.jpeg", function (error, data) {
+            if (error) {
+                response.setHeader("Content-Type", "text/plain;charset=UTF-8");
+                response.end("文件读取失败");
+            } else {
+                //图片不需要制定编码
+                //编码是字符编码，而图片非字符
+                response.setHeader("Content-Type", "image/jpeg;");
+                // response.end(data);
+            }
+        });
     }
 })
 server.listen(3000);
