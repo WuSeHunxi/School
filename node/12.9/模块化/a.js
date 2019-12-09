@@ -17,5 +17,6 @@ console.log(ret.foo);
 
 console.log(ret.add(10, 20));
 
+console.log(ret.readFile('./a.js'));
 
 //Node中没有全局作用域
