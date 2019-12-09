@@ -17,4 +17,5 @@ fs.writeFile('./你好.txt', 'kakak', function (error, data) {
  * 回调函数的参数
  *      成功：error--> null
  *      失败：error-->错误对象
+ *      PS:error的作用是用来告诉用户写入成功还是失败
  */
