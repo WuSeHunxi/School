@@ -18,8 +18,12 @@ var fs = require('fs');
  *          如果读取成功，data就是读取到的数据
  *          如果读取失败，error就是错误对象
  */
-fs.readFile('./hello.txt', function (error, data) {
-    console.log(data);
-    //输出的结果是16进制
-    console.log(data.toString()); //将得到的结果转成字符串
+fs.readFile('./hello1.txt', function (error, data) {
+    // console.log(data);
+    // //输出的结果是16进制
+    if (error) {
+        console.log("读取文件失败了" + error); //生成错误对象
+    } else {
+        console.log(data.toString()); //将得到的结果转成字符串
+    }
 });
