@@ -13,7 +13,7 @@
 var ret = require('./b.js');
 // console.log("a执行结束");
 
-console.log(ret.foo);
+console.log(ret.a); //ret对象取出的内容是exports.xxx得到的，直接ret.xxx即可
 
 console.log(ret.add(10, 20));
 
