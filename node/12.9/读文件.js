@@ -8,10 +8,18 @@
 //使用require方法加载fs这个模块
 var fs = require('fs');
 
-
-//第一个参数：文件路劲
-//第二个参数：文件内容
-//第三个参数：回到函数
-fs.write('./12.9/你好/txt', 'kakak', function (error) {
-    console.log("文件写入成功");
+//读文件 第一个参数：要读取的文件路径  第二个参数：一个回调函数
+/**
+ * 回调函数的参数：
+ *      error：
+ *          如果读取失败，error就是错误对象
+ *          如果读取成功，error及时null
+ *      data：
+ *          如果读取成功，data就是读取到的数据
+ *          如果读取失败，error就是错误对象
+ */
+fs.readFile('./hello.txt', function (error, data) {
+    console.log(data);
+    //输出的结果是16进制
+    console.log(data.toString()); //将得到的结果转成字符串
 });
