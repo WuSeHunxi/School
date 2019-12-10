@@ -26,9 +26,21 @@ server.on('request', function (req, res) {
             if (error) {
                 return response.end(error);
             }
+            var content = '';
+            files.forEach(function (item) {
+                content += ` <tr>
+            <td data-value="apple/"><a class="icon dir" href="/D:/Movie/www/apple/">${item}/</a></td>
+            <td class="detailsColumn" data-value="0"></td>
+            <td class="detailsColumn" data-value="1509589967">2017/11/2 上午10:32:47</td>
+            </tr>`;
+
+            });
+            data = data.toString();
+            data = data.replace(content);
+            res.end(data); //发送解析过后的响应命令
             console.log(files);
         })
-        res.end(data)
+
     })
 })
 
