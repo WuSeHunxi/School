@@ -9,13 +9,19 @@
 </head>
 
 <body>
+    <!-- 模板引擎不关心字符串的内容，只关心语法 -->
     <script src="/node_modules/art-template/lib/template-web.js"></script>
     <script type="text/template" id="tpl">
         hello{{name}}
+        偶喜欢：{{each hobbies}} {{$value}} {{/each}}
     </script>
     <script>
         var ret = template('tpl', {
-            name: 'Jack'
+            name: 'Jack',
+            hobbies: [
+                '写代码',
+                '学习'
+            ]
         });
         console.log(ret);
     </script>
