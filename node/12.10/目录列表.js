@@ -22,10 +22,11 @@ server.on('request', function (req, res) {
         if (err) {
             return res.end('404 Not Found.')
         }
-        fs.readdir(wwwDir,function(error,files){
-            if(error){
-                return res;
+        fs.readdir(wwwDir, function (error, files) {
+            if (error) {
+                return response.end(error);
             }
+            console.log(files);
         })
         res.end(data)
     })
