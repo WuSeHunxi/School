@@ -21,4 +21,3 @@ module.exports = { //此时导出的是一个对象
     },
     str: 'hello'
 }
-
