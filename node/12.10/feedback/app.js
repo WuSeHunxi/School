@@ -74,7 +74,34 @@ http.createServer(function (request, response) {
     } else if (pathname === '/pinglun') {
         //无论/pinglun后是什么都无需担心了
         // console.log("收到请求", parseObj.query);        
-        response.end(JSON.stringify(parseObj.query));
+
+        /**
+         * 一次请求只能对应一次响应
+         */
+
+        // response.end(JSON.stringify(parseObj.query));
+        //接下来需要做的事
+        //1.获取表单提交的数据
+        //2.生成日期到数据对象中，存储到数组中
+        //3.让用户重定向跳转到首页，使原页面更新
+        var comment = parseObj.query; //接收表单提交的数据
+        comment.dataTime = '';
+        comments.push(comment); //存储表单提交的数据
+        //此时服务端已经把数据存储好了，现在需要的就是让用户重新请求
+
+        //如何通过服务器让客户端重定向
+        /**
+         * 1.状态码设置为302临时重定向
+         * statusCode
+         * 2.在响应头中通过location告诉客户端往哪重定向
+         * setHeader()
+         * 如果客户端发现收到服务器的响应转态码是302，就会自动去响应头中中找location，实现用户自动跳转
+         * 
+         */
+        response.statusCode = 302;
+        //重新请求127.0.0.1:3000
+        response.setHeader('Location', '/');
+        response.end(); //结束响应
     } else {
         fs.readFile('./views/404.html', function (error, data) {
             if (error) {
@@ -86,3 +113,11 @@ http.createServer(function (request, response) {
 }).listen(3000, function () {
     console.log("running..");
 });
+
+/**
+ * 如何自己完成该项目？
+ * 1.当请求/的时候响应index.html
+ * 2.开放public目录中的静态资源，当请求/public/xxx的时候，读取响应public目录中的具体资源
+ * 3./post时，响应post.html
+ * 4./pinglun-->接受表单提交数据，存储表单提交的数据，让表单重定向到根路径
+ */
