@@ -9,9 +9,12 @@ var app = express(); //--->http.createServer
 
 //公开指定目录  可以直接通过/public/xx的方式访问public目录下的所有资源
 app.use('/public/', express.static('./public/'));
+app.use('/static/', express.static('./public/'));
 
 //当服务器收到get请求/的时候，执行回调处理函数
 app.get('/', function (req, res) {
+    //获取查询字符串中的参数
+    console.log(req.query);
     res.send('hello express!');
 })
 
