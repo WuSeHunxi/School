@@ -11,7 +11,7 @@ server.on('request', function (req, res) {
   // /a.txt wwwDir + /a.txt
   // /apple/login.html wwwDir + /apple/login.html
   // /img/ab1.jpg wwwDir + /img/ab1.jpg
-  
+
 
   var filePath = '/index.html'
   if (url !== '/') {
@@ -23,6 +23,7 @@ server.on('request', function (req, res) {
       return res.end('404 Not Found.')
     }
     res.end(data)
+    console.log(url);
   })
 })
 
