@@ -15,6 +15,7 @@ fs.readFile("./tpl.html", function (error, data) {
     if (error) {
         return console.log("读取文件失败了");
     }
+    //将得到的字符串文件使用模板替换
     var ret = template.render(data.toString(), {
         name: "kaka",
         age: 18,
