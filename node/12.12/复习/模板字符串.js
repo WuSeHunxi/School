@@ -9,8 +9,10 @@ server.on("request", function (request, response) {
         }
 
         response.setHeader("Content-Type", "text/html;charset=UTF-8");
-        template.render(data.toString(),{
-            
+        template.render(data.toString(), {
+            name: "pap",
+            age: 12,
+            sex: '男'
         })
     })
 })
