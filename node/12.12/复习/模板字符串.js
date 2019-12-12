@@ -1,7 +1,7 @@
 var http = require("http");
 var fs = require("fs");
 var server = http.createServer();
-var template = require("atr-template");
+var template = require("./node_modules/art-template");
 server.on("request", function (request, response) {
     fs.readFile("./index.html", function (error, data) {
         if (error) {

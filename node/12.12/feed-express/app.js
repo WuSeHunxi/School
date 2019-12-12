@@ -1,5 +1,13 @@
 var express = require("express");
 var app = express();
+var bodyParser = require('body-parser');
+
+//配置body-parser中间插件,专门解析扁担post的请求提
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+app.use(bodyParser.json());
+
 var comments = [{
         name: "张三",
         message: "哇哦",
@@ -52,12 +60,26 @@ app.get("/post", function (req, res) {
     res.render('post.html');
 })
 
-app.get('/pinglun', function (req, res) {
-    var comment = req.query;
+//post()请求
+app.post('/post', function (req, res) {
+    // consolelog("Post");
+    //获取表单post请求的数据
+    //处理
+    //发送响应
+    // console.log(req.body);
+    var comment = req.body;
     comment.dataTime = '2017-11-05 10:23:11';
     comments.unshift(comment);
     res.redirect('/'); //重定向
 })
+
+
+// app.get('/pinglun', function (req, res) {
+//     var comment = req.query;
+//     comment.dataTime = '2017-11-05 10:23:11';
+//     comments.unshift(comment);
+//     res.redirect('/'); //重定向
+// })
 
 app.listen(3000, function (req, res) {
 
