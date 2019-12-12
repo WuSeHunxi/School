@@ -7,10 +7,12 @@ var express = require("express");
 //创建你的服务器应用程序
 var app = express(); //--->http.createServer
 
+//静态服务
 //公开指定目录  可以直接通过/public/xx的方式访问public目录下的所有资源
 app.use('/public/', express.static('./public/'));
 app.use('/static/', express.static('./public/'));
 
+//基本路由
 //当服务器收到get请求/的时候，执行回调处理函数
 app.get('/', function (req, res) {
     //获取查询字符串中的参数
