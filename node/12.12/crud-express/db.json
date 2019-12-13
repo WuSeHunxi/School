@@ -1,1 +1,36 @@
-{"students":[{"id":1,"name":"张三","gender":0,"age":18,"hobbies":"吃饭，睡觉，打豆豆"},{"id":1,"name":"张三","gender":0,"age":18,"hobbies":"吃饭，睡觉，打豆豆"},{"id":1,"name":"张三","gender":0,"age":18,"hobbies":"吃饭，睡觉，打豆豆"},{"id":1,"name":"张三","gender":0,"age":18,"hobbies":"吃饭，睡觉，打豆豆"},{"id":1,"name":"张三","gender":0,"age":18,"hobbies":"吃饭，睡觉，打豆豆"},{"name":"  dddd","gender":"0","age":"12","hobbies":"chidan","id":2},{"name":"  dddd","gender":"0","age":"12","hobbies":"chidan","id":3},{"name":"  dddd","gender":"0","age":"12","hobbies":"chidan","id":4},{"name":"cccc","gender":"0","age":"12","hobbies":"chidan","id":5}]}
+{
+    "students": [{
+            "age": 18,
+            "hobbies": "吃饭，睡觉，打豆豆",
+            "gender": 0,
+            "id": 1,
+            "name": "张晓"
+        },
+        {
+            "id": 2,
+            "name": "张三",
+            "gender": 0,
+            "age": 18,
+            "hobbies": "吃饭，睡觉，打豆豆"
+        },
+        {
+            "id": 3,
+            "name": "张三",
+            "gender": 0,
+            "age": 18,
+            "hobbies": "吃饭，睡觉，打豆豆"
+        }, {
+            "id": 4,
+            "name": "张三",
+            "gender": 0,
+            "age": 18,
+            "hobbies": "吃饭，睡觉，打豆豆"
+        }, {
+            "id": 5,
+            "name": "张三",
+            "gender": 0,
+            "age": 18,
+            "hobbies": "吃饭，睡觉，打豆豆"
+        }
+    ]
+}

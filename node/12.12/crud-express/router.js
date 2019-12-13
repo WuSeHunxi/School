@@ -8,6 +8,7 @@
 var fs = require("fs");
 var Student = require('./student.js');
 
+
 var express = require("express");
 //1.创建一个路由容器
 var router = express.Router();
@@ -67,14 +68,43 @@ router.post('/students/new', function (req, res) {
 })
 
 router.get('/students/edit', function (req, res) {
+    //在客户端的列表页中处理链接问题（需要有id）
+    //获取要编辑的学生id
+    //渲染编辑页面:根据id查找学生id；渲染页面
+    Student.findById(parseInt(req.query.id), function (err, student) {
+        if (err) {
+            return res.status(500).send('Server error.');
+        }
+        res.render('edit.html', {
+            student: student
+        });
+    })
 
 })
 router.post('/students/edit', function (req, res) {
-
+    //获取表单数据：req.body
+    //更新
+    //发送响应
+    // console.log(req.body);
+    Student.updateById(req.body, function (err) {
+        if (err) {
+            return res.status(500).send('Server error.');
+        }
+        res.redirect('/students');
+    })
 })
 
 router.get('/students/delete', function (req, res) {
-
+    //获取要删除的id
+    //根据id执行删除操作
+    //根据操作结果发送响应
+    console.log(req.body.id);
+    Student.deleteById(id, function (err) {
+        if (err) {
+            return res.status(500).send('Server error.');
+        }
+        res.redirect('/students');
+    })
 })
 //3.把router导出
 module.exports = router;
