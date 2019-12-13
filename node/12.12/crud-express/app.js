@@ -1,30 +1,27 @@
+/**
+ * 在这个文件中处理的都是一些导入，配置监听服务等操作
+ * 
+ */
+
+
+
 var express = require("express");
 var fs = require("fs");
+var router = require("./router");
 var app = express();
+var bodyParser = require('body-parser');
 app.use('/node_modules/', express.static('./node_modules/'));
 app.use('/public', express.static('./public/'));
 app.engine('html', require("express-art-template"));
-app.get('/', function (req, res) {
-    //第二个参数可选，将读取到的文件按照utf-8进行编码，也可以通过data.toString()进行转换
-    fs.readFile('./db.json', 'utf-8', function (error, data) {
-        if (error) {
-            //表示服务端有错误
-            return res.status(500).send('Server error.');
-        }
-        console.log(data);
-        res.render('index.html', {
-            fruits: [
-                'apple',
-                'oranges',
-                'bananas'
-            ],
-            //从文件中读取到的数据一定是字符串，所以在发送响应的时候一定要转化成对象的形式
-            students: JSON.parse(data).students
-        });
-    })
-
-
-})
+//配置的任何东西都要在挂在路由之前
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+app.use(bodyParser.json())
+//把路由容器挂载到app服务中
+app.use(router);
 app.listen(3000, function () {
     console.log('running...');
 })
+
+// module.exports = app;
