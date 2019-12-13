@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         /**
@@ -13,13 +15,26 @@
          * 
          * 
          */
-        var xhr=new XMLHttpRequest();
-        xhr.open('get','http:d/ds/a');
-        xhr.onreadystatechange(function(){
-            
-        })
-        xhr.send();   
+        // var xhr = new XMLHttpRequest();
+        // xhr.open('get', 'http:d/ds/a', true);
+        // //当请求加载成功之后调用指定的函数
+        // xhr.onload = function () {
+        //     console.log(xhr.responseText);
+        // }
+        // xhr.send();
 
+        function get(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', url, true);
+            //当请求加载成功之后调用指定的函数
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+                callback(xhr.responseText);
+            }
+            xhr.send();
+        }
+        get('');
     </script>
 </body>
+
 </html>
