@@ -74,7 +74,7 @@ exports.updateById = function (student, callback) {
             return callback(err);
         }
         var students = JSON.parse(data).students;
-        student.is = parseInt(student.id);
+        student.id = parseInt(student.id);
         //要修改谁，就要把谁找出来
         //es6中的数组方法，需要接受一个函数作为参数
         //当某个遍历项符合条件的时候就终止遍历，返回结果
@@ -110,7 +110,7 @@ exports.deleteById = function (id, callback) {
         }
         var students = JSON.parse(data).students;
         var deleteId = students.findIndex(function (item) {
-            return item.id = parseInt(id);
+            return item.id === parseInt(id);
         })
         //删除-->根据下标从数组中删除对应的对象
         students.splice(deleteId, 1);

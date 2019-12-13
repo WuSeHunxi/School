@@ -98,8 +98,8 @@ router.get('/students/delete', function (req, res) {
     //获取要删除的id
     //根据id执行删除操作
     //根据操作结果发送响应
-    console.log(req.body.id);
-    Student.deleteById(id, function (err) {
+    // console.log(req.body.id);
+    Student.deleteById(req.query.id, function (err) {
         if (err) {
             return res.status(500).send('Server error.');
         }
