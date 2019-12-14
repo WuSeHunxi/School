@@ -23,17 +23,20 @@
         // }
         // xhr.send();
 
+        //基于原声的XMLHttpRequest进行封装
         function get(url, callback) {
             var xhr = new XMLHttpRequest();
-            xhr.open('get', url, true);
+            xhr.open ('get', url, true);
             //当请求加载成功之后调用指定的函数
             xhr.onload = function () {
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
                 callback(xhr.responseText);
             }
             xhr.send();
         }
-        get('');
+        get('data.json', function (data) {
+            console.log(data); 
+        });
     </script>
 </body>
 

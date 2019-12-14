@@ -32,4 +32,4 @@ module.exports = 'lalal';
 
 /**c
  * 综上所述：只要是有'.'的话就不会改变对象的指向，没有的话就一定会，且最后返回的是modul.exports
- */
+ */ 
