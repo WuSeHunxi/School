@@ -31,5 +31,29 @@ http.createServer(function (request, response) {
     //获取响应路径的对象
     var parseObj = url.parse(request.url, true);
     var pathname = parseObj.pathname;
-
+    if (pathname === '/') {
+        fs.readFile('./views/index.html', function (err, data) {
+            if (err) {
+                return response.end('404 Not Found');
+            }
+            var htmlStr = template.render(data.toString(), {
+                comments: comments
+            });
+            response.end(htmlStr);
+        })
+    } else if (pathname === '/post') {
+        fs.readFile("./views/post.html", function (err, data) {
+            if (err) {
+                return response.end('404 Not Found');
+            }
+            response.end(data);
+        })
+    } else if (pathname === '/pinglun') {
+        //提交评论的内容
+        var comment = parseObj.query;
+        comments.push(comment);
+        response.statusCode = 302;
+        response.setHeader('Location', '/');
+        response.end(data);
+    }
 })
