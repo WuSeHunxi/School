@@ -39,18 +39,20 @@ var User = mongoose.model('User', userSchema)
 // **********************
 // #region /新增数据
 // **********************
+//new出一个实例
 // var admin = new User({
 //   username: 'zs',
 //   password: '123456',
 //   email: 'admin@admin.com'
 // })
 
+// 保存(新增就要保存)
 // admin.save(function (err, ret) {
 //   if (err) {
 //     console.log('保存失败')
 //   } else {
 //     console.log('保存成功')
-//     console.log(ret)
+//     console.log(ret);//ret是新插入的数据
 //   }
 // })
 // **********************
@@ -61,28 +63,30 @@ var User = mongoose.model('User', userSchema)
 
 
 // **********************
-// #region /查询数据
+// #region /查询数据  自带的方法
 // **********************
-// User.find(function (err, ret) {
+// User.find(function (err, ret) {//查询所有
 //   if (err) {
 //     console.log('查询失败')
 //   } else {
-//     console.log(ret)
+//     console.log(ret)//查询所有
 //   }
 // })
 
 // User.find({
-//   username: 'zs'
+// 条件
+//   username: 'zs'//按条件查询所有符合条件的
 // }, function (err, ret) {
 //   if (err) {
 //     console.log('查询失败')
 //   } else {
-//     console.log(ret)
+//     console.log(ret)//按条件查询
 //   }
 // })
 
-// User.findOne({
-//   username: 'zs'
+// User.findOne({//--->按照条件查询，（只找匹配的第一个）只得到一个，返回值是数组
+//   username: 'zs',
+//   password:'123456'//多个条件直接逗号链接起来即可
 // }, function (err, ret) {
 //   if (err) {
 //     console.log('查询失败')
@@ -106,7 +110,7 @@ var User = mongoose.model('User', userSchema)
 //     console.log('删除失败')
 //   } else {
 //     console.log('删除成功')
-//     console.log(ret)
+//     console.log(ret)//删除的结果对象
 //   }
 // })
 // **********************
@@ -116,9 +120,9 @@ var User = mongoose.model('User', userSchema)
 
 // **********************
 // #region /更新数据
-// **********************
+// **********************     这一串是id值
 // User.findByIdAndUpdate('5a001b23d219eb00c8581184', {
-//   password: '123'
+//   password: '123' //更新成什么内容
 // }, function (err, ret) {
 //   if (err) {
 //     console.log('更新失败')
