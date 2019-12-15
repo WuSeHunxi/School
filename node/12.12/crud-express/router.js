@@ -67,6 +67,7 @@ router.post('/students/new', function (req, res) {
     })
 })
 
+//编辑根据id值找到要编辑的项，然后更新数据updateById()
 router.get('/students/edit', function (req, res) {
     //在客户端的列表页中处理链接问题（需要有id）
     //获取要编辑的学生id
@@ -85,7 +86,7 @@ router.post('/students/edit', function (req, res) {
     //获取表单数据：req.body
     //更新
     //发送响应
-    // console.log(req.body);
+    // console.log(req.body);输出表单提交的数据
     Student.updateById(req.body, function (err) {
         if (err) {
             return res.status(500).send('Server error.');
