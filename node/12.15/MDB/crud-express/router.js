@@ -54,6 +54,7 @@ router.post('/students/new', function (req, res) {
   // 2. 处理
   //    将数据保存到 db.json 文件中用以持久化
   // 3. 发送响应
+  // req.body表示的是要保存的数据
   new Student(req.body).save(function (err) {
     if (err) {
       return res.status(500).send('Server error.')
