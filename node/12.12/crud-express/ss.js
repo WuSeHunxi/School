@@ -9,12 +9,14 @@ exports.find = function (callback) {
     })
 }
 
+//通过寻找id，找到想要修改的项
 exports.findId = function (id, callback) {
     fs.readFile(dbPath, 'utf-8', function (err, data) {
         if (err) {
             return callback(err);
         }
         var students = JSON.parse(data).students;
+        //循环遍历students对象，寻找符合条件的
         var ret = students.find(function (item) {
             return item.id = parseInt(id);
         })
@@ -34,9 +36,11 @@ exports.updateById = function (student, callback) {
             //找到了就返回该元素
             return item.id === student.id;
         })
+        //遍历：重新赋值
         for (var key in student) {
             stu[key] = student[key];
         }
+        //将对象转成字符串
         var fileData = JSON.stringify({
             students: students
         })
@@ -55,7 +59,7 @@ exports.save = function (student, callback) {
         if (err) {
             return callback(err);
         }
-        var students = JSON.parse(students);
+        var students = JSON.parse(data).students;
         student.id = students[students.length - 1].id + 1;
         students.push(student);
         var fileData = JSON.stringify({
@@ -75,8 +79,7 @@ exports.deleteById = function (id, callback) {
         if (err) {
             return callback(err);
         }
-        var students = JSON.parse(data),
-            students;
+        var students = JSON.parse(data).students;
         var deleteId = students.fidIndex(function (item) {
             //获取符合的id值
             return item.id = parseInt(id);
