@@ -49,7 +49,7 @@ app.get("/admin", function (req, res) {
     })
 })
 
-app.use("/post", function (req, res) {
+app.get("/post", function (req, res) {
     res.render("post.html");
 })
 
@@ -57,4 +57,8 @@ app.post("/post", function (req, res) {
     var comment = req.body;
     comments.unshift(comment);
     res.redirect('/');
+})
+
+app.listen(3000, function (req, res) {
+    console.log("app is running.....");
 })

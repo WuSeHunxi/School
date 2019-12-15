@@ -11,11 +11,14 @@ var dbPath = './db.json';
  * 获取所有学生列表
  * return []
  */
+//将方法导出
+//查找某一项
 exports.find = function (callback) {
     fs.readFile(dbPath, 'utf8', function (err, data) {
         if (err) {
             return callback(err);
         }
+        //写俩个参数：err,data
         //第一个参数是err，第二个参数是结果
         callback(null, JSON.parse(data).students);
     });
@@ -29,7 +32,9 @@ exports.findById = function (id, callback) {
         if (err) {
             return callback(err);
         }
+        //将数据转成对象
         var students = JSON.parse(data).students;
+        //es6语法
         var ret = students.find(function (item) {
             return item.id === parseInt(id);
         })
@@ -47,6 +52,7 @@ exports.save = function (student, callback) {
             return callback(err);
         }
         var students = JSON.parse(data).students;
+        //新添加的学生的id值比最后面的多1
         student.id = students[students.length - 1].id + 1;
         students.push(student);
         //把对象数据转化成字符串
@@ -73,12 +79,14 @@ exports.updateById = function (student, callback) {
         if (err) {
             return callback(err);
         }
+        //返回的响应是一个对象，现在只取键属性为students的值
         var students = JSON.parse(data).students;
         student.id = parseInt(student.id);
         //要修改谁，就要把谁找出来
         //es6中的数组方法，需要接受一个函数作为参数
         //当某个遍历项符合条件的时候就终止遍历，返回结果
         var stu = students.find(function (item) {
+            //找到id值相符的对象
             return item.id === student.id;
         })
         //更新数据

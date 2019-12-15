@@ -24,4 +24,4 @@ app.listen(3000, function () {
     console.log('running...');
 })
 
-// module.exports = app;
+module.exports = app;

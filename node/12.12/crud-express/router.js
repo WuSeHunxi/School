@@ -10,7 +10,7 @@ var Student = require('./student.js');
 
 
 var express = require("express");
-//1.创建一个路由容器
+//1.创建一个路由容器 -->创建路由对象挂载路由
 var router = express.Router();
 
 //2.把路由都挂在到router路由容器中
