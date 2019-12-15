@@ -29,7 +29,7 @@ var comments = [{
 ]
 /**
  * 
- * 本服务器的作用-->规定那些资源能够被用户访问 
+ * 本服务器的作用-->规定哪些资源能够被用户访问 
  * 
  */
 http.createServer(function (request, response) {
@@ -71,7 +71,9 @@ http.createServer(function (request, response) {
             response.end(data);
         })
         console.log(pathname);
-    } else if (pathname === '/pinglun') {
+    }
+    //点击按钮进行内容的发表
+    else if (pathname === '/pinglun') {
         //无论/pinglun后是什么都无需担心了
         // console.log("收到请求", parseObj.query);        
 
@@ -85,6 +87,7 @@ http.createServer(function (request, response) {
         //2.生成日期到数据对象中，存储到数组中
         //3.让用户重定向跳转到首页，使原页面更新
         var comment = parseObj.query; //接收表单提交的数据
+        console.log(comment);
         comment.dataTime = '';
         comments.push(comment); //存储表单提交的数据
         //此时服务端已经把数据存储好了，现在需要的就是让用户重新请求
@@ -102,7 +105,9 @@ http.createServer(function (request, response) {
         //重新请求127.0.0.1:3000
         response.setHeader('Location', '/');
         response.end(); //结束响应
-    } else {
+    }
+    //如果访问的网址不正确的话 
+    else {
         fs.readFile('./views/404.html', function (error, data) {
             if (error) {
                 return response.end("404 Not Found");
