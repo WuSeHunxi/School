@@ -27,5 +27,8 @@
  *          show collection
  *          db.students.find() 
  * 
- * 通过node.js操作
+ * 
+ * 
+ * 通过node.js操作MongoDB
+ *      第三方包： mongoose: npm i mongoose
  */
