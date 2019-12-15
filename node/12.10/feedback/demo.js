@@ -54,6 +54,22 @@ http.createServer(function (request, response) {
         comments.push(comment);
         response.statusCode = 302;
         response.setHeader('Location', '/');
-        response.end(data);
+        response.end();
+    } else if (pathname.indexOf('/public/') === 0) {
+        fs.readFile('.' + pathname, function (err, data) {
+            if (err) {
+                return response.end('404 Not Found');
+            }
+            response.end(data);
+        })
+    } else {
+        fs.readFile("./views/404.html", function (err, data) {
+            if (err) {
+                return response.end("404 Not Found");
+            }
+            response.end(data);
+        })
     }
+}).listen(3000, function () {
+    console.log("running~~~");
 })
