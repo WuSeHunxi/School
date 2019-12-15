@@ -6,7 +6,7 @@ var Schema = mongoose.Schema
 // 指定连接的数据库不需要存在，当你插入第一条数据之后就会自动被创建出来
 mongoose.connect('mongodb://localhost/itcast')
 
-// 2. 设计文档结构（表结构）-->使数据
+// 2. 设计文档结构（表结构）
 // 字段名称就是表结构中的属性名称
 // 约束的目的是为了保证数据的完整性，不要有脏数据
 var userSchema = new Schema({
@@ -34,6 +34,7 @@ var userSchema = new Schema({
 var User = mongoose.model('User', userSchema)
 
 
+//对users集合中的数据进行增删改查
 // 4. 当我们有了模型构造函数之后，就可以使用这个构造函数对 users 集合中的数据为所欲为了（增删改查）
 // **********************
 // #region /新增数据
